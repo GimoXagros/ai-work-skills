@@ -1,0 +1,14 @@
+.cache/
+__pycache__/
+*.pyc
+.env
+.env.*
+auth.json
+credentials*
+*.gb
+*.gbc
+*.gba
+*.nds
+*.ws
+*.wsc
+*.sav
