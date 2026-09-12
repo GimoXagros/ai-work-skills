@@ -1,13 +1,95 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "checked_at": "2026-09-12",
   "skills": [
-    {"name":"create-plan","requested_name":"create-plan","repo":"openai/skills","path":"skills/.experimental/create-plan","ref":"a5119697b819090e00e5d11ee1d86834d7c1043a","status":"archived","note":"Last repository state before upstream removed this experimental skill."},
-    {"name":"deep-interview","requested_name":"deep-interview","repo":"Yeachan-Heo/oh-my-codex","path":"skills/deep-interview","ref":"cb955b0d5becbef76d2c1f0096b6e1f238e1e7f7","status":"current","note":"Upstream OMX skill; full state/resume functionality requires oh-my-codex runtime."},
-    {"name":"code-review","requested_name":"code-review","repo":"Yeachan-Heo/oh-my-codex","path":"skills/code-review","ref":"cb955b0d5becbef76d2c1f0096b6e1f238e1e7f7","status":"current","note":"Requires independent review agents; OMX integration requires its runtime."},
-    {"name":"frontend-testing-debugging","requested_name":"frontend-testing-debugging","repo":"openai/plugins","path":"plugins/build-web-apps/skills/frontend-testing-debugging","ref":"1dc195897af4161d039b80d8471ec0a10c9bbc89","status":"current","note":"Uses supported browser tooling or a project Playwright environment."},
-    {"name":"log-analyzer","requested_name":"log-analyzer","repo":"fractary/core","path":"plugins/logs/archived/skills/log-analyzer","ref":"accb3215b3514a36d3149b307e9ff9ceb0e67259","status":"archived","note":"Fractary operational-log analyzer; archived upstream. Bash scripts expect Fractary log conventions."},
-    {"name":"create-kr-patch","requested_name":"create-retro-game-kr-patch","repo":"mcpads/create-retro-game-kr-patch","path":"skills/create-kr-patch","ref":"56b31cc138926d769de97820df76e11beec6abb0","status":"current","note":"Canonical skill name is create-kr-patch; stable plugin version 3.2.0."}
+    {
+      "name": "create-plan",
+      "requested_name": "create-plan",
+      "repo": "openai/skills",
+      "path": "skills/.experimental/create-plan",
+      "ref": "a5119697b819090e00e5d11ee1d86834d7c1043a",
+      "status": "archived",
+      "note": "Last repository state before upstream removed this experimental skill."
+    },
+    {
+      "name": "deep-interview",
+      "requested_name": "deep-interview",
+      "repo": "Yeachan-Heo/oh-my-codex",
+      "path": "skills/deep-interview",
+      "ref": "cb955b0d5becbef76d2c1f0096b6e1f238e1e7f7",
+      "status": "current",
+      "note": "Upstream OMX skill; full state/resume functionality requires oh-my-codex runtime."
+    },
+    {
+      "name": "code-review",
+      "requested_name": "code-review",
+      "repo": "Yeachan-Heo/oh-my-codex",
+      "path": "skills/code-review",
+      "ref": "cb955b0d5becbef76d2c1f0096b6e1f238e1e7f7",
+      "status": "current",
+      "note": "Requires independent review agents; OMX integration requires its runtime."
+    },
+    {
+      "name": "frontend-testing-debugging",
+      "requested_name": "frontend-testing-debugging",
+      "repo": "openai/plugins",
+      "path": "plugins/build-web-apps/skills/frontend-testing-debugging",
+      "ref": "1dc195897af4161d039b80d8471ec0a10c9bbc89",
+      "status": "current",
+      "note": "Uses supported browser tooling or a project Playwright environment."
+    },
+    {
+      "name": "log-analyzer",
+      "requested_name": "log-analyzer",
+      "repo": "fractary/core",
+      "path": "plugins/logs/archived/skills/log-analyzer",
+      "ref": "accb3215b3514a36d3149b307e9ff9ceb0e67259",
+      "status": "archived",
+      "note": "Fractary operational-log analyzer; archived upstream. Bash scripts expect Fractary log conventions."
+    },
+    {
+      "name": "create-kr-patch",
+      "requested_name": "create-retro-game-kr-patch",
+      "repo": "mcpads/create-retro-game-kr-patch",
+      "path": "skills/create-kr-patch",
+      "ref": "56b31cc138926d769de97820df76e11beec6abb0",
+      "status": "current",
+      "note": "Canonical skill name is create-kr-patch; stable plugin version 3.2.0."
+    },
+    {
+      "name": "gba-pointer-fixer",
+      "requested_name": "gba-pointer-fixer",
+      "source": "bundled",
+      "path": "skills/gba-pointer-fixer",
+      "status": "custom",
+      "version": "1.0.0",
+      "note": "Original local implementation; read-only pointer helper and evidence-based repair workflow. Not an upstream download."
+    },
+    {
+      "name": "binary-re",
+      "requested_name": "binary-parser",
+      "source": "bundled",
+      "path": "skills/binary-re",
+      "status": "adapted",
+      "upstream_repo": "2389-research/binary-re",
+      "upstream_ref": "42aee9063f3f3d52616700df3aa16df82b848604",
+      "note": "MIT upstream adapted for standalone Codex: bundled phase documents, missing docs restored, optional memory fallback, static dependency inspection."
+    }
   ],
-  "unresolved": ["hex-analyzer","binary-parser","image-glyph-generator","encoding-mapper","gba-pointer-fixer","nftr-font-editor","ws-tile-compressor","retro-font-allocator","script-translator-limiter"]
+  "unresolved": [
+    "hex-analyzer",
+    "image-glyph-generator",
+    "encoding-mapper",
+    "nftr-font-editor",
+    "ws-tile-compressor",
+    "retro-font-allocator",
+    "script-translator-limiter"
+  ],
+  "source_checks": [
+    {
+      "requested_name": "hex-analyzer",
+      "url": "https://hex.tech/blog/introducing-the-hex-cli/",
+      "result": "Hex analytics CLI manages SQL/Python projects; not a hexadecimal ROM analysis skill. Not installed."
+    }
+  ]
 }

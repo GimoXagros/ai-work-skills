@@ -14,7 +14,7 @@ class InstallerTests(unittest.TestCase):
                                '--dest', str(destination), *arguments],
                               capture_output=True, text=True)
 
-    def test_clean_install_and_repeat_all_six(self):
+    def test_clean_install_and_repeat_all_skills(self):
         with tempfile.TemporaryDirectory() as temporary:
             destination = Path(temporary) / 'skills'
             result = self.invoke(destination)
@@ -24,7 +24,7 @@ class InstallerTests(unittest.TestCase):
                 self.assertTrue((destination / skill['name'] / 'SKILL.md').is_file())
             again = self.invoke(destination)
             self.assertEqual(again.returncode, 0, again.stderr)
-            self.assertEqual(again.stdout.count('CURRENT:'), 6)
+            self.assertEqual(again.stdout.count('CURRENT:'), len(manifest['skills']))
             self.assertFalse((Path(temporary) / 'skill-backups').exists())
 
     def test_existing_custom_files_are_backed_up(self):

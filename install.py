@@ -20,6 +20,8 @@ def inventory(folder):
         raise ValueError(f"Refusing linked skill directory: {folder}")
     result = {}
     for file in sorted(folder.rglob('*')):
+        if '__pycache__' in file.relative_to(folder).parts or file.suffix == '.pyc':
+            continue
         if file.is_symlink():
             raise ValueError(f"Refusing linked file: {file}")
         if file.is_file():
@@ -29,6 +31,10 @@ def inventory(folder):
 def validate(skill):
     if not re.fullmatch(r'[a-z0-9-]+', skill['name']):
         raise ValueError('Invalid skill name')
+    if skill.get('source') == 'bundled':
+        if skill['path'] != 'skills/' + skill['name']:
+            raise ValueError('Invalid bundled skill path')
+        return
     if not re.fullmatch(r'[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+', skill['repo']):
         raise ValueError('Invalid GitHub repository')
     if not re.fullmatch(r'[a-f0-9]{40}', skill['ref']):
@@ -67,7 +73,8 @@ def main():
         skills = [s for s in skills if s['name'] in args.skill or s['requested_name'] in args.skill]
     if args.list:
         for s in skills:
-            print(f"{s['requested_name']}: {s['name']} [{s['status']}] {s['repo']}@{s['ref'][:12]}")
+            origin = s['path'] if s.get('source') == 'bundled' else f"{s['repo']}@{s['ref'][:12]}"
+            print(f"{s['requested_name']}: {s['name']} [{s['status']}] {origin}")
         print('Unresolved: ' + ', '.join(manifest['unresolved']))
         return
     dest = args.dest or Path(os.environ.get('CODEX_HOME', Path.home() / '.codex')) / 'skills'
@@ -80,12 +87,15 @@ def main():
         name = skill['name']
         try:
             validate(skill)
-            plugin = installed_plugin_matches(skill) if args.dest is None else None
+            bundled = skill.get('source') == 'bundled'
+            plugin = installed_plugin_matches(skill) if args.dest is None and not bundled else None
             if plugin:
                 print(f'CURRENT (plugin): {name} -> {plugin}')
                 continue
-            cached = ROOT / '.cache' / skill['ref'] / name
+            cached = ROOT / skill['path'] if bundled else ROOT / '.cache' / skill['ref'] / name
             if not (cached / 'SKILL.md').is_file():
+                if bundled:
+                    raise ValueError('Bundled skill is missing from this checkout')
                 if args.offline:
                     raise ValueError('Pinned source is not cached')
                 cached.parent.mkdir(parents=True, exist_ok=True)
@@ -106,7 +116,7 @@ def main():
                 continue
             with tempfile.TemporaryDirectory(prefix='.skill-stage-', dir=dest.parent) as temporary:
                 stage = Path(temporary) / name
-                shutil.copytree(cached, stage)
+                shutil.copytree(cached, stage, ignore=shutil.ignore_patterns('__pycache__', '*.pyc'))
                 if inventory(stage) != source_hashes:
                     raise ValueError('Staging verification failed')
                 backup = None
