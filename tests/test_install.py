@@ -50,12 +50,15 @@ class InstallerTests(unittest.TestCase):
             self.assertFalse(destination.exists())
 
     def test_legacy_name_installs_canonical_skill(self):
-        with tempfile.TemporaryDirectory() as temporary:
-            destination = Path(temporary) / 'skills'
-            result = self.invoke(destination, '--skill', 'create-retro-game-kr-patch')
-            self.assertEqual(result.returncode, 0, result.stderr)
-            self.assertTrue((destination / 'create-kr-patch' / 'SKILL.md').is_file())
-            self.assertFalse((destination / 'create-retro-game-kr-patch').exists())
+        pairs = [('create-retro-game-kr-patch', 'create-kr-patch'),
+                 ('binary-parser', 'binary-re'), ('hex-analyzer', 're')]
+        for requested, canonical in pairs:
+            with self.subTest(requested=requested), tempfile.TemporaryDirectory() as temporary:
+                destination = Path(temporary) / 'skills'
+                result = self.invoke(destination, '--skill', requested)
+                self.assertEqual(result.returncode, 0, result.stderr)
+                self.assertTrue((destination / canonical / 'SKILL.md').is_file())
+                self.assertFalse((destination / requested).exists())
 
     def test_translator_installs_and_can_load_its_dependency(self):
         with tempfile.TemporaryDirectory() as temporary:

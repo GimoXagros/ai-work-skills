@@ -1,11 +1,11 @@
 # ai-work-skills
 
 Codex 스킬을 다른 PC에서도 같은 버전으로 설치하는 개인용 저장소입니다.
-**2026-09-12 검토 완료: 요청 15개 중 14개 반영, 용도가 다른 Hex CLI 1개 제외.**
+**2026-09-12 추가 검토 완료: 요청 15개 모두 반영. `hex-analyzer` 요청은 실제 배포 이름 `re`로 추가했습니다.**
 
 **[최종 검토표·출처·기능 범위·검증 결과 보기 → REVIEW.md](REVIEW.md)**
 
-외부 원본 6개는 검토한 커밋으로 다운로드합니다. 직접 제작한 7개와 Codex용으로 구성한 외부 스킬 1개는 `skills/`에 보관합니다.
+외부 원본 6개는 검토한 커밋으로 다운로드합니다. 직접 제작한 7개와 Codex용으로 구성한 외부 스킬 2개는 `skills/`에 보관합니다.
 공유된 Google 답변에 설치 원본이 없었던 항목은 직접 제작임을 명시했습니다.
 
 ## 다른 PC에서 설치
@@ -42,6 +42,7 @@ python install.py --dest "$env:USERPROFILE/.agents/skills"
 ```text
 $gba-pointer-fixer 이 GBA ROM의 포인터 테이블과 재배치 주소를 확인해 주세요.
 $binary-re 이 바이너리의 형식과 구조를 정적으로 분석해 주세요.
+$re 이 레트로 게임 ROM의 헥스 데이터와 뱅크별 주소 구조를 조사해 주세요.
 $image-glyph-generator 선택한 폰트로 한글 글리프 아틀라스를 만들어 주세요.
 $encoding-mapper 이 게임의 코드 테이블 충돌과 왕복 변환을 확인해 주세요.
 $nftr-font-editor 이 NFTR의 구조와 글자폭을 검사해 주세요.
@@ -50,9 +51,11 @@ $retro-font-allocator 장면별 한글 글리프 슬롯과 전체 저장 용량�
 $script-translator-limiter 이 대사를 번역하고 바이트·픽셀 제한을 검사해 주세요.
 ```
 
-원래 요청한 `binary-parser`의 실제 배포 이름은 `binary-re`, `create-retro-game-kr-patch`는 `create-kr-patch`입니다.
+원래 요청한 `binary-parser`의 실제 배포 이름은 `binary-re`, `create-retro-game-kr-patch`는 `create-kr-patch`, 추가로 확인한 `hex-analyzer` 관련 원본은 `re`입니다.
 설치기는 요청 이름도 별칭으로 받습니다. 스킬 호출은 실제 이름을 사용합니다.
 각 도구의 입력 형식과 명령은 해당 `SKILL.md`에 있습니다.
+`re`는 레트로 게임 역공학 절차와 기록 양식이며, 완성된 디스어셈블러·에뮬레이터나 Claude 전용 자동 실행 루프는 포함하지 않습니다.
+앞서 제시된 Hex 데이터 분석 CLI는 여전히 설치 대상이 아닙니다. [추가 링크 검토 기록](REVIEW.md#hex-analyzer-추가-링크-검토)을 참고하세요.
 
 ## 재설치와 업데이트
 
@@ -88,5 +91,6 @@ macOS/Linux의 검사 명령은 `.venv/bin/python -m unittest discover -s tests 
 
 다운로드하는 각 스킬은 각 원본의 라이선스·이용 조건을 따릅니다. 다운로드 전용 6개 원본은 이 저장소에서 재배포하지 않습니다.
 `skills/binary-re`는 MIT 조건에 따라 원 저작권과 LICENSE를 보존한 수정 배포본입니다.
+`skills/re`도 vgrichina/re-skill의 MIT 라이선스를 보존한 Codex용 수정 배포본입니다.
 `vendor/skill-installer`의 설치 도우미는 이 PC의 OpenAI 시스템 skill-installer에서 가져왔고, Apache-2.0 `LICENSE.txt`를 보존했습니다. 해당 도우미의 코드는 수정하지 않았습니다.
 직접 제작 스킬을 OpenAI나 mcpads의 공식 스킬로 표시하지 않습니다.

@@ -132,11 +132,20 @@
       "requires": [
         "encoding-mapper"
       ]
+    },
+    {
+      "name": "re",
+      "requested_name": "hex-analyzer",
+      "source": "bundled",
+      "path": "skills/re",
+      "status": "adapted",
+      "version": "1.0.0",
+      "upstream_repo": "vgrichina/re-skill",
+      "upstream_ref": "64c3bffb54ae4b9d99804a03fa4f179f4dd080c5",
+      "note": "MIT retro-game RE workflow adapted for Codex. Actual upstream name is re. Includes notes/templates, not disassemblers or a Claude CLI loop."
     }
   ],
-  "unresolved": [
-    "hex-analyzer"
-  ],
+  "unresolved": [],
   "source_checks": [
     {
       "requested_name": "hex-analyzer",
@@ -172,6 +181,11 @@
       "requested_name": "script-translator-limiter",
       "url": "https://share.google/aimode/nIHEmpXNyOrJjOFHn",
       "result": "No installable source; generic translation/limit prompt. Added original encoded-budget and declared-control validator."
+    },
+    {
+      "requested_name": "hex-analyzer",
+      "url": "https://share.google/aimode/rxr4oChTUr5Bdkqrn",
+      "result": "Partly correct: cited vgrichina/re-skill exists with canonical name re and MIT license, but is a Claude Code workflow rather than a named hex-analyzer program. Added a Codex adaptation; corrected CPU naming and distinguished planned project tools from installed executables."
     }
   ]
 }
