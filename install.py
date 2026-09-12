@@ -70,7 +70,17 @@ def main():
         unknown = set(args.skill) - known
         if unknown:
             parser.error('Unknown or unresolved skills: ' + ', '.join(sorted(unknown)))
-        skills = [s for s in skills if s['name'] in args.skill or s['requested_name'] in args.skill]
+        selected = {s['name'] for s in skills if s['name'] in args.skill or s['requested_name'] in args.skill}
+        by_name = {s['name']: s for s in skills}
+        pending = list(selected)
+        while pending:
+            for dependency in by_name[pending.pop()].get('requires', []):
+                if dependency not in by_name:
+                    parser.error('Missing dependency in manifest: ' + dependency)
+                if dependency not in selected:
+                    selected.add(dependency)
+                    pending.append(dependency)
+        skills = [s for s in skills if s['name'] in selected]
     if args.list:
         for s in skills:
             origin = s['path'] if s.get('source') == 'bundled' else f"{s['repo']}@{s['ref'][:12]}"

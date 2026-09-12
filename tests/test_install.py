@@ -57,5 +57,14 @@ class InstallerTests(unittest.TestCase):
             self.assertTrue((destination / 'create-kr-patch' / 'SKILL.md').is_file())
             self.assertFalse((destination / 'create-retro-game-kr-patch').exists())
 
+    def test_translator_installs_and_can_load_its_dependency(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            destination = Path(temporary) / 'skills'
+            result = self.invoke(destination, '--skill', 'script-translator-limiter')
+            self.assertEqual(result.returncode, 0, result.stderr)
+            self.assertTrue((destination / 'encoding-mapper' / 'SKILL.md').is_file())
+            loaded = subprocess.run([sys.executable, str(destination / 'script-translator-limiter/scripts/check_script.py'), '--help'], capture_output=True)
+            self.assertEqual(loaded.returncode, 0, loaded.stderr)
+
 if __name__ == '__main__':
     unittest.main()

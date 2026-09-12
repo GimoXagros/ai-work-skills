@@ -74,22 +74,104 @@
       "upstream_repo": "2389-research/binary-re",
       "upstream_ref": "42aee9063f3f3d52616700df3aa16df82b848604",
       "note": "MIT upstream adapted for standalone Codex: bundled phase documents, missing docs restored, optional memory fallback, static dependency inspection."
+    },
+    {
+      "name": "image-glyph-generator",
+      "requested_name": "image-glyph-generator",
+      "source": "bundled",
+      "path": "skills/image-glyph-generator",
+      "status": "custom",
+      "version": "1.0.0",
+      "note": "No installable source; generic AI icon instructions. Added original font rasterizer with coverage/clipping checks.",
+      "tool_requirements": "skills/image-glyph-generator/requirements.txt"
+    },
+    {
+      "name": "encoding-mapper",
+      "requested_name": "encoding-mapper",
+      "source": "bundled",
+      "path": "skills/encoding-mapper",
+      "status": "custom",
+      "version": "1.0.0",
+      "note": "No installable source; file routing/codec concepts. Added original explicit stateless ROM table validator."
+    },
+    {
+      "name": "nftr-font-editor",
+      "requested_name": "nftr-font-editor",
+      "source": "bundled",
+      "path": "skills/nftr-font-editor",
+      "status": "custom",
+      "version": "1.0.0",
+      "note": "Standalone NFTR editors exist, but no named Codex skill. Added original standard NFTR inspector and guarded width editor."
+    },
+    {
+      "name": "ws-tile-compressor",
+      "requested_name": "ws-tile-compressor",
+      "source": "bundled",
+      "path": "skills/ws-tile-compressor",
+      "status": "custom",
+      "version": "1.0.0",
+      "note": "Google answer concerns WebSocket context compression, unrelated to WonderSwan. Added original raw tile packing and exact deduplication."
+    },
+    {
+      "name": "retro-font-allocator",
+      "requested_name": "retro-font-allocator",
+      "source": "bundled",
+      "path": "skills/retro-font-allocator",
+      "status": "custom",
+      "version": "1.0.0",
+      "note": "Google answer concerns web typography, no game-memory skill source. Added original repertoire and working-set capacity planner."
+    },
+    {
+      "name": "script-translator-limiter",
+      "requested_name": "script-translator-limiter",
+      "source": "bundled",
+      "path": "skills/script-translator-limiter",
+      "status": "custom",
+      "version": "1.0.0",
+      "note": "No installable source; generic translation/limit prompt. Added original encoded-budget and declared-control validator.",
+      "requires": [
+        "encoding-mapper"
+      ]
     }
   ],
   "unresolved": [
-    "hex-analyzer",
-    "image-glyph-generator",
-    "encoding-mapper",
-    "nftr-font-editor",
-    "ws-tile-compressor",
-    "retro-font-allocator",
-    "script-translator-limiter"
+    "hex-analyzer"
   ],
   "source_checks": [
     {
       "requested_name": "hex-analyzer",
       "url": "https://hex.tech/blog/introducing-the-hex-cli/",
       "result": "Hex analytics CLI manages SQL/Python projects; not a hexadecimal ROM analysis skill. Not installed."
+    },
+    {
+      "requested_name": "image-glyph-generator",
+      "url": "https://share.google/aimode/VuGAF4XPpp5O6RJGA",
+      "result": "No installable source; generic AI icon instructions. Added original font rasterizer with coverage/clipping checks."
+    },
+    {
+      "requested_name": "encoding-mapper",
+      "url": "https://share.google/aimode/S6fjPZoAW0lDWrQJ8",
+      "result": "No installable source; file routing/codec concepts. Added original explicit stateless ROM table validator."
+    },
+    {
+      "requested_name": "nftr-font-editor",
+      "url": "https://share.google/aimode/B3VqSsH04az599c4O",
+      "result": "Standalone NFTR editors exist, but no named Codex skill. Added original standard NFTR inspector and guarded width editor."
+    },
+    {
+      "requested_name": "ws-tile-compressor",
+      "url": "https://share.google/aimode/754jMci6L6FinvuR2",
+      "result": "Google answer concerns WebSocket context compression, unrelated to WonderSwan. Added original raw tile packing and exact deduplication."
+    },
+    {
+      "requested_name": "retro-font-allocator",
+      "url": "https://share.google/aimode/EyG4NAMRMZPwwBB8W",
+      "result": "Google answer concerns web typography, no game-memory skill source. Added original repertoire and working-set capacity planner."
+    },
+    {
+      "requested_name": "script-translator-limiter",
+      "url": "https://share.google/aimode/nIHEmpXNyOrJjOFHn",
+      "result": "No installable source; generic translation/limit prompt. Added original encoded-budget and declared-control validator."
     }
   ]
 }

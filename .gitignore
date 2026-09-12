@@ -12,3 +12,4 @@ credentials*
 *.ws
 *.wsc
 *.sav
+.venv/
