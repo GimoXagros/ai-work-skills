@@ -3,13 +3,13 @@
   "checked_at": "2026-09-14",
   "skills": [
     {
-      "name": "create-plan",
-      "requested_name": "create-plan",
+      "name": "exec-plan",
+      "requested_name": "exec-plan",
       "source": "bundled",
-      "path": "skills/create-plan",
+      "path": "skills/exec-plan",
       "status": "custom",
-      "version": "2.0.0",
-      "note": "Modern tool-aware Codex planning workflow replacing the archived experimental snapshot; grounded, depth-adaptive, validation-driven, and read-only unless implementation is also requested."
+      "version": "1.0.0",
+      "note": "Durable multi-phase execution-plan workflow for complex work and handoffs. Ordinary short planning uses Codex built-in /plan mode."
     },
     {
       "name": "deep-interview",
@@ -157,12 +157,20 @@
       "note": "MIT retro-game RE workflow adapted for Codex. Actual upstream name is re. Includes notes/templates, not disassemblers or a Claude CLI loop."
     }
   ],
+  "retired_skills": [
+    {
+      "name": "create-plan",
+      "replacement": "exec-plan",
+      "known_path": "retired/create-plan-2.0",
+      "reason": "The archived experimental package is superseded by Codex built-in /plan for ordinary plans and exec-plan for durable multi-phase work."
+    }
+  ],
   "unresolved": [],
   "source_checks": [
     {
       "requested_name": "create-plan",
       "url": "https://share.google/aimode/WHjCpsy0o0MAg6rMB",
-      "result": "The shared answer correctly favors modern tool-aware agent planning but conflates retired Codex model generations with current SKILL.md workflows. Replaced the archived snapshot with an original Codex create-plan 2.0 while preserving the canonical skill name."
+      "result": "The shared answer correctly identifies the archived experimental package as obsolete but conflates retired Codex model generations with current SKILL.md workflows. Retired create-plan; ordinary plans use built-in /plan and durable multi-phase work uses the original bundled exec-plan skill."
     },
     {
       "requested_name": "hex-analyzer",

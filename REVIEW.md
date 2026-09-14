@@ -11,7 +11,7 @@
 
 | 요청 이름 | 반영한 이름 / 출처 | 확인된 범위와 제한 |
 |---|---|---|
-| create-plan | [`create-plan` 2.0](skills/create-plan/SKILL.md), [공유 답변](https://share.google/aimode/WHjCpsy0o0MAg6rMB), [공식 OpenAI 스킬 문서](https://developers.openai.com/codex/skills) | 보관된 실험 스냅샷을 자체 번들 스킬로 교체. 실제 작업공간·도구에 근거해 계획 깊이, 검증, 위험과 복구 지점을 조절하며 계획만 요청한 경우 읽기 전용 유지 |
+| create-plan | 은퇴: 내장 `/plan` 및 [`exec-plan`](skills/exec-plan/SKILL.md), [공유 답변](https://share.google/aimode/WHjCpsy0o0MAg6rMB), [공식 OpenAI 스킬 문서](https://developers.openai.com/codex/skills) | 삭제된 실험 패키지는 설치 대상에서 제거. 짧은 계획은 Codex 내장 `/plan`, 여러 단계·세션의 장기 계획은 자체 번들 `exec-plan` 사용 |
 | akm-workflow | [`akm-workflow`](skills/akm-workflow/SKILL.md), [DECK6/akm](https://github.com/DECK6/akm/tree/f26ace2a16caba724b24db12cbee238ebb52498f) | AKM의 분류·증거·위험 기반 검증·Learn Back·보안·제한적 마이그레이션을 Codex 절차로 구성. 지식 저장소나 메모리 런타임 자체는 포함하지 않음 |
 | deep-interview | `deep-interview`, [oh-my-codex](https://github.com/Yeachan-Heo/oh-my-codex/tree/cb955b0d5becbef76d2c1f0096b6e1f238e1e7f7/skills/deep-interview) | 인터뷰 지침. 전체 상태 저장·복구·후속 흐름은 OMX 런타임과 관련 스킬 필요 |
 | code-review | `code-review`, [oh-my-codex](https://github.com/Yeachan-Heo/oh-my-codex/tree/cb955b0d5becbef76d2c1f0096b6e1f238e1e7f7/skills/code-review) | 독립 리뷰 에이전트 필요. OMX 통합 기능은 별도 런타임 필요 |
@@ -47,7 +47,7 @@
 
 | 공유 링크 | 답변의 내용 | 반영 판단 |
 |---|---|---|
-| [create-plan 대체](https://share.google/aimode/WHjCpsy0o0MAg6rMB) | 구형 Codex 모델 종료와 최신 도구 호출형 에이전트를 근거로 `create-plan`이 불필요하다고 설명 | 모델 세대와 현재 `SKILL.md`를 혼동한 결론은 채택하지 않음. 공식 OpenAI 문서가 현재도 스킬과 계획 스킬을 지원함을 확인하고, 도구 인식·동적 계획 취지만 반영한 자체 2.0으로 교체 |
+| [create-plan 대체](https://share.google/aimode/WHjCpsy0o0MAg6rMB) | 구형 Codex 모델 종료와 최신 도구 호출형 에이전트를 근거로 `create-plan`이 불필요하다고 설명 | 삭제된 실험 패키지가 현행 배포 대상이 아니라는 결론은 반영. 다만 현재 스킬 체계까지 종료됐다는 혼동은 수정하고, 공식 문서에 따라 짧은 계획은 `/plan`, 장기 계획은 자체 `exec-plan`으로 분리 |
 | [image-glyph-generator](https://share.google/aimode/VuGAF4XPpp5O6RJGA) | AI 아이콘 생성용 일반 설명과 스킬 구성 예시 | 확인되지 않은 생성 옵션을 사용하지 않음. 실제 폰트 파일을 입력받는 래스터화 도구 제작 |
 | [encoding-mapper](https://share.google/aimode/S6fjPZoAW0lDWrQJ8) | 저장소 파일 연결과 파일 인코딩 개념이 섞인 설명 | ROM의 명시적 코드 테이블을 별도 설계 |
 | [nftr-font-editor](https://share.google/aimode/B3VqSsH04az599c4O) | NFTR 편집 프로그램 소개와 포맷 설명 | 실제 편집기 소스와 디스크 태그를 대조. 기존 글자폭 수정만 좁게 지원 |
@@ -91,9 +91,9 @@
 
 ## 검증 결과와 남은 한계
 
-자동 검사 **29개 통과**:
+자동 검사 **31개 통과**:
 
-- 빈 임시 설치 경로에 15개 설치, 같은 내용 재설치 시 건너뛰기, 기존 파일 백업, 이름 별칭 3쌍 및 번역 스킬의 의존성 설치.
+- 빈 임시 설치 경로에 16개 설치, 같은 내용 재설치 시 건너뛰기, 기존 파일 백업, `create-plan`의 안전한 은퇴·대체, 이름 별칭 3쌍 및 번역 스킬의 의존성 설치.
 - GBA 주소 경계·정렬·원본 보존.
 - 인코딩 충돌·예약 코드·알 수 없는 문자·되돌릴 수 없는 조합 거부.
 - 번역의 실제 바이트·픽셀 경계, 종결자와 제어 토큰, 줄 수 검사.
@@ -106,7 +106,7 @@
 이 PC의 맑은 고딕으로 한글 14자와 문장부호 2자를 생성하여 누락·잘림 검사를 통과하고 아틀라스도 시각 확인했습니다.
 해당 폰트와 시험 출력은 GitHub에 올리지 않았습니다. 2026-09-12 검토에서는 기존 8개를 유지하고 새 7개를 추가해 15개 구성을 확인했습니다.
 이전 14개 구성은 캐시 없는 임시 Git 복제본에서 외부 원본 6개를 새로 내려받아 설치하는 검사도 통과했습니다.
-이번 16개 구성은 빈 임시 설치 경로의 설치·재설치 검사와 전체 자동 검사 29개를 통과했습니다.
+이번 16개 구성은 빈 임시 설치 경로의 설치·재설치 검사와 전체 자동 검사 31개를 통과했습니다.
 
 실제 게임 ROM에서의 실행 검증, 모든 NFTR 변형, 번역 의미 품질, OMX/Fractary 외부 런타임의 완전한 동작은 이번 확인 범위에 포함되지 않습니다.
 게임·상용 폰트·인증 정보는 저장소에 포함하지 않았습니다.

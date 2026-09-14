@@ -1,6 +1,7 @@
 """Offline integration checks; run after the pinned sources have been cached."""
 import json
 from pathlib import Path
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -30,17 +31,42 @@ class InstallerTests(unittest.TestCase):
     def test_existing_custom_files_are_backed_up(self):
         with tempfile.TemporaryDirectory() as temporary:
             destination = Path(temporary) / 'skills'
-            old = destination / 'create-plan'
+            old = destination / 'exec-plan'
             old.mkdir(parents=True)
             (old / 'SKILL.md').write_text('custom previous skill')
             (old / 'user-notes.txt').write_text('preserve this')
-            result = self.invoke(destination, '--skill', 'create-plan')
+            result = self.invoke(destination, '--skill', 'exec-plan')
             self.assertEqual(result.returncode, 0, result.stderr)
-            backups = list((Path(temporary) / 'skill-backups').glob('*/create-plan'))
+            backups = list((Path(temporary) / 'skill-backups').glob('*/exec-plan'))
             self.assertEqual(len(backups), 1)
             self.assertEqual((backups[0] / 'user-notes.txt').read_text(), 'preserve this')
             self.assertEqual((backups[0] / 'SKILL.md').read_text(), 'custom previous skill')
             self.assertFalse((old / 'user-notes.txt').exists())
+
+    def test_known_retired_skill_is_backed_up_and_replaced(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            destination = Path(temporary) / 'skills'
+            old = destination / 'create-plan'
+            shutil.copytree(ROOT / 'retired/create-plan-2.0', old)
+            result = self.invoke(destination, '--skill', 'create-plan')
+            self.assertEqual(result.returncode, 0, result.stderr)
+            self.assertFalse(old.exists())
+            self.assertTrue((destination / 'exec-plan/SKILL.md').is_file())
+            backups = list((Path(temporary) / 'skill-backups').glob('*/create-plan'))
+            self.assertEqual(len(backups), 1)
+            self.assertIn('RETIRED: create-plan -> exec-plan', result.stdout)
+
+    def test_unrecognized_retired_skill_is_preserved(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            destination = Path(temporary) / 'skills'
+            old = destination / 'create-plan'
+            old.mkdir(parents=True)
+            (old / 'SKILL.md').write_text('user-owned create-plan')
+            result = self.invoke(destination)
+            self.assertEqual(result.returncode, 0, result.stderr)
+            self.assertTrue(old.is_dir())
+            self.assertEqual((old / 'SKILL.md').read_text(), 'user-owned create-plan')
+            self.assertIn('PRESERVED (retired name, unrecognized content): create-plan', result.stdout)
 
     def test_unknown_skill_does_not_create_destination(self):
         with tempfile.TemporaryDirectory() as temporary:

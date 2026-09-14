@@ -42,6 +42,13 @@ def validate(skill):
     if any(p in ('', '.', '..') for p in skill['path'].split('/')) or '\\' in skill['path']:
         raise ValueError('Invalid source path')
 
+def backup_existing(target, dest, name):
+    stamp = datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S%fZ')
+    backup = dest.parent / 'skill-backups' / stamp / name
+    backup.parent.mkdir(parents=True, exist_ok=True)
+    target.rename(backup)
+    return backup
+
 def installed_plugin_matches(skill):
     # Codex plugin cache is managed by Codex, not by this installer.
     codex_root = Path(os.environ.get('CODEX_HOME', Path.home() / '.codex'))
@@ -65,13 +72,21 @@ def main():
     args = parser.parse_args()
     manifest = json.loads((ROOT / 'skills-lock.json').read_text(encoding='utf-8'))
     skills = manifest['skills']
+    retired = manifest.get('retired_skills', [])
     if args.skill:
-        known = {s['name'] for s in skills} | {s['requested_name'] for s in skills}
-        unknown = set(args.skill) - known
+        requested = set(args.skill)
+        known = ({s['name'] for s in skills} | {s['requested_name'] for s in skills}
+                 | {s['name'] for s in retired})
+        unknown = requested - known
         if unknown:
             parser.error('Unknown or unresolved skills: ' + ', '.join(sorted(unknown)))
-        selected = {s['name'] for s in skills if s['name'] in args.skill or s['requested_name'] in args.skill}
+        retired = [s for s in retired if s['name'] in requested]
+        selected = {s['name'] for s in skills if s['name'] in requested or s['requested_name'] in requested}
+        selected.update(s['replacement'] for s in retired if s.get('replacement'))
         by_name = {s['name']: s for s in skills}
+        missing_replacements = selected - set(by_name)
+        if missing_replacements:
+            parser.error('Missing retired-skill replacement: ' + ', '.join(sorted(missing_replacements)))
         pending = list(selected)
         while pending:
             for dependency in by_name[pending.pop()].get('requires', []):
@@ -85,6 +100,8 @@ def main():
         for s in skills:
             origin = s['path'] if s.get('source') == 'bundled' else f"{s['repo']}@{s['ref'][:12]}"
             print(f"{s['requested_name']}: {s['name']} [{s['status']}] {origin}")
+        for s in retired:
+            print(f"{s['name']}: retired -> {s['replacement']} ({s['reason']})")
         print('Unresolved: ' + ', '.join(manifest['unresolved']))
         return
     dest = args.dest or Path(os.environ.get('CODEX_HOME', Path.home() / '.codex')) / 'skills'
@@ -93,6 +110,25 @@ def main():
     if dest == ROOT or dest in ROOT.parents or ROOT in dest.parents:
         raise ValueError('Installation destination must be outside this repository')
     failed = []
+    for retired_skill in retired:
+        name = retired_skill['name']
+        try:
+            known = (ROOT / retired_skill['known_path']).resolve()
+            if ROOT not in known.parents or not (known / 'SKILL.md').is_file():
+                raise ValueError('Retired skill reference is invalid')
+            target = dest / name
+            if not target.exists():
+                continue
+            if target.is_symlink() or (hasattr(target, 'is_junction') and target.is_junction()):
+                raise ValueError('Refusing to retire an existing link or junction')
+            if inventory(target) != inventory(known):
+                print(f'PRESERVED (retired name, unrecognized content): {name}')
+                continue
+            backup = backup_existing(target, dest, name)
+            print(f'RETIRED: {name} -> {retired_skill["replacement"]} (previous version: {backup})')
+        except Exception as exc:
+            failed.append(name)
+            print(f'FAILED: {name}: {exc}', file=sys.stderr)
     for skill in skills:
         name = skill['name']
         try:
@@ -131,10 +167,7 @@ def main():
                     raise ValueError('Staging verification failed')
                 backup = None
                 if target.exists():
-                    stamp = datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S%fZ')
-                    backup = dest.parent / 'skill-backups' / stamp / name
-                    backup.parent.mkdir(parents=True, exist_ok=True)
-                    target.rename(backup)
+                    backup = backup_existing(target, dest, name)
                 try:
                     stage.rename(target)
                     if inventory(target) != source_hashes:
