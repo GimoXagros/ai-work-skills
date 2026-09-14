@@ -4,7 +4,7 @@
   <img src="logo.png" alt="AI Work Skills logo" width="560">
 </p>
 
-현재 Codex 환경에서 사용하는 **15개 스킬**을 동일한 버전으로 설치하는 공개 저장소입니다.
+현재 Codex 환경에서 사용하는 **15개 스킬**(은퇴 항목 2개 제외)을 동일한 버전으로 설치하는 공개 저장소입니다.
 최종 점검일은 **2026-09-14**이며, 전체 판정과 제한 사항은 [REVIEW.md](REVIEW.md)에 정리되어 있습니다.
 
 ## 현재 설치되는 스킬
@@ -62,7 +62,7 @@ python setup_tools.py
 - `binary-parser`의 실제 설치 이름은 `binary-re`입니다.
 - `create-retro-game-kr-patch`의 실제 설치 이름은 `create-kr-patch`입니다.
 - `hex-analyzer` 요청은 실제 설치 이름 `re`로 연결됩니다.
-- 이 PC에서는 같은 버전의 `create-kr-patch`가 플러그인으로 제공되므로 중복 설치하지 않습니다.
+- `create-kr-patch`는 현재 `install.py` 기준으로 번들/직접 설치 방식으로 관리됩니다.
 - `deep-interview`의 기본 질문 흐름은 사용할 수 있지만 OMX 상태 저장과 자동 인계는 별도 OMX 런타임이 필요합니다.
 - `frontend-testing-debugging`은 현재 브라우저 도구를 우선 사용하고, 허용된 경우 프로젝트 Playwright 환경으로 대체합니다.
 
