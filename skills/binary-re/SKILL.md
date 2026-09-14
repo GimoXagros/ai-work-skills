@@ -316,6 +316,12 @@ See companion docs:
 - `docs/arch-adapters.md` - Per-architecture quirks
 - `docs/python-bytecode-re.md` - Python .pyc/marshal obfuscation patterns
 
+## AKM-compatible investigation memory
+
+When the project already uses AKM, or the user requests durable cross-session knowledge, keep the source binary and provenance immutable, route reusable technical facts to `20-knowledge/`, target-specific constraints and maps to `30-context/`, repeatable methods to `50-procedures/`, reproducible decisions or handoffs to `60-actions/`, and recurring failures or verification results to `70-evaluation/`. Keep only short routing pointers in `40-memory/`; do not create an AKM hierarchy for a one-off analysis.
+
+Retrieval results and decompiler output are evidence candidates, not verified claims. Directly inspect the cited bytes, instructions, callers, traces, or source before promoting a durable finding. If a procedure produces a wrong result, record the failure and strengthen the procedure's verification step rather than treating another run as sufficient evidence.
+
 ## Integration
 
 Works with other plugins:

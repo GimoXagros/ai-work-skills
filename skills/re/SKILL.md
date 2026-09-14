@@ -35,6 +35,12 @@ When a hypothesis becomes supported, update `REVERSE.md` and labels promptly. Ke
 - Menu text and counters may be assembled at runtime. Trace their consumers rather than concluding they are absent because a string search failed.
 - A changing byte in a memory-dump comparison is a candidate state variable. Corroborate with controlled input changes and read/write traces before assigning gameplay meaning.
 
+## AKM-compatible investigation memory
+
+When the project already uses AKM, or the user requests durable cross-session knowledge, route reusable findings through that project's `ROUTER.md`: verified platform and format knowledge belongs in `20-knowledge/`, project-specific maps and constraints in `30-context/`, repeatable analysis steps in `50-procedures/`, reproducible decisions or handoffs in `60-actions/`, and recurring dead ends or verification failures in `70-evaluation/`. Keep only short pointers in `40-memory/`. Do not create an AKM tree or persist one-off observations unless requested.
+
+Treat search hits and pattern matches as candidates until the exact bytes, consumer, trace, or authoritative source are read. For durable notes, record the input hash and address space, verify discoverability and claim support, and use the failure record to correct the responsible map, procedure, or rubric instead of merely appending another session log.
+
 ## Tools and completion
 
 This skill ships instructions and note templates, **not** `dis.py`, `xref.py`, a CPU database, an emulator or a compression decoder. Inspect the actual project's tools before invoking them. Use a suitable existing disassembler/emulator where available; create only missing, task-specific helpers and validate their output against independent traces or known vectors. Do not invent CLI options from proposed tool names.

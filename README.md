@@ -1,20 +1,23 @@
 # ai-work-skills
 
+<p align="center">
+  <img src="logo.png" alt="AI Work Skills logo" width="560">
+</p>
+
 Codex 스킬을 다른 PC에서도 같은 버전으로 설치하는 개인용 저장소입니다.
-**2026-09-12 추가 검토 완료: 요청 15개 모두 반영. `hex-analyzer` 요청은 실제 배포 이름 `re`로 추가했습니다.**
+**2026-09-14 갱신 완료: 기존 요청 15개와 AKM 워크플로 1개를 포함한 16개 스킬을 반영했습니다.**
 
 **[최종 검토표·출처·기능 범위·검증 결과 보기 → REVIEW.md](REVIEW.md)**
 
-외부 원본 6개는 검토한 커밋으로 다운로드합니다. 직접 제작한 7개와 Codex용으로 구성한 외부 스킬 2개는 `skills/`에 보관합니다.
+외부 원본 5개는 검토한 커밋으로 다운로드합니다. 직접 제작한 8개와 Codex용으로 구성한 외부 스킬 3개는 `skills/`에 보관합니다.
 공유된 Google 답변에 설치 원본이 없었던 항목은 직접 제작임을 명시했습니다.
 
 ## 다른 PC에서 설치
 
-Git, Python 3.10 이상, GitHub CLI를 준비합니다. 비공개 저장소이므로 본인 GitHub 계정으로 로그인해야 합니다.
+Git과 Python 3.10 이상을 준비합니다. 공개 저장소이므로 GitHub 로그인 없이 설치할 수 있습니다.
 
 ```powershell
-gh auth login
-gh repo clone GimoXagros/ai-work-skills
+git clone https://github.com/GimoXagros/ai-work-skills.git
 cd ai-work-skills
 python install.py
 python setup_tools.py
@@ -40,6 +43,7 @@ python install.py --dest "$env:USERPROFILE/.agents/skills"
 ## 사용 예
 
 ```text
+$create-plan 이 기능 변경을 위한 구현·검증 계획을 세워 주세요.
 $gba-pointer-fixer 이 GBA ROM의 포인터 테이블과 재배치 주소를 확인해 주세요.
 $binary-re 이 바이너리의 형식과 구조를 정적으로 분석해 주세요.
 $re 이 레트로 게임 ROM의 헥스 데이터와 뱅크별 주소 구조를 조사해 주세요.
@@ -49,7 +53,12 @@ $nftr-font-editor 이 NFTR의 구조와 글자폭을 검사해 주세요.
 $ws-tile-compressor 원더스완 타일을 변환하고 같은 타일을 찾아 주세요.
 $retro-font-allocator 장면별 한글 글리프 슬롯과 전체 저장 용량을 계산해 주세요.
 $script-translator-limiter 이 대사를 번역하고 바이트·픽셀 제한을 검사해 주세요.
+$akm-workflow 이 지식 저장소를 AKM 계층으로 분류하고 검증·Learn Back 절차를 설계해 주세요.
 ```
+
+`akm-workflow`는 [DECK6/akm](https://github.com/DECK6/akm)의 Markdown 기반 지식 계층, 위험 기반 검증, Learn Back 및 보안 경계를 Codex용 실행 절차로 구성한 스킬입니다. AKM 저장소나 개인 지식 데이터를 자동 생성·수집하지 않으며, 기존 AKM 체크아웃의 규칙을 우선합니다. 장기 역공학 작업에서 증거와 실패 기록이 자연스럽게 이어지도록 `re`와 `binary-re`에도 AKM 호환 지침을 추가했습니다.
+
+`create-plan`은 삭제된 실험 버전의 고정 다운로드 대신 저장소에 포함된 2.0 스킬을 사용합니다. 현재 작업공간과 실제 도구를 근거로 계획 깊이를 조절하고, 검증·위험·복구 지점을 명시하며, 사용자가 구현까지 요청하지 않은 경우 읽기 전용으로 끝납니다.
 
 원래 요청한 `binary-parser`의 실제 배포 이름은 `binary-re`, `create-retro-game-kr-patch`는 `create-kr-patch`, 추가로 확인한 `hex-analyzer` 관련 원본은 `re`입니다.
 설치기는 요청 이름도 별칭으로 받습니다. 스킬 호출은 실제 이름을 사용합니다.
@@ -68,7 +77,7 @@ python setup_tools.py
 - 설치기는 [skills-lock.json](skills-lock.json)의 검토된 커밋과 저장소에 포함된 스킬을 설치합니다. 임의의 upstream 최신 코드를 자동 적용하지 않습니다.
 - 같은 파일은 건너뛰고, 다른 기존 폴더는 설치 경로 상위의 `skill-backups/<UTC 시각>/`에 보존합니다.
 - `.system`, 기존 플러그인, 인증 파일, Codex 전체 설정은 복사하거나 변경하지 않습니다.
-- `create-plan`과 `log-analyzer`는 원본에서 삭제되거나 보관된 버전입니다. 나머지 외부 출처와 추가 실행 의존성은 [최종 검토표](REVIEW.md)에 기록했습니다.
+- `log-analyzer`는 원본에서 보관된 버전입니다. `create-plan`은 현재 Codex 방식에 맞춘 번들 2.0으로 교체했습니다. 나머지 외부 출처와 추가 실행 의존성은 [최종 검토표](REVIEW.md)에 기록했습니다.
 - `.cache/`와 `.venv/`는 GitHub에 올리지 않습니다. 새 PC는 인터넷으로 원본과 Python 패키지를 다운로드합니다.
 - 캐시가 준비된 PC의 오프라인 재설치: `python install.py --offline`
 - 목록 확인: `python install.py --list`
@@ -85,7 +94,7 @@ python setup_tools.py
 ```
 
 macOS/Linux의 검사 명령은 `.venv/bin/python -m unittest discover -s tests -v`입니다.
-자동 검사 29개는 합성 데이터와 설치 동작을 검증합니다. 실제 게임 호환성이나 외부 런타임 전체를 검증한 결과는 아닙니다.
+자동 검사 29개는 합성 데이터와 16개 스킬의 설치 동작을 검증합니다. 실제 게임 호환성이나 외부 런타임 전체를 검증한 결과는 아닙니다.
 
 ## 라이선스와 원본 보존
 

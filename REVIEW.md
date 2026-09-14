@@ -1,17 +1,18 @@
 # 최종 검토 기록
 
-확인일: **2026-09-12**. 추가 공유 링크까지 대조해 요청한 **15개 모두 설치 대상으로 반영**했습니다.
-구성은 외부 원본 6개, 외부 원본을 Codex용으로 구성한 2개, 직접 제작한 7개입니다.
+확인일: **2026-09-14**. 기존 요청 **15개**와 AKM 워크플로 **1개**를 설치 대상으로 반영했습니다.
+구성은 외부 원본 5개, 외부 원본을 Codex용으로 구성한 3개, 직접 제작한 8개입니다.
 `hex-analyzer` 요청에는 새 링크가 인용한 `vgrichina/re-skill`을 실제 배포 이름 `re`로 반영했습니다. 앞서 제공된 Hex 데이터 분석 CLI는 여전히 제외합니다.
 
-이 PC에는 독립 스킬 14개가 설치되어 있고, `create-kr-patch`는 같은 버전의 기존 플러그인을 사용합니다.
-새 PC에서는 설치기가 15개를 독립 스킬로 설치합니다. 플러그인 전체와 외부 실행 환경이 모두 복제되는 것은 아닙니다.
+이 PC에는 설치 후 독립 스킬 15개가 있고, `create-kr-patch`는 같은 버전의 기존 플러그인을 사용합니다.
+새 PC에서는 설치기가 16개를 독립 스킬로 설치합니다. 플러그인 전체와 외부 실행 환경이 모두 복제되는 것은 아닙니다.
 
 ## 요청별 반영 결과
 
 | 요청 이름 | 반영한 이름 / 출처 | 확인된 범위와 제한 |
 |---|---|---|
-| create-plan | `create-plan`, [OpenAI 보관 커밋](https://github.com/openai/skills/tree/a5119697b819090e00e5d11ee1d86834d7c1043a/skills/.experimental/create-plan) | upstream 삭제 직전 버전. 최신 지원 스킬로 표시하지 않음 |
+| create-plan | [`create-plan` 2.0](skills/create-plan/SKILL.md), [공유 답변](https://share.google/aimode/WHjCpsy0o0MAg6rMB), [공식 OpenAI 스킬 문서](https://developers.openai.com/codex/skills) | 보관된 실험 스냅샷을 자체 번들 스킬로 교체. 실제 작업공간·도구에 근거해 계획 깊이, 검증, 위험과 복구 지점을 조절하며 계획만 요청한 경우 읽기 전용 유지 |
+| akm-workflow | [`akm-workflow`](skills/akm-workflow/SKILL.md), [DECK6/akm](https://github.com/DECK6/akm/tree/f26ace2a16caba724b24db12cbee238ebb52498f) | AKM의 분류·증거·위험 기반 검증·Learn Back·보안·제한적 마이그레이션을 Codex 절차로 구성. 지식 저장소나 메모리 런타임 자체는 포함하지 않음 |
 | deep-interview | `deep-interview`, [oh-my-codex](https://github.com/Yeachan-Heo/oh-my-codex/tree/cb955b0d5becbef76d2c1f0096b6e1f238e1e7f7/skills/deep-interview) | 인터뷰 지침. 전체 상태 저장·복구·후속 흐름은 OMX 런타임과 관련 스킬 필요 |
 | code-review | `code-review`, [oh-my-codex](https://github.com/Yeachan-Heo/oh-my-codex/tree/cb955b0d5becbef76d2c1f0096b6e1f238e1e7f7/skills/code-review) | 독립 리뷰 에이전트 필요. OMX 통합 기능은 별도 런타임 필요 |
 | frontend-testing-debugging | `frontend-testing-debugging`, [OpenAI plugins](https://github.com/openai/plugins/tree/1dc195897af4161d039b80d8471ec0a10c9bbc89/plugins/build-web-apps/skills/frontend-testing-debugging) | 현재 호스트의 브라우저 도구 또는 프로젝트 Playwright 환경 필요 |
@@ -30,13 +31,23 @@
 `deep-interview`, `code-review`, `log-analyzer`는 사용자가 처음 제시한 두 저장소에서 찾지 못해 위 배포본을 선택했습니다.
 동일한 이름의 모든 배포본이 같은 스킬이라는 뜻은 아닙니다. 외부 원본의 정확한 버전은 [skills-lock.json](skills-lock.json)에 기록했습니다.
 
+## AKM 반영 범위
+
+[DECK6/akm](https://github.com/DECK6/akm)의 최신 검토 커밋 `f26ace2a16caba724b24db12cbee238ebb52498f`를 기준으로 Codex 어댑터, ROUTER, LOOP, VERIFICATION, SECURITY, SCHEMA와 로컬 메모리 런타임 계약을 확인했습니다.
+
+- `akm-workflow`를 추가해 자료 분류, 원본·Markdown의 정본성, 검색 후보와 직접 읽은 증거의 구분, Tier 0–3 검증, 실패의 Learn Back, 비밀·개인 데이터 및 Git 경계를 한 절차로 연결했습니다.
+- 장기 조사 성격의 `re`와 `binary-re`에는 AKM 저장소가 이미 있거나 사용자가 지속 기록을 요청한 경우에만 적용되는 계층별 기록 규칙을 추가했습니다.
+- 단순 계산·변환 도구에는 AKM 규칙을 반복 삽입하지 않았습니다. 일회성 실행에 지식 저장소를 만들거나 불필요한 실행 로그를 보존하지 않도록 범위를 제한했습니다.
+- AKM의 Hermes 로컬 메모리 런타임은 별도 어댑터 구현이므로 복사하거나 자동 실행하지 않습니다. 런타임 후보·인덱스가 원본 Markdown보다 우선하지 않는다는 권한 경계만 스킬에 반영했습니다.
+
 ## Google 공유 답변 검토
 
-공유 페이지 6개를 브라우저로 열어 내용을 확인했습니다. 어느 페이지에도 해당 이름의 설치 가능한 `SKILL.md` 원본이 제시되어 있지 않았습니다.
+공유 페이지 7개를 브라우저로 열어 내용을 확인했습니다. 어느 페이지에도 해당 이름의 설치 가능한 `SKILL.md` 원본이 제시되어 있지 않았습니다.
 답변의 주장을 공식 배포 사실로 취급하지 않고, 앞선 레트로 게임 한글화 요청에 맞춘 **직접 제작 스킬**로 반영했습니다.
 
 | 공유 링크 | 답변의 내용 | 반영 판단 |
 |---|---|---|
+| [create-plan 대체](https://share.google/aimode/WHjCpsy0o0MAg6rMB) | 구형 Codex 모델 종료와 최신 도구 호출형 에이전트를 근거로 `create-plan`이 불필요하다고 설명 | 모델 세대와 현재 `SKILL.md`를 혼동한 결론은 채택하지 않음. 공식 OpenAI 문서가 현재도 스킬과 계획 스킬을 지원함을 확인하고, 도구 인식·동적 계획 취지만 반영한 자체 2.0으로 교체 |
 | [image-glyph-generator](https://share.google/aimode/VuGAF4XPpp5O6RJGA) | AI 아이콘 생성용 일반 설명과 스킬 구성 예시 | 확인되지 않은 생성 옵션을 사용하지 않음. 실제 폰트 파일을 입력받는 래스터화 도구 제작 |
 | [encoding-mapper](https://share.google/aimode/S6fjPZoAW0lDWrQJ8) | 저장소 파일 연결과 파일 인코딩 개념이 섞인 설명 | ROM의 명시적 코드 테이블을 별도 설계 |
 | [nftr-font-editor](https://share.google/aimode/B3VqSsH04az599c4O) | NFTR 편집 프로그램 소개와 포맷 설명 | 실제 편집기 소스와 디스크 태그를 대조. 기존 글자폭 수정만 좁게 지원 |
@@ -91,11 +102,11 @@
 - 합성 NFTR의 크기·포인터·연결 순환·문자 맵 오류, 원본 해시·예상 바이트 검사, 지정한 폭 필드만 변경, 기존 출력 보호.
 - 합성 테스트 폰트의 반복 생성 일치, 이진 픽셀 출력, 없는 문자·잘림·허용하지 않은 빈 글리프 거부, 기존 출력 보호.
 
-추가로 저장소에 포함한 스킬 9개의 `SKILL.md` 형식 검사를 통과했습니다.
+추가로 저장소에 포함한 스킬 11개의 `SKILL.md` 형식 검사를 통과했습니다.
 이 PC의 맑은 고딕으로 한글 14자와 문장부호 2자를 생성하여 누락·잘림 검사를 통과하고 아틀라스도 시각 확인했습니다.
-해당 폰트와 시험 출력은 GitHub에 올리지 않았습니다. 이전 단계에서 기존 8개를 유지하고 새 6개를 설치했으며, 이번 추가 검토로 `re` 1개를 더 설치했습니다.
+해당 폰트와 시험 출력은 GitHub에 올리지 않았습니다. 2026-09-12 검토에서는 기존 8개를 유지하고 새 7개를 추가해 15개 구성을 확인했습니다.
 이전 14개 구성은 캐시 없는 임시 Git 복제본에서 외부 원본 6개를 새로 내려받아 설치하는 검사도 통과했습니다.
-이번 15개 구성은 빈 임시 설치 경로의 설치·재설치 검사를 통과했고, 이 PC의 재실행에서도 15개 모두 현재 버전으로 판정됐습니다.
+이번 16개 구성은 빈 임시 설치 경로의 설치·재설치 검사와 전체 자동 검사 29개를 통과했습니다.
 
 실제 게임 ROM에서의 실행 검증, 모든 NFTR 변형, 번역 의미 품질, OMX/Fractary 외부 런타임의 완전한 동작은 이번 확인 범위에 포함되지 않습니다.
 게임·상용 폰트·인증 정보는 저장소에 포함하지 않았습니다.

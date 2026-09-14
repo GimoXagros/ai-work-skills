@@ -1,15 +1,15 @@
 {
   "schema_version": 2,
-  "checked_at": "2026-09-12",
+  "checked_at": "2026-09-14",
   "skills": [
     {
       "name": "create-plan",
       "requested_name": "create-plan",
-      "repo": "openai/skills",
-      "path": "skills/.experimental/create-plan",
-      "ref": "a5119697b819090e00e5d11ee1d86834d7c1043a",
-      "status": "archived",
-      "note": "Last repository state before upstream removed this experimental skill."
+      "source": "bundled",
+      "path": "skills/create-plan",
+      "status": "custom",
+      "version": "2.0.0",
+      "note": "Modern tool-aware Codex planning workflow replacing the archived experimental snapshot; grounded, depth-adaptive, validation-driven, and read-only unless implementation is also requested."
     },
     {
       "name": "deep-interview",
@@ -57,6 +57,17 @@
       "note": "Canonical skill name is create-kr-patch; stable plugin version 3.2.0."
     },
     {
+      "name": "akm-workflow",
+      "requested_name": "akm-workflow",
+      "source": "bundled",
+      "path": "skills/akm-workflow",
+      "status": "adapted",
+      "version": "1.0.0",
+      "upstream_repo": "DECK6/akm",
+      "upstream_ref": "f26ace2a16caba724b24db12cbee238ebb52498f",
+      "note": "Codex workflow adaptation of AKM routing, evidence, risk-based verification, Learn Back, security, and bounded migration guidance; does not bundle a vault or runtime service."
+    },
+    {
       "name": "gba-pointer-fixer",
       "requested_name": "gba-pointer-fixer",
       "source": "bundled",
@@ -71,6 +82,7 @@
       "source": "bundled",
       "path": "skills/binary-re",
       "status": "adapted",
+      "version": "1.1.0",
       "upstream_repo": "2389-research/binary-re",
       "upstream_ref": "42aee9063f3f3d52616700df3aa16df82b848604",
       "note": "MIT upstream adapted for standalone Codex: bundled phase documents, missing docs restored, optional memory fallback, static dependency inspection."
@@ -139,7 +151,7 @@
       "source": "bundled",
       "path": "skills/re",
       "status": "adapted",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "upstream_repo": "vgrichina/re-skill",
       "upstream_ref": "64c3bffb54ae4b9d99804a03fa4f179f4dd080c5",
       "note": "MIT retro-game RE workflow adapted for Codex. Actual upstream name is re. Includes notes/templates, not disassemblers or a Claude CLI loop."
@@ -147,6 +159,11 @@
   ],
   "unresolved": [],
   "source_checks": [
+    {
+      "requested_name": "create-plan",
+      "url": "https://share.google/aimode/WHjCpsy0o0MAg6rMB",
+      "result": "The shared answer correctly favors modern tool-aware agent planning but conflates retired Codex model generations with current SKILL.md workflows. Replaced the archived snapshot with an original Codex create-plan 2.0 while preserving the canonical skill name."
+    },
     {
       "requested_name": "hex-analyzer",
       "url": "https://hex.tech/blog/introducing-the-hex-cli/",
