@@ -9,7 +9,7 @@
       "path": "skills/exec-plan",
       "status": "custom",
       "version": "1.0.0",
-      "note": "Durable multi-phase execution-plan workflow for complex work and handoffs. Ordinary short planning uses Codex built-in /plan mode."
+      "note": "Durable multi-phase execution plans. Ordinary short planning uses Codex built-in /plan mode."
     },
     {
       "name": "deep-interview",
@@ -18,16 +18,7 @@
       "path": "skills/deep-interview",
       "ref": "cb955b0d5becbef76d2c1f0096b6e1f238e1e7f7",
       "status": "current",
-      "note": "Upstream OMX skill; full state/resume functionality requires oh-my-codex runtime."
-    },
-    {
-      "name": "code-review",
-      "requested_name": "code-review",
-      "repo": "Yeachan-Heo/oh-my-codex",
-      "path": "skills/code-review",
-      "ref": "cb955b0d5becbef76d2c1f0096b6e1f238e1e7f7",
-      "status": "current",
-      "note": "Requires independent review agents; OMX integration requires its runtime."
+      "note": "Current upstream skill. Basic questioning has a native fallback; OMX state and handoff features require the OMX runtime."
     },
     {
       "name": "frontend-testing-debugging",
@@ -36,16 +27,16 @@
       "path": "plugins/build-web-apps/skills/frontend-testing-debugging",
       "ref": "1dc195897af4161d039b80d8471ec0a10c9bbc89",
       "status": "current",
-      "note": "Uses supported browser tooling or a project Playwright environment."
+      "note": "Current Browser-first frontend QA workflow with a project Playwright fallback."
     },
     {
       "name": "log-analyzer",
       "requested_name": "log-analyzer",
-      "repo": "fractary/core",
-      "path": "plugins/logs/archived/skills/log-analyzer",
-      "ref": "accb3215b3514a36d3149b307e9ff9ceb0e67259",
-      "status": "archived",
-      "note": "Fractary operational-log analyzer; archived upstream. Bash scripts expect Fractary log conventions."
+      "source": "bundled",
+      "path": "skills/log-analyzer",
+      "status": "custom",
+      "version": "2.0.0",
+      "note": "Portable evidence-led replacement for the archived Fractary-specific Bash workflow."
     },
     {
       "name": "create-kr-patch",
@@ -65,7 +56,7 @@
       "version": "1.0.0",
       "upstream_repo": "DECK6/akm",
       "upstream_ref": "f26ace2a16caba724b24db12cbee238ebb52498f",
-      "note": "Codex workflow adaptation of AKM routing, evidence, risk-based verification, Learn Back, security, and bounded migration guidance; does not bundle a vault or runtime service."
+      "note": "Codex adaptation of AKM routing, evidence, risk-based verification, Learn Back, security, and bounded migration guidance."
     },
     {
       "name": "gba-pointer-fixer",
@@ -74,7 +65,7 @@
       "path": "skills/gba-pointer-fixer",
       "status": "custom",
       "version": "1.0.0",
-      "note": "Original local implementation; read-only pointer helper and evidence-based repair workflow. Not an upstream download."
+      "note": "Read-only pointer inspection helper and evidence-based GBA repair workflow."
     },
     {
       "name": "binary-re",
@@ -85,7 +76,7 @@
       "version": "1.1.0",
       "upstream_repo": "2389-research/binary-re",
       "upstream_ref": "42aee9063f3f3d52616700df3aa16df82b848604",
-      "note": "MIT upstream adapted for standalone Codex: bundled phase documents, missing docs restored, optional memory fallback, static dependency inspection."
+      "note": "MIT upstream adapted for standalone Codex with restored references and safe dependency inspection."
     },
     {
       "name": "image-glyph-generator",
@@ -94,7 +85,7 @@
       "path": "skills/image-glyph-generator",
       "status": "custom",
       "version": "1.0.0",
-      "note": "No installable source; generic AI icon instructions. Added original font rasterizer with coverage/clipping checks.",
+      "note": "Fixed-cell font rasterizer with coverage and clipping checks.",
       "tool_requirements": "skills/image-glyph-generator/requirements.txt"
     },
     {
@@ -104,7 +95,7 @@
       "path": "skills/encoding-mapper",
       "status": "custom",
       "version": "1.0.0",
-      "note": "No installable source; file routing/codec concepts. Added original explicit stateless ROM table validator."
+      "note": "Explicit stateless ROM byte-to-text table validator."
     },
     {
       "name": "nftr-font-editor",
@@ -113,7 +104,7 @@
       "path": "skills/nftr-font-editor",
       "status": "custom",
       "version": "1.0.0",
-      "note": "Standalone NFTR editors exist, but no named Codex skill. Added original standard NFTR inspector and guarded width editor."
+      "note": "Standard little-endian NFTR inspector and guarded width editor."
     },
     {
       "name": "ws-tile-compressor",
@@ -122,7 +113,7 @@
       "path": "skills/ws-tile-compressor",
       "status": "custom",
       "version": "1.0.0",
-      "note": "Google answer concerns WebSocket context compression, unrelated to WonderSwan. Added original raw tile packing and exact deduplication."
+      "note": "WonderSwan raw tile packing, unpacking, and exact deduplication."
     },
     {
       "name": "retro-font-allocator",
@@ -131,7 +122,7 @@
       "path": "skills/retro-font-allocator",
       "status": "custom",
       "version": "1.0.0",
-      "note": "Google answer concerns web typography, no game-memory skill source. Added original repertoire and working-set capacity planner."
+      "note": "Retro-game font storage and active-slot capacity planner."
     },
     {
       "name": "script-translator-limiter",
@@ -140,7 +131,7 @@
       "path": "skills/script-translator-limiter",
       "status": "custom",
       "version": "1.0.0",
-      "note": "No installable source; generic translation/limit prompt. Added original encoded-budget and declared-control validator.",
+      "note": "Encoded byte, line, pixel, and control-token budget validator.",
       "requires": [
         "encoding-mapper"
       ]
@@ -154,7 +145,7 @@
       "version": "1.1.0",
       "upstream_repo": "vgrichina/re-skill",
       "upstream_ref": "64c3bffb54ae4b9d99804a03fa4f179f4dd080c5",
-      "note": "MIT retro-game RE workflow adapted for Codex. Actual upstream name is re. Includes notes/templates, not disassemblers or a Claude CLI loop."
+      "note": "MIT retro-game reverse-engineering workflow adapted for Codex."
     }
   ],
   "retired_skills": [
@@ -162,55 +153,17 @@
       "name": "create-plan",
       "replacement": "exec-plan",
       "known_path": "retired/create-plan-2.0",
-      "reason": "The archived experimental package is superseded by Codex built-in /plan for ordinary plans and exec-plan for durable multi-phase work."
+      "reason": "The archived experimental package is superseded by Codex built-in /plan and exec-plan."
+    },
+    {
+      "name": "code-review",
+      "replacement": null,
+      "replacement_note": "Codex built-in /review",
+      "known_inventory": {
+        "SKILL.md": "0ee041726093d160f42f7568b0581ca9b98ac95a687d764af4b3b0470d490b19"
+      },
+      "reason": "Codex now provides a dedicated /review workflow without the external OMX agent runtime."
     }
   ],
-  "unresolved": [],
-  "source_checks": [
-    {
-      "requested_name": "create-plan",
-      "url": "https://share.google/aimode/WHjCpsy0o0MAg6rMB",
-      "result": "The shared answer correctly identifies the archived experimental package as obsolete but conflates retired Codex model generations with current SKILL.md workflows. Retired create-plan; ordinary plans use built-in /plan and durable multi-phase work uses the original bundled exec-plan skill."
-    },
-    {
-      "requested_name": "hex-analyzer",
-      "url": "https://hex.tech/blog/introducing-the-hex-cli/",
-      "result": "Hex analytics CLI manages SQL/Python projects; not a hexadecimal ROM analysis skill. Not installed."
-    },
-    {
-      "requested_name": "image-glyph-generator",
-      "url": "https://share.google/aimode/VuGAF4XPpp5O6RJGA",
-      "result": "No installable source; generic AI icon instructions. Added original font rasterizer with coverage/clipping checks."
-    },
-    {
-      "requested_name": "encoding-mapper",
-      "url": "https://share.google/aimode/S6fjPZoAW0lDWrQJ8",
-      "result": "No installable source; file routing/codec concepts. Added original explicit stateless ROM table validator."
-    },
-    {
-      "requested_name": "nftr-font-editor",
-      "url": "https://share.google/aimode/B3VqSsH04az599c4O",
-      "result": "Standalone NFTR editors exist, but no named Codex skill. Added original standard NFTR inspector and guarded width editor."
-    },
-    {
-      "requested_name": "ws-tile-compressor",
-      "url": "https://share.google/aimode/754jMci6L6FinvuR2",
-      "result": "Google answer concerns WebSocket context compression, unrelated to WonderSwan. Added original raw tile packing and exact deduplication."
-    },
-    {
-      "requested_name": "retro-font-allocator",
-      "url": "https://share.google/aimode/EyG4NAMRMZPwwBB8W",
-      "result": "Google answer concerns web typography, no game-memory skill source. Added original repertoire and working-set capacity planner."
-    },
-    {
-      "requested_name": "script-translator-limiter",
-      "url": "https://share.google/aimode/nIHEmpXNyOrJjOFHn",
-      "result": "No installable source; generic translation/limit prompt. Added original encoded-budget and declared-control validator."
-    },
-    {
-      "requested_name": "hex-analyzer",
-      "url": "https://share.google/aimode/rxr4oChTUr5Bdkqrn",
-      "result": "Partly correct: cited vgrichina/re-skill exists with canonical name re and MIT license, but is a Claude Code workflow rather than a named hex-analyzer program. Added a Codex adaptation; corrected CPU naming and distinguished planned project tools from installed executables."
-    }
-  ]
+  "unresolved": []
 }

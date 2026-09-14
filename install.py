@@ -49,6 +49,25 @@ def backup_existing(target, dest, name):
     target.rename(backup)
     return backup
 
+def retired_inventory(entry):
+    if entry.get('known_path'):
+        known = (ROOT / entry['known_path']).resolve()
+        if ROOT not in known.parents or not (known / 'SKILL.md').is_file():
+            raise ValueError('Retired skill reference is invalid')
+        return inventory(known)
+    known = entry.get('known_inventory')
+    if not isinstance(known, dict) or not known:
+        raise ValueError('Retired skill fingerprint is invalid')
+    if any(not isinstance(path, str) or not re.fullmatch(r'[A-Za-z0-9_.\-/]+', path)
+           or path.startswith('/') or '..' in Path(path).parts
+           or not re.fullmatch(r'[a-f0-9]{64}', digest or '')
+           for path, digest in known.items()):
+        raise ValueError('Retired skill fingerprint is invalid')
+    return known
+
+def replacement_label(entry):
+    return entry.get('replacement') or entry.get('replacement_note') or 'no replacement'
+
 def installed_plugin_matches(skill):
     # Codex plugin cache is managed by Codex, not by this installer.
     codex_root = Path(os.environ.get('CODEX_HOME', Path.home() / '.codex'))
@@ -101,7 +120,7 @@ def main():
             origin = s['path'] if s.get('source') == 'bundled' else f"{s['repo']}@{s['ref'][:12]}"
             print(f"{s['requested_name']}: {s['name']} [{s['status']}] {origin}")
         for s in retired:
-            print(f"{s['name']}: retired -> {s['replacement']} ({s['reason']})")
+            print(f"{s['name']}: retired -> {replacement_label(s)} ({s['reason']})")
         print('Unresolved: ' + ', '.join(manifest['unresolved']))
         return
     dest = args.dest or Path(os.environ.get('CODEX_HOME', Path.home() / '.codex')) / 'skills'
@@ -113,19 +132,17 @@ def main():
     for retired_skill in retired:
         name = retired_skill['name']
         try:
-            known = (ROOT / retired_skill['known_path']).resolve()
-            if ROOT not in known.parents or not (known / 'SKILL.md').is_file():
-                raise ValueError('Retired skill reference is invalid')
+            known = retired_inventory(retired_skill)
             target = dest / name
             if not target.exists():
                 continue
             if target.is_symlink() or (hasattr(target, 'is_junction') and target.is_junction()):
                 raise ValueError('Refusing to retire an existing link or junction')
-            if inventory(target) != inventory(known):
+            if inventory(target) != known:
                 print(f'PRESERVED (retired name, unrecognized content): {name}')
                 continue
             backup = backup_existing(target, dest, name)
-            print(f'RETIRED: {name} -> {retired_skill["replacement"]} (previous version: {backup})')
+            print(f'RETIRED: {name} -> {replacement_label(retired_skill)} (previous version: {backup})')
         except Exception as exc:
             failed.append(name)
             print(f'FAILED: {name}: {exc}', file=sys.stderr)
