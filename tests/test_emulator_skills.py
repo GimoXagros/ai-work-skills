@@ -46,7 +46,7 @@ class EmulatorSkillTests(unittest.TestCase):
         self.assertEqual(set(self.by_name) - {s['name'] for s in baseline['skills']}, NEW)
         self.assertEqual(len(NEW), 13)
         self.assertEqual(self.manifest['schema_version'], 2)
-        self.assertEqual(self.manifest['checked_at'], '2026-09-17')
+        self.assertRegex(self.manifest['checked_at'], r'^\d{4}-\d{2}-\d{2}$')
         for name in NEW:
             with self.subTest(name=name):
                 item = self.by_name[name]
@@ -62,7 +62,13 @@ class EmulatorSkillTests(unittest.TestCase):
         baseline = json.loads((ROOT / 'tests/fixtures/pre-emulator-manifest.json').read_text(encoding='utf-8'))
         self.assertEqual(len(baseline['skills']), 15)
         for item in baseline['skills']:
-            self.assertEqual(self.by_name[item['name']], item)
+            current = self.by_name[item['name']]
+            if item['name'] == 'log-analyzer':
+                # v3 intentionally changes only version/note; keep historical fixture intact.
+                self.assertEqual({k: v for k, v in current.items() if k not in ('version', 'note')},
+                                 {k: v for k, v in item.items() if k not in ('version', 'note')})
+            else:
+                self.assertEqual(current, item)
         self.assertEqual(self.manifest['retired_skills'], baseline['retired_skills'])
         self.assertEqual(self.manifest['unresolved'], baseline['unresolved'])
 

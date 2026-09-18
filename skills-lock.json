@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "checked_at": "2026-09-17",
+  "checked_at": "2026-09-19",
   "skills": [
     {
       "name": "exec-plan",
@@ -35,8 +35,8 @@
       "source": "bundled",
       "path": "skills/log-analyzer",
       "status": "custom",
-      "version": "2.0.0",
-      "note": "Portable evidence-led replacement for the archived Fractary-specific Bash workflow."
+      "version": "3.0.0",
+      "note": "Portable evidence-first log analysis with baseline comparison, first-divergence workflows, signature-guided triage, multi-log/multi-run correlation and emulator regression routing; no mandatory external runtime."
     },
     {
       "name": "create-kr-patch",

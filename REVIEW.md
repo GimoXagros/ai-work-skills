@@ -1,3 +1,102 @@
+# Log analyzer v3 review — 2026-09-19
+
+## Initial audit and plan
+
+Started on clean `feat/emulator-development-skills` at `21fb703f510d664008a3f973b0da9cac07b2bc22`; remote tracking matched after fetch. Baseline: 28 active skills, log-analyzer bundled/custom 2.0.0, 43 tests PASS. Work branch `feat/log-analyzer-v3` is based on that checkout and includes the previous emulator suite; main is not changed or merged.
+Read the log skill, manifest, installer/setup, tests, README/REVIEW, release convention and .gitignore before changing implementation. Existing installer supports bundled directories with references, backed-up replacement and inventory checks without modification.
+
+v2 described general application/build/test/operational log triage without Fractary/Bash assumptions. Its workflow was narrow inventory → format parsing → first failure timeline → normalized groups → correlation → evidence/interpretation separation → healthy-window comparison. Modes covered incident, errors, patterns, builds/tests and sessions. Output required location, count/time range, component, confidence, next check and limits. Read-only input, untrusted embedded instructions, redaction, malformed-record accounting and minimal quotations are retained in v3.
+
+Plan: review external source/licenses and decide adoption → write v3 workflow and focused references → extend package/install regression tests → independent synthetic analysis → actual install/backup/inventory verification → final diff/commit/push. The adoption table was completed before implementation. The scope needs context-dependent format/clock/anchor choices; no repeated fixed-schema workload justified a generic parser. Therefore no helper script or new runtime dependency is added. The skill provides a reproducible procedure, not a newly implemented automatic parsing engine.
+
+## Reviewed external projects
+
+Read-only source snapshots were downloaded outside the repository for inspection; they were not executed, installed, vendored or copied into the skill. Commit times below are upstream history timestamps, not promises of maintenance. Repository metadata reported all four repositories unarchived at review; this does not establish support or correctness. Full source/license links identify reviewed revisions.
+
+| Project | Useful concepts | Not useful for this task | License | Adopt? | Reason |
+|---|---|---|---|---|---|
+| djm81/log_analyzer_mcp | Scoped search, context extraction, content/time filters | Mandatory MCP/daemon, project test/coverage runner and client configuration | MIT + Commons Clause v1.0 | Concepts only; optional future integration | Extra runtime/configuration and license restriction unnecessary for a standalone skill |
+| microsoft/log_analyzer | Good-log comparison, signatures, scoped whitelist, source-tagged multi-log views | Broad address/value stripping, guessed clock repair, local LLM/ADO/GPU/BMC/CPER/HTML workflows | MIT | Concepts adapted; project not vendored | Preserve semantic evidence and avoid domain/runtime coupling |
+| tstack/lnav | Human navigation, filtering, merge views, SQLite exploration | Required viewer installation or trusting inferred chronology | BSD-2-Clause project license | Optional helper only | Useful for volume; core analysis must work without it |
+| faultline-cli/faultline | Evidence-bearing known-pattern classification and explicit unmatched results | Bundled CI catalog as an emulator oracle; extra executable/runtime | MIT | Design reference only | No need to import a classifier; matches remain hints |
+
+### djm81/log_analyzer_mcp
+
+Reviewed default-branch HEAD [`3ca9c8f6f653c23ac050889af27778015a6a77f6`](https://github.com/djm81/log_analyzer_mcp/tree/3ca9c8f6f653c23ac050889af27778015a6a77f6), committed 2025-06-08. Last repository push reported 2025-06-08. The inspected default branch shows no newer commit at review, not proof the project is abandoned.
+
+Actual source: [analysis_engine.py](https://github.com/djm81/log_analyzer_mcp/blob/3ca9c8f6f653c23ac050889af27778015a6a77f6/src/log_analyzer_mcp/core/analysis_engine.py), CLI `src/log_analyzer_client/cli.py`, server `src/log_analyzer_mcp/log_analyzer_mcp_server.py`, pytest parser and config loader. CLI exposes all/time/first/last searches; engine applies regex/content/level filters and file-local before/after context. Time filtering uses relative minutes/hours/days against local now; parser handles a particular datetime format and drops comma milliseconds. These are not a general multi-clock alignment solution. File/line metadata and bounded context are useful concepts.
+
+MCP exposes search and pytest analysis plus subprocess-backed test/unit-test and coverage operations. Coverage generates reports via Hatch/coverage; this is executable project automation, not pure read-only log inspection. Configuration reads environment/.env values for directories, patterns, scopes and context. `pyproject.toml` declares Python >=3.10 (README says 3.9+), Click/Pydantic/dotenv/dateutil/Rich/MCP and other packages; development adds pytest/Hatch/coverage. Source uses portable path/subprocess APIs in places, but inspected CI runs Ubuntu Python 3.12 only; Windows support was not execution-tested here. README/configuration placeholders and differing entrypoint/version descriptions make source-level checks necessary.
+
+[LICENSE.md](https://github.com/djm81/log_analyzer_mcp/blob/3ca9c8f6f653c23ac050889af27778015a6a77f6/LICENSE.md) is MIT plus Commons Clause v1.0, not unmodified MIT: the additional condition restricts selling the software as defined there and requires retaining its notice when applicable. No code is copied, so this change does not relicense or distribute that project. Any future optional MCP integration needs separate runtime/configuration/license review; none is installed now.
+
+### microsoft/log_analyzer
+
+Reviewed default-branch HEAD [`bd61d728cc5b54a0b276ec9dd7afd1988c25c406`](https://github.com/microsoft/log_analyzer/tree/bd61d728cc5b54a0b276ec9dd7afd1988c25c406), committed 2026-01-15 UTC. Repository push metadata is later (2026-02-06); it is not the default-branch commit date. [LICENSE](https://github.com/microsoft/log_analyzer/blob/bd61d728cc5b54a0b276ec9dd7afd1988c25c406/LICENSE) is MIT.
+
+Inspected [common/lib_log.py](https://github.com/microsoft/log_analyzer/blob/bd61d728cc5b54a0b276ec9dd7afd1988c25c406/common/lib_log.py), CLI, `sut/settings.sample.json` and requirements. Good-log processing normalizes and fuzzily compares candidate lines against baseline lines; some reporting paths call a configured LLM and write normalized sidecars. An unordered similarity threshold can miss order/count differences. v3 instead preserves ordered structural anchors and missing/inserted events.
+
+Signature configuration has match type, file scope, error/pass text and whitelist fields. Text matching uses configured inclusion/exclusion strings; these concepts inform optional hints, not root-cause rules. `normalize_log_line` removes several hardware values and hex addresses; v3 does not inherit those transformations. `recalculate_timestamps` assigns corrected values to some 1970/2000 records from later timestamps; v3 never adopts guessed timestamps. Source-tagged merge and JSON/XML-to-CSV handling inform format/clock intake, without assuming conversions preserve all structure. Reports include line differences and summaries, but successful fuzzy matching is not adopted as an anomaly-free verdict.
+
+**concepts adapted; project not vendored**. All new text is independently written. No Microsoft regex, code, signature catalog or report template is copied. Local LLM, Azure DevOps, GPU/server hardware, BMC SEL, CPER and HTML features are excluded; no external license notice obligations are introduced by copied implementation because none is included.
+
+### GitHub log-analyzer ecosystem
+
+Reviewed the [topic index](https://github.com/topics/log-analyzer) as discovery, not an authority on correctness/license. The fetched topic page did not expose lnav/faultline entries, so their primary repositories were reviewed separately. “faultline” is ambiguous; this review explicitly selects the CI log tool `faultline-cli/faultline`, not similarly named Rails/security projects.
+
+[lnav README](https://github.com/tstack/lnav), [official docs](https://docs.lnav.org/en/latest/intro.html) and [LICENSE](https://github.com/tstack/lnav/blob/master/LICENSE) document navigation/filtering/time views/SQLite and the BSD-2-Clause project license. Releases are documented for Linux/macOS/Windows, but no binary was installed or tested. Package/dependency licenses must still be checked for any future redistribution. It remains optional; format recognition cannot resolve absent clock evidence.
+
+[Faultline revision `01038450447fd8f66f40fca65e43b168c4cec612`](https://github.com/faultline-cli/faultline/tree/01038450447fd8f66f40fca65e43b168c4cec612), committed 2026-06-05 UTC, has an [MIT LICENSE](https://github.com/faultline-cli/faultline/blob/01038450447fd8f66f40fca65e43b168c4cec612/LICENSE). Inspected `internal/matcher/matcher.go` and `internal/engine/analyzer.go`: explicit patterns/ranking, evidence collection and unmatched/input error states support a bounded classifier. Its confidence/ranking and CI catalog are not adopted. No executable, Go dependency or playbook is added.
+
+## v3 design and quality audit
+
+| Question | Decision/evidence |
+|---|---|
+| v2 behavior preserved? | First failure/timeline, grouping/counts, correlation, healthy windows, evidence separation, redaction/read-only/malformed reporting and minimal quotes retained explicitly |
+| Baseline more than text diff? | Ordered phase/operation anchors, insertion/deletion/reordering, ambiguity and raw evidence recheck in comparison reference |
+| Signatures confused with causes? | Hints only; scope/provenance, overlap counts and retained whitelist evidence |
+| Normalization hides evidence? | Conservative default, documented opt-in transformations; addresses/opcodes/cycles preserved; correlation aliases keep joins |
+| First ERROR confused with first divergence? | Separate output fields and synthetic before-ERROR mismatch |
+| PC/log vs hardware evidence? | Explicit evidence categories, no hardware/fixed claim without appropriate confirming test |
+| Standalone? | No scripts, mandatory MCP/LLM/service or package requirements |
+| Emulator relevance? | GameYob SGB/link/CPU; GBARunner ARM/JIT/DMA/save; NitroSwan CPU/peripheral clock distinctions; names are routing hints, no invented log formats |
+| Generic logs retained? | Application/web/server/operational plus build/test modes and generic record intake |
+| Role overlap controlled? | Log evidence and bounded questions handed to installed specialists if available; no hard dependencies |
+
+## Validation results
+
+All requested checks completed on 2026-09-19 Asia/Seoul (backup timestamps use UTC).
+
+| Command/check | Result | Evidence scope |
+|---|---|---|
+| skill-creator quick_validate | PASS | v3 YAML/name/frontmatter; Windows UTF-8 mode |
+| python install.py --list | PASS | 28 active entries, log-analyzer present |
+| python install.py --skill log-analyzer | PASS | v3 installed with prior v2 directory backed up |
+| python install.py | PASS | all 28 current, including matching create-kr-patch plugin |
+| python setup_tools.py | PASS | existing pinned glyph dependencies; no new v3 dependency |
+| .venv Python -X utf8 -m unittest discover -s tests | PASS | 48 tests; original 43 plus 5 log-v3 packaging/install tests |
+| --offline --skill log-analyzer, no cache/vendor | PASS | independent temporary checkout; repeat installation unchanged |
+| original v2 backup | PASS | complete inventory equals pre-install snapshot |
+| installed v3 | PASS | SKILL.md and both references match source inventory |
+| other skills and protected directories | PASS | pre/post inventories equal; .system and kr-patch cache unchanged |
+| manifest/policy preservation | PASS | other 27 entries, upstream pins, retired/unresolved unchanged |
+| source preservation | PASS | installer/setup/vendor/retired/other bundled skills/old fixtures unchanged |
+| git diff --check | PASS | final staged change set checked before commit |
+
+Installed destination: `$CODEX_HOME/skills/log-analyzer`, resolved on this PC to `C:/Users/rlgh0/.codex/skills/log-analyzer`. Original v2 backup: `skill-backups/20260918T152200887948Z/log-analyzer` relative to Codex home. A final wording correction (count versus rate) also used the normal backup installer; the original v2 backup was verified independently. CLI listing does not print versions, so v3 is established by manifest 3.0.0 plus installed/source hash equality.
+
+Baseline 43 tests passed before editing. New tests validate manifest v3, frontmatter/modes/references, offline selected installation without vendor/cache and backup/preservation. Existing 43 tests remain, with only the approved log version/note exception and non-frozen date in the historical emulator test. The old baseline fixture is unchanged.
+
+Independent explicit-call synthetic evaluation read the skill and references and handled four cases: pre-ERROR copy timeout, address-bearing intermittent JIT logs with whitelist, incompatible clocks plus malformed/truncated input, and a failed CI attempt followed by pass plus instruction injection. It preserved semantic addresses, refused uncertain chronology/root-cause claims, retained retries/skips/counts and did not follow log instructions. This is qualitative behavior evidence, not automated parsing or hardware verification. Two cases overlap worked examples. An additional unseen NitroSwan repeated-poll/missing-record case correctly reported ambiguous alignment and capture uncertainty instead of declaring a V30MZ timing defect or proposing a skip-cycle patch. These five bounded examples do not establish general automatic-selection or parser correctness.
+
+## Limitations
+
+No real logs/ROMs were supplied for this upgrade. No emulator source, game assets or hardware was modified or executed. Actual GameYob/GBARunner3/NitroSwan compatibility, parser throughput, external tool Windows execution and real hardware correctness are NOT RUN. No helper parser exists, so automated normalization/divergence/encoding tests are not claimed. Installed bytes and skill-validator results can be checked; live implicit selection on arbitrary requests is separate from explicit synthetic evaluation.
+
+## Prior review history
+
+The following 2026-09-18 and 2026-09-14 records retain their original counts, versions and scope. Their statements about unchanged log-analyzer describe those earlier operations, not the v3 upgrade above.
+
 # Emulator suite review — 2026-09-18
 
 사용자 지정 manifest 검토일/릴리스 버전일: 2026-09-17. 실행일: 2026-09-18.

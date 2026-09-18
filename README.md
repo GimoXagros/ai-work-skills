@@ -5,7 +5,7 @@
 </p>
 
 현재 Codex 환경에서 사용하는 **28개 스킬**(은퇴 항목 2개 제외)을 동일한 버전으로 설치하는 공개 저장소입니다.
-매니페스트 검토일은 **2026-09-17** (실제 작성·검증 수행일: 2026-09-18)이며, 전체 판정과 제한 사항은 [REVIEW.md](REVIEW.md)에 정리되어 있습니다.
+매니페스트 검토일은 **2026-09-19**이며, 전체 판정과 제한 사항은 [REVIEW.md](REVIEW.md)에 정리되어 있습니다.
 
 ## 현재 설치되는 스킬
 
@@ -22,20 +22,20 @@
 
 `create-plan`은 설치하지 않습니다. 짧은 계획은 Codex 내장 `/plan`, 장기 다단계 작업은 `exec-plan`을 사용합니다.
 외부 OMX용 `code-review`도 설치하지 않습니다. 현재 Codex의 전용 `/review` 기능으로 대체합니다.
-보관된 Fractary 원본의 `log-analyzer`는 특정 로그 구조와 Bash 의존성이 없는 번들 버전으로 교체했습니다.
+`log-analyzer v3.0.0`은 근거 중심의 정상/실패 로그 비교, 최초 차이 추적, signature 보조 분류와 여러 로그·실행 비교를 지원하는 분석 지침입니다. 에뮬레이터와 일반 build/test/runtime 로그에 사용하며 MCP·외부 LLM·고정 로그 형식을 요구하지 않습니다.
 
 ## 설치
 
 Git과 Python 3.10 이상을 준비합니다. 공개 저장소이므로 GitHub 로그인은 필요하지 않습니다.
 
 ```powershell
-git clone --branch feat/emulator-development-skills https://github.com/GimoXagros/ai-work-skills.git
+git clone --branch feat/log-analyzer-v3 https://github.com/GimoXagros/ai-work-skills.git
 cd ai-work-skills
 python install.py
 python setup_tools.py
 ```
 
-이번 28개 스킬 구성은 `feat/emulator-development-skills` 브랜치에 있습니다. 기존 체크아웃에서 이 구성을 쓰려면 작업 내용을 보존한 뒤 해당 브랜치로 전환합니다. main 병합은 이번 작업에 포함하지 않습니다.
+이번 28개 스킬 구성은 `feat/log-analyzer-v3` 브랜치에 있습니다. 기존 체크아웃에서 이 구성을 쓰려면 작업 내용을 보존한 뒤 해당 브랜치로 전환합니다. main 병합은 이번 작업에 포함하지 않습니다.
 
 기본 설치 위치는 `$CODEX_HOME/skills`이며, 환경 변수가 없으면 `~/.codex/skills`입니다.
 `setup_tools.py`는 글리프 생성에 필요한 Pillow와 fontTools를 저장소의 `.venv`에 설치합니다.
