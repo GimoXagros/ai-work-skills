@@ -1,3 +1,11 @@
+# Main release verification — 2026-09-19
+
+Fetched `origin` before integration: remote `main` remained at `06badc7e4b6f6f7f1f2bfde4ec0c23b2ae8a8efc`, with no divergent commits. Fast-forwarded local `main` through `21fb703` (13 emulator skills) and `d2ed83b` (log-analyzer v3), retaining the existing history. Updated the installation guide and release notes for main delivery. The feature-development records below describe their original delivery state.
+
+Final checks on the integrated checkout: 48 unittest tests PASS; all 25 bundled skill format validators PASS; full offline installation, repeated installation and isolated glyph dependency setup PASS. All 28 active entries match their pinned sources: 27 direct installations match SHA-256 file inventories; the existing create-kr-patch plugin matches the pinned revision and complete file content after newline normalization. Its original byte inventory is unchanged.
+
+Local synchronization replaced log-analyzer v2 content with v3; 22 other replacements only synchronize LF/CRLF byte differences. All 23 replaced directories have exact prior-inventory backups under `~/.codex/skill-backups/20260918T153829*Z/` (UTC timestamps; September 19 in Korea). System skills, unrelated local skill files and the existing kr-patch plugin byte inventories remain unchanged. A second full installation reports every entry CURRENT, including plugin reuse. No installer, setup script, source pin or retirement policy was changed for this release. Package/install validation does not establish live implicit skill selection or real emulator/hardware correctness.
+
 # Log analyzer v3 review — 2026-09-19
 
 ## Initial audit and plan

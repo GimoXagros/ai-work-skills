@@ -1,4 +1,6 @@
-# v2026.09.19.1 — log-analyzer v3.0.0
+# v2026.09.19.1 — emulator skill suite and log-analyzer v3.0.0
+
+The default branch `main` now includes the 13 emulator-development skills previously delivered on `feat/emulator-development-skills`, plus the log-analyzer v3 upgrade from `feat/log-analyzer-v3`. The full installation contains 28 active skills; the two retired entries retain their existing preservation policy. See RELEASE_NOTES_v2026.09.17.1.md for the emulator suite and docs/EMULATOR_SKILL_AUDIT.md for routing boundaries.
 
 The existing bundled custom log-analyzer now guides baseline versus failing-run comparison, structural alignment and first-divergence analysis. It retains v2 evidence-first triage, grouping, healthy-window comparisons, redaction and read-only source handling.
 
@@ -12,4 +14,4 @@ Reviewed djm81/log_analyzer_mcp (MIT + Commons Clause), microsoft/log_analyzer (
 
 Validation: 48 unittest tests PASS; skill validator, selected/full installation, tool setup and inventory/backup checks PASS. Five explicit synthetic analysis cases were reviewed separately, not counted as parser or hardware tests. Tests add manifest/frontmatter/reference and offline install/backup contracts. Existing installer, upstream pins, retirement policy and other skill implementations remain unchanged. Active count stays 28. No copyrighted ROM, game assets, temporary logs or generated binaries are included. Real emulator/hardware validation and live implicit skill selection are outside the completed package checks.
 
-Delivery branch: feat/log-analyzer-v3, based on the existing emulator-suite branch. Main is not merged or rewritten.
+Delivery: fast-forward merge into `main`, preserving both feature commits and the existing history. README installation instructions now use `main`. Release v2026.09.19.1 publishes the verified main checkout. Local installation is synchronized through the existing installer; system skills, plugin caches and unrelated local skills are preserved.

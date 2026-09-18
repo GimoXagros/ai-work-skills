@@ -29,13 +29,13 @@
 Git과 Python 3.10 이상을 준비합니다. 공개 저장소이므로 GitHub 로그인은 필요하지 않습니다.
 
 ```powershell
-git clone --branch feat/log-analyzer-v3 https://github.com/GimoXagros/ai-work-skills.git
+git clone --branch main https://github.com/GimoXagros/ai-work-skills.git
 cd ai-work-skills
 python install.py
 python setup_tools.py
 ```
 
-이번 28개 스킬 구성은 `feat/log-analyzer-v3` 브랜치에 있습니다. 기존 체크아웃에서 이 구성을 쓰려면 작업 내용을 보존한 뒤 해당 브랜치로 전환합니다. main 병합은 이번 작업에 포함하지 않습니다.
+28개 스킬 구성은 기본 브랜치 `main`에서 제공합니다. 최신 배포 내용은 [v2026.09.19.1 릴리스](https://github.com/GimoXagros/ai-work-skills/releases/tag/v2026.09.19.1)와 [배포 기록](RELEASE_NOTES_v2026.09.19.1.md)에서 확인할 수 있습니다. 기존 작업 브랜치를 사용 중이라면 작업 내용을 보존한 뒤 `main`으로 전환하고 아래 업데이트 절차를 실행합니다.
 
 기본 설치 위치는 `$CODEX_HOME/skills`이며, 환경 변수가 없으면 `~/.codex/skills`입니다.
 `setup_tools.py`는 글리프 생성에 필요한 Pillow와 fontTools를 저장소의 `.venv`에 설치합니다.
