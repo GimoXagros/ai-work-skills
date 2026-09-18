@@ -28,6 +28,22 @@ class InstallerTests(unittest.TestCase):
             self.assertEqual(again.stdout.count('CURRENT:'), len(manifest['skills']))
             self.assertFalse((Path(temporary) / 'skill-backups').exists())
 
+    def test_list_distinguishes_repository_total_from_selection_without_installing(self):
+        manifest = json.loads((ROOT / 'skills-lock.json').read_text(encoding='utf-8'))
+        bundled = sum(s.get('source') == 'bundled' for s in manifest['skills'])
+        with tempfile.TemporaryDirectory() as temporary:
+            destination = Path(temporary) / 'not-created'
+            for selection, active, retired in [([], len(manifest['skills']), len(manifest['retired_skills'])),
+                                                (['--skill', 'script-translator-limiter'], 2, 0),
+                                                (['--skill', 'create-plan'], 1, 1)]:
+                with self.subTest(selection=selection):
+                    result = self.invoke(destination, '--list', *selection)
+                    self.assertEqual(result.returncode, 0, result.stderr)
+                    self.assertIn(f"Repository-managed active skills: {len(manifest['skills'])} "
+                                  f"(bundled: {bundled}, pinned upstream: {len(manifest['skills']) - bundled})", result.stdout)
+                    self.assertIn(f'Selected entries: {active} active, {retired} retired', result.stdout)
+                    self.assertFalse(destination.exists())
+
     def test_existing_custom_files_are_backed_up(self):
         with tempfile.TemporaryDirectory() as temporary:
             destination = Path(temporary) / 'skills'

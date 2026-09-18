@@ -1,5 +1,7 @@
 # Emulator skill audit
 
+현재 `main`은 기존 15개와 아래 전문 13개를 합한 **28개 전체**를 관리합니다. 이 문서의 기준 커밋과 기존/신규 구분은 추가 당시 감사 기록이며 현재 관리 대상을 나누는 기준이 아닙니다. 최신 목록은 [MANAGED_SKILLS.md](MANAGED_SKILLS.md), 설치 대상의 기준은 `skills-lock.json`입니다.
+
 매니페스트/릴리스 검토일 표기는 사용자 지정 2026-09-17이며 실제 감사·작성·검증 수행일은 2026-09-18입니다.
 기준: clean main `06badc7e4b6f6f7f1f2bfde4ec0c23b2ae8a8efc`, origin/main과 동일. 변경 전 31개 테스트 PASS.
 

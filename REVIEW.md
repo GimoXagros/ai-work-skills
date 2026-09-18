@@ -1,3 +1,11 @@
+# 전체 28개 관리 재확인 — 2026-09-19
+
+원격 `main`의 `072ab53`을 확인했으며 활성 28개는 이미 `skills-lock.json`에 등록되어 있었습니다. 전문 13개도 별도 수동 설치 대상이 아니라 같은 설치기의 전체/선택 설치·업데이트·백업 대상입니다. 과거 2026-09-14 검토표의 “현재 15개” 문구를 당시 기록으로 정정하고, README와 [전체 관리 목록](docs/MANAGED_SKILLS.md)에 25개 번들 + 3개 고정 upstream 구성을 명시했습니다.
+
+`install.py --list`에 매니페스트 기반 저장소 관리 총수와 선택된 항목 수를 구분하는 요약을 추가했습니다. 선택 설치의 의존성·은퇴 대체 항목을 포함한 수치와 설치하지 않는 목록 조회를 검증하는 회귀 검사도 추가했습니다. 목록은 저장소의 관리 범위를 표시하며 PC 설치 상태를 판정하는 명령은 아닙니다.
+
+검증: 전체 49개 unittest PASS. 기존 캐시가 없는 임시 위치에 GitHub `main`의 `072ab53`을 새로 clone하고, 별도 설치 위치를 지정해 upstream 3개 다운로드를 포함한 28개 전체 설치 PASS. 설치된 이름 집합과 모든 파일 SHA-256 inventory가 각각 고정 원본과 일치했고, 오프라인 재설치 28개 모두 CURRENT였습니다. 로컬도 동일 원본과 일치하며 재설치 결과 직접 설치 27개 CURRENT + 동일 pin 플러그인 1개 CURRENT입니다. 플러그인 내용 비교는 파일 집합과 LF/CRLF 정규화 후 전체 바이트를 비교했습니다. 원본 pin·스킬 구현·은퇴/백업 정책은 이번 정정에서 변경하지 않았습니다.
+
 # Main release verification — 2026-09-19
 
 Fetched `origin` before integration: remote `main` remained at `06badc7e4b6f6f7f1f2bfde4ec0c23b2ae8a8efc`, with no divergent commits. Fast-forwarded local `main` through `21fb703` (13 emulator skills) and `d2ed83b` (log-analyzer v3), retaining the existing history. Updated the installation guide and release notes for main delivery. The feature-development records below describe their original delivery state.
@@ -147,12 +155,11 @@ The following 2026-09-18 and 2026-09-14 records retain their original counts, ve
 
 아래 내용의 15개/31개 숫자, 검토일과 upstream 최신성 판정은 그 당시 기록이며 이번 실행 결과를 의미하지 않습니다. create-kr-patch의 현재 제공 방식은 고정 upstream 또는 동일 커밋 플러그인 재사용으로 README에 명확히 기록했습니다.
 
-# 현재 스킬 검토표
+# 과거 스킬 검토표 — 2026-09-14 당시 15개
 
 확인일: **2026-09-14**
 
-이 문서는 [skills-lock.json](skills-lock.json)에 따라 현재 설치되는 **15개 스킬**(은퇴 항목 2개 제외)만 설명합니다.
-구성은 고정된 외부 원본 3개와 저장소 번들 12개입니다. 현재 이 PC에서 노출된 15개 스킬은 모두 번들/직접 설치 기준으로 활성 상태입니다.
+아래 표는 **2026-09-14 당시 15개 스킬**(은퇴 항목 2개 제외)의 기록입니다. 당시 구성은 고정된 외부 원본 3개와 저장소 번들 12개였습니다. 최신 매니페스트는 **28개 전체**를 관리하며, 현재 목록은 [전체 관리 목록](docs/MANAGED_SKILLS.md)을 기준으로 확인합니다.
 
 ## 교체 판정
 
@@ -164,7 +171,7 @@ The following 2026-09-18 and 2026-09-14 records retain their original counts, ve
 
 Codex 공식 문서는 `/review`가 전용 리뷰어를 실행해 변경 없이 우선순위화된 결과를 제공한다고 설명합니다. 스킬 자체는 여전히 지원되며, 공식 예시에도 장기 작업용 Exec Plan이 포함됩니다.
 
-## 현재 설치 목록
+## 2026-09-14 당시 설치 목록
 
 | 스킬 | 제공 방식 | 용도 | 범위와 제한 |
 |---|---|---|---|

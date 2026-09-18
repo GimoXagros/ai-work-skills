@@ -7,6 +7,8 @@
 현재 Codex 환경에서 사용하는 **28개 스킬**(은퇴 항목 2개 제외)을 동일한 버전으로 설치하는 공개 저장소입니다.
 매니페스트 검토일은 **2026-09-19**이며, 전체 판정과 제한 사항은 [REVIEW.md](REVIEW.md)에 정리되어 있습니다.
 
+**28개 모두 이 저장소의 관리 대상**입니다. 기존 15개와 에뮬레이터 전문 13개는 모두 [skills-lock.json](skills-lock.json)에 등록되어 기본 설치·업데이트·선택 설치·변경 전 백업에 같은 설치기를 사용합니다. 13개는 별도 설치 항목이 아닙니다. 현재 구성은 저장소 번들 25개와 고정 upstream 3개이며, [전체 관리 목록](docs/MANAGED_SKILLS.md)에서 확인할 수 있습니다. `python install.py --list`는 저장소 관리 총수와 선택된 항목 수를 구분해서 표시합니다. 과거 문서의 15개는 2026-09-14 당시 수치입니다.
+
 ## 현재 설치되는 스킬
 
 | 분류 | 스킬 |
@@ -35,7 +37,7 @@ python install.py
 python setup_tools.py
 ```
 
-28개 스킬 구성은 기본 브랜치 `main`에서 제공합니다. 최신 배포 내용은 [v2026.09.19.1 릴리스](https://github.com/GimoXagros/ai-work-skills/releases/tag/v2026.09.19.1)와 [배포 기록](RELEASE_NOTES_v2026.09.19.1.md)에서 확인할 수 있습니다. 기존 작업 브랜치를 사용 중이라면 작업 내용을 보존한 뒤 `main`으로 전환하고 아래 업데이트 절차를 실행합니다.
+28개 스킬 구성은 기본 브랜치 `main`에서 제공합니다. 최신 배포 내용은 [v2026.09.19.2 릴리스](https://github.com/GimoXagros/ai-work-skills/releases/tag/v2026.09.19.2)와 [배포 기록](RELEASE_NOTES_v2026.09.19.2.md)에서 확인할 수 있습니다. 기존 작업 브랜치를 사용 중이라면 작업 내용을 보존한 뒤 `main`으로 전환하고 아래 업데이트 절차를 실행합니다.
 
 기본 설치 위치는 `$CODEX_HOME/skills`이며, 환경 변수가 없으면 `~/.codex/skills`입니다.
 `setup_tools.py`는 글리프 생성에 필요한 Pillow와 fontTools를 저장소의 `.venv`에 설치합니다.

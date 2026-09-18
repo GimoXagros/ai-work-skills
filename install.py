@@ -116,6 +116,11 @@ def main():
                     pending.append(dependency)
         skills = [s for s in skills if s['name'] in selected]
     if args.list:
+        bundled_count = sum(s.get('source') == 'bundled' for s in manifest['skills'])
+        print(f"Repository-managed active skills: {len(manifest['skills'])} "
+              f"(bundled: {bundled_count}, pinned upstream: {len(manifest['skills']) - bundled_count})")
+        print(f"Repository-managed retired skills: {len(manifest.get('retired_skills', []))}")
+        print(f"Selected entries: {len(skills)} active, {len(retired)} retired")
         for s in skills:
             origin = s['path'] if s.get('source') == 'bundled' else f"{s['repo']}@{s['ref'][:12]}"
             print(f"{s['requested_name']}: {s['name']} [{s['status']}] {origin}")
