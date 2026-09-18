@@ -1,0 +1,213 @@
+[
+  {
+    "project": "GameYob",
+    "request": "SGB DATA transfer accepted but host DSP output fails",
+    "primary": "sgb-host-debugger",
+    "supporting": [
+      "cpu-isa-differential-analyzer"
+    ],
+    "boundary": "Protocol → host/SPC/DSP boundary; not ordinary GB CPU or browser QA."
+  },
+  {
+    "project": "GameYob",
+    "request": "SM83 opcode changes carry flag for a minimal vector",
+    "primary": "cpu-isa-differential-analyzer",
+    "supporting": [],
+    "boundary": "Guest architectural state; not SGB packet handling."
+  },
+  {
+    "project": "GameYob",
+    "request": "MBC bank register selects wrong ROM window",
+    "primary": "cartridge-mapper-peripheral-analyzer",
+    "supporting": [
+      "re"
+    ],
+    "boundary": "Bus decoding; not ROM pointer repair."
+  },
+  {
+    "project": "GameYob",
+    "request": "Two link peers diverge after a reordered NiFi packet",
+    "primary": "gb-link-nifi-debugger",
+    "supporting": [
+      "timing-interrupt-dma-analyzer"
+    ],
+    "boundary": "Correlate guest serial and transport separately."
+  },
+  {
+    "project": "GameYob",
+    "request": "OBJ/window priority corrupts a stable scanline",
+    "primary": "graphics-vram-pipeline-debugger",
+    "supporting": [],
+    "boundary": "Pixel → renderer/register trace; not web frontend layout."
+  },
+  {
+    "project": "GameYob",
+    "request": "Audio underrun coincides with changed timer IRQ ordering",
+    "primary": "timing-interrupt-dma-analyzer",
+    "supporting": [],
+    "boundary": "First scheduled event divergence, not guessed DSP semantics."
+  },
+  {
+    "project": "GameYob",
+    "request": "Compatibility audio/graphics matrix changed after a core patch",
+    "primary": "emulator-regression-tester",
+    "supporting": [
+      "log-analyzer"
+    ],
+    "boundary": "Before/after functional coverage; no fabricated game outcomes."
+  },
+  {
+    "project": "GameYob",
+    "request": "Confirmed passing/failing revisions need first bad commit",
+    "primary": "git-bisect-regression-debugger",
+    "supporting": [
+      "emulator-regression-tester"
+    ],
+    "boundary": "Verify endpoints and deterministic predicate before searching."
+  },
+  {
+    "project": "GBARunner3",
+    "request": "ARM7 guest vs ARM946 host LDM state differs",
+    "primary": "cpu-isa-differential-analyzer",
+    "supporting": [
+      "arm7-arm946-jit-analyzer"
+    ],
+    "boundary": "Architectural semantics first; translation is conditional."
+  },
+  {
+    "project": "GBARunner3",
+    "request": "Thumb hicode fails after relocation and cache reuse",
+    "primary": "arm7-arm946-jit-analyzer",
+    "supporting": [
+      "binary-re"
+    ],
+    "boundary": "Translation/mapping/cache ownership, not ROM-internal pointers."
+  },
+  {
+    "project": "GBARunner3",
+    "request": "BG palette is stale in final DS framebuffer",
+    "primary": "graphics-vram-pipeline-debugger",
+    "supporting": [],
+    "boundary": "Separate guest palette from host display transfers."
+  },
+  {
+    "project": "GBARunner3",
+    "request": "DMA transfer completion and IRQ service order changed",
+    "primary": "timing-interrupt-dma-analyzer",
+    "supporting": [],
+    "boundary": "Request/completion/service timestamps, not build log grouping."
+  },
+  {
+    "project": "GBARunner3",
+    "request": "Timer IRQ serviced at the wrong guest cycle",
+    "primary": "timing-interrupt-dma-analyzer",
+    "supporting": [],
+    "boundary": "Guest clock units and interrupt masks must be traced."
+  },
+  {
+    "project": "GBARunner3",
+    "request": "EEPROM/SRAM/Flash data lost after process restart",
+    "primary": "save-nvram-state-validator",
+    "supporting": [
+      "cartridge-mapper-peripheral-analyzer"
+    ],
+    "boundary": "Persistence round trip; device selection only when implicated."
+  },
+  {
+    "project": "GBARunner3",
+    "request": "ARM9 linker fails under project CI toolchain",
+    "primary": "nds-homebrew-build-validator",
+    "supporting": [
+      "log-analyzer"
+    ],
+    "boundary": "Use project CI version, not an arbitrary global upgrade."
+  },
+  {
+    "project": "GBARunner3",
+    "request": "Verified game boot regression starts between two revisions",
+    "primary": "git-bisect-regression-debugger",
+    "supporting": [
+      "emulator-regression-tester"
+    ],
+    "boundary": "Commit boundary isolation; no source history rewrite."
+  },
+  {
+    "project": "NitroSwan",
+    "request": "V30MZ divide/prefix/segment vector differs in flags",
+    "primary": "v30mz-cpu-analyzer",
+    "supporting": [],
+    "boundary": "Model-specific CPU semantics; x86 is not a hardware oracle."
+  },
+  {
+    "project": "NitroSwan",
+    "request": "V30MZ instruction cycle validation vector fails",
+    "primary": "v30mz-cpu-analyzer",
+    "supporting": [
+      "timing-interrupt-dma-analyzer"
+    ],
+    "boundary": "CPU cycles first; peripheral scheduling conditional."
+  },
+  {
+    "project": "NitroSwan",
+    "request": "Sphinx DMA request precedes a scanline IRQ unexpectedly",
+    "primary": "timing-interrupt-dma-analyzer",
+    "supporting": [
+      "wonderswan-hardware-analyzer"
+    ],
+    "boundary": "Ordered event evidence with WonderSwan model authority."
+  },
+  {
+    "project": "NitroSwan",
+    "request": "Color sprite/window hardware-test signature differs",
+    "primary": "wonderswan-hardware-analyzer",
+    "supporting": [
+      "graphics-vram-pipeline-debugger"
+    ],
+    "boundary": "Guest model/register behavior; not raw tile compression."
+  },
+  {
+    "project": "NitroSwan",
+    "request": "Cartridge RTC register latch sequence fails",
+    "primary": "cartridge-mapper-peripheral-analyzer",
+    "supporting": [
+      "wonderswan-hardware-analyzer"
+    ],
+    "boundary": "Cartridge protocol rather than clock-file persistence."
+  },
+  {
+    "project": "NitroSwan",
+    "request": "Internal EEPROM content not restored after restart",
+    "primary": "save-nvram-state-validator",
+    "supporting": [
+      "wonderswan-hardware-analyzer"
+    ],
+    "boundary": "Persistence; distinguish internal and cartridge EEPROM."
+  },
+  {
+    "project": "NitroSwan",
+    "request": "ROM cartridge bank window decoded incorrectly",
+    "primary": "cartridge-mapper-peripheral-analyzer",
+    "supporting": [
+      "wonderswan-hardware-analyzer"
+    ],
+    "boundary": "Cartridge address decoding, not V30MZ instruction semantics."
+  },
+  {
+    "project": "NitroSwan",
+    "request": "WonderSwan serial register completion differs by model",
+    "primary": "wonderswan-hardware-analyzer",
+    "supporting": [
+      "timing-interrupt-dma-analyzer"
+    ],
+    "boundary": "WS peripheral, not GB NiFi or generic wireless setup."
+  },
+  {
+    "project": "NitroSwan",
+    "request": "NDS build regression leaves missing ARM7 output",
+    "primary": "nds-homebrew-build-validator",
+    "supporting": [
+      "git-bisect-regression-debugger"
+    ],
+    "boundary": "Build artifact first; bisect only after endpoints confirmed."
+  }
+]

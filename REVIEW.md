@@ -1,3 +1,45 @@
+# Emulator suite review — 2026-09-18
+
+사용자 지정 manifest 검토일/릴리스 버전일: 2026-09-17. 실행일: 2026-09-18.
+신규 13개 bundled/custom 1.0.0 추가로 활성 스킬은 28개, retired 2개입니다.
+기존 15개 원본 항목·upstream pin·retired 정책을 변경하지 않았으며 기존 스킬 폴더, install.py, setup_tools.py, vendor, retired 구현도 수정하지 않습니다.
+
+[전체 역할·의존성·중복·출처·프로젝트 감사](docs/EMULATOR_SKILL_AUDIT.md)와 [라우팅 예시](tests/fixtures/emulator-routing.json)를 함께 검토했습니다. 모든 13개 역할은 별도의 분석 단위를 갖고 기존 log/binary/ROM/font/frontend 도구는 조건부 보조로만 연결합니다. 신규 지침은 직접 작성했으며 외부 스킬이나 바이너리, ROM/게임 자산을 복사하지 않았습니다.
+
+## 이번 실행 검증
+
+| 검사 | 결과 | 실제 범위 |
+|---|---|---|
+| 변경 전 baseline | PASS | 31 tests |
+| skill-creator quick_validate | PASS | 신규 13개 frontmatter/YAML/name/placeholder; Windows UTF-8 모드 |
+| install.py | PASS | 기존 14 direct CURRENT + 동일 커밋 플러그인 CURRENT, 신규 13 INSTALLED |
+| setup_tools.py | PASS | repository .venv의 pinned Pillow/fontTools, 전역 패키지 변경 없음 |
+| .venv Python unittest discover | PASS | 43 tests (기존 31 + 신규 12; 선택 설치 13개 subcase 포함) |
+| install.py --list | PASS | 활성 28개, 신규 13개 모두 표시; retired 2개 |
+| cache 없는 bundled offline install | PASS | 25개 bundled skill, vendor/upstream cache 없는 임시 checkout |
+| --skill 선택 설치 | PASS | 신규 13개 각각 temporary destination, 다른 사용자 파일 보존 |
+| 기본 destination offline 재실행 | PASS | direct 27 CURRENT + plugin 1 CURRENT, replacement 없음 |
+| 실제 local inventory | PASS | 신규 13개 source SHA-256 inventory와 일치; 기존 모든 local snapshot 그대로 |
+| 기존 implementation preservation | PASS | git baseline 대비 기존 bundled source, installer/setup, vendor/retired 변경 없음 |
+| .system / kr-patch plugin cache | PASS | 설치 전후 inventory hash 일치 |
+| backup / retired / aliases / dependencies | PASS | 기존 통합 테스트 및 unknown user-owned code-review 보존 검사 |
+| git diff --check | PASS | 신규 스킬·manifest·문서·tests 전체 변경 검사 |
+| description routing 예시 | PASS (문서 검사) | 25개 합성 예시의 name 참조·범위·중복 검토; live 자동선택 아님 |
+| 명시 호출 기반 독립 행동 검토 | PASS (합성 자료) | SGB OBJ, paired NiFi, ARM hicode 3사례; 추가 증거와 NOT RUN을 올바르게 유지 |
+| 실제 Codex skill discovery / 암묵적 자동선택 | NOT RUN | 설치 파일 확인 완료; 현재 작업 context의 실시간 갱신을 확인할 수 없음 |
+| DS/DSi/SGB/WonderSwan 실기·게임 호환성 | NOT RUN | 본 작업은 지침·설치·합성 검증에 한정 |
+
+실행 명령은 Windows 인코딩 문제를 피하려고 Python `-X utf8`을 사용했습니다. 초기 validator의 cp949 읽기와 description의 YAML 콜론 문제를 수정한 뒤 최종 13개 모두 PASS했습니다. 최종 reread에서 ARM 해시 설명의 반복을 제거했고 설치기로 새 지침을 동기화했습니다. 이 refinement 이전 신규 ARM 지침은 installer의 정상 backup에 보존되었으며 기존 15개를 교체한 작업은 없습니다.
+로컬 inventory snapshot은 ignored .cache에만 두고 자산·인증 정보는 기록하지 않았습니다. Codex UI 자동선택이나 실기 결과를 테스트 수에 포함하지 않았습니다.
+
+## 해석 한계
+
+파일·설치·합성 fixture 검사는 emulator core correctness 또는 hardware accuracy 검사가 아닙니다. PC tests / reference emulator observations / real hardware tests를 별도 기록하도록 지시합니다. 실제 DS/DSi, SGB 및 WonderSwan 실행과 copyrighted ROM 기반 테스트는 수행하지 않습니다. Codex discovery/자동선택/이미 실행 중 작업 적용은 재시작 또는 다음 턴에서 별도 확인해야 합니다.
+
+## 이전 검토 기록 — 2026-09-14 기준
+
+아래 내용의 15개/31개 숫자, 검토일과 upstream 최신성 판정은 그 당시 기록이며 이번 실행 결과를 의미하지 않습니다. create-kr-patch의 현재 제공 방식은 고정 upstream 또는 동일 커밋 플러그인 재사용으로 README에 명확히 기록했습니다.
+
 # 현재 스킬 검토표
 
 확인일: **2026-09-14**

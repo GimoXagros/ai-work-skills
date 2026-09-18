@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "checked_at": "2026-09-17",
+  "checked_at": "2026-09-14",
   "skills": [
     {
       "name": "exec-plan",
@@ -146,123 +146,6 @@
       "upstream_repo": "vgrichina/re-skill",
       "upstream_ref": "64c3bffb54ae4b9d99804a03fa4f179f4dd080c5",
       "note": "MIT retro-game reverse-engineering workflow adapted for Codex."
-    },
-    {
-      "name": "emulator-regression-tester",
-      "requested_name": "emulator-regression-tester",
-      "source": "bundled",
-      "path": "skills/emulator-regression-tester",
-      "status": "custom",
-      "version": "1.0.0",
-      "note": "Produce a reproducible compatibility matrix that separates observed regressions from missing coverage."
-    },
-    {
-      "name": "cpu-isa-differential-analyzer",
-      "requested_name": "cpu-isa-differential-analyzer",
-      "source": "bundled",
-      "path": "skills/cpu-isa-differential-analyzer",
-      "status": "custom",
-      "version": "1.0.0",
-      "note": "Find the first architectural state mismatch without treating the host ISA as the guest specification."
-    },
-    {
-      "name": "timing-interrupt-dma-analyzer",
-      "requested_name": "timing-interrupt-dma-analyzer",
-      "source": "bundled",
-      "path": "skills/timing-interrupt-dma-analyzer",
-      "status": "custom",
-      "version": "1.0.0",
-      "note": "Explain a failure as an observed event sequence against an evidence-backed expected sequence."
-    },
-    {
-      "name": "git-bisect-regression-debugger",
-      "requested_name": "git-bisect-regression-debugger",
-      "source": "bundled",
-      "path": "skills/git-bisect-regression-debugger",
-      "status": "custom",
-      "version": "1.0.0",
-      "note": "Identify and verify a regression-inducing commit while preserving user work and separating setup failures from bad behavior."
-    },
-    {
-      "name": "nds-homebrew-build-validator",
-      "requested_name": "nds-homebrew-build-validator",
-      "source": "bundled",
-      "path": "skills/nds-homebrew-build-validator",
-      "status": "custom",
-      "version": "1.0.0",
-      "note": "Establish whether the configured toolchain produces the intended DS/DSi artifact and explain build failures at their first cause."
-    },
-    {
-      "name": "graphics-vram-pipeline-debugger",
-      "requested_name": "graphics-vram-pipeline-debugger",
-      "source": "bundled",
-      "path": "skills/graphics-vram-pipeline-debugger",
-      "status": "custom",
-      "version": "1.0.0",
-      "note": "Connect a visible defect to the first incorrect rendering input, transfer or composition decision."
-    },
-    {
-      "name": "save-nvram-state-validator",
-      "requested_name": "save-nvram-state-validator",
-      "source": "bundled",
-      "path": "skills/save-nvram-state-validator",
-      "status": "custom",
-      "version": "1.0.0",
-      "note": "Verify persistent bytes and emulated save-device behavior without risking the user’s only save."
-    },
-    {
-      "name": "cartridge-mapper-peripheral-analyzer",
-      "requested_name": "cartridge-mapper-peripheral-analyzer",
-      "source": "bundled",
-      "path": "skills/cartridge-mapper-peripheral-analyzer",
-      "status": "custom",
-      "version": "1.0.0",
-      "note": "Identify the implemented cartridge device and its first incorrect bus transaction or state transition."
-    },
-    {
-      "name": "sgb-host-debugger",
-      "requested_name": "sgb-host-debugger",
-      "source": "bundled",
-      "path": "skills/sgb-host-debugger",
-      "status": "custom",
-      "version": "1.0.0",
-      "note": "Trace a Super Game Boy command across GB protocol, host state and composition while respecting the implemented host subset."
-    },
-    {
-      "name": "gb-link-nifi-debugger",
-      "requested_name": "gb-link-nifi-debugger",
-      "source": "bundled",
-      "path": "skills/gb-link-nifi-debugger",
-      "status": "custom",
-      "version": "1.0.0",
-      "note": "Separate guest serial state-machine errors from network transport and synchronization failures."
-    },
-    {
-      "name": "arm7-arm946-jit-analyzer",
-      "requested_name": "arm7-arm946-jit-analyzer",
-      "source": "bundled",
-      "path": "skills/arm7-arm946-jit-analyzer",
-      "status": "custom",
-      "version": "1.0.0",
-      "note": "Find whether a failure originates in guest semantics, translated bytes, memory mapping or host execution maintenance."
-    },
-    {
-      "name": "v30mz-cpu-analyzer",
-      "requested_name": "v30mz-cpu-analyzer",
-      "source": "bundled",
-      "path": "skills/v30mz-cpu-analyzer",
-      "status": "custom",
-      "version": "1.0.0",
-      "note": "Diagnose V30MZ CPU behavior while keeping compatible x86 behavior and model-specific evidence separate."
-    },
-    {
-      "name": "wonderswan-hardware-analyzer",
-      "requested_name": "wonderswan-hardware-analyzer",
-      "source": "bundled",
-      "path": "skills/wonderswan-hardware-analyzer",
-      "status": "custom",
-      "version": "1.0.0",
-      "note": "Trace WonderSwan peripheral integration from guest registers and bus events to emulated output for the selected machine model."
     }
   ],
   "retired_skills": [
