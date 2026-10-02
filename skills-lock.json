@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "checked_at": "2026-09-19",
+  "checked_at": "2026-10-02",
   "skills": [
     {
       "name": "exec-plan",
@@ -263,6 +263,17 @@
       "status": "custom",
       "version": "1.0.0",
       "note": "Trace WonderSwan peripheral integration from guest registers and bus events to emulated output for the selected machine model."
+    },
+    {
+      "name": "free-llm-apis",
+      "requested_name": "free-llm-apis",
+      "source": "bundled",
+      "path": "skills/free-llm-apis",
+      "status": "current",
+      "upstream_repo": "mnfst/awesome-free-llm-apis",
+      "upstream_ref": "167013ff729e30f3a92bb8d416062d6c34a84507",
+      "license": "CC0-1.0",
+      "note": "Upstream skill and provider references for selecting and configuring no-cost LLM API tiers; API keys remain user-managed and must not be committed."
     }
   ],
   "retired_skills": [
