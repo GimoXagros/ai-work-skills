@@ -1,0 +1,7 @@
+version: 2
+updates:
+  - package-ecosystem: "pip"
+    directory: "/skills/image-glyph-generator"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 5
