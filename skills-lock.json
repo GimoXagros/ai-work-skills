@@ -43,7 +43,7 @@
       "requested_name": "create-retro-game-kr-patch",
       "repo": "mcpads/create-retro-game-kr-patch",
       "path": "skills/create-kr-patch",
-      "ref": "56b31cc138926d769de97820df76e11beec6abb0",
+      "ref": "10de53e790535ad656ddccf916759661c4269f68",
       "status": "current",
       "note": "Canonical skill name is create-kr-patch; stable plugin version 3.2.0."
     },
@@ -73,10 +73,10 @@
       "source": "bundled",
       "path": "skills/binary-re",
       "status": "adapted",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "upstream_repo": "2389-research/binary-re",
-      "upstream_ref": "42aee9063f3f3d52616700df3aa16df82b848604",
-      "note": "MIT upstream adapted for standalone Codex with restored references and safe dependency inspection."
+      "upstream_ref": "31d0a3fdf705ed78c9d8f7d7c1aef673ad15a3a0",
+      "note": "MIT upstream reviewed through the pinned commit and adapted for standalone Codex with restored references, local phase routing, memory fallbacks and safe static dependency inspection."
     },
     {
       "name": "image-glyph-generator",

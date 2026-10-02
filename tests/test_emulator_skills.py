@@ -22,6 +22,7 @@ NEW = {
     'sgb-host-debugger', 'gb-link-nifi-debugger', 'arm7-arm946-jit-analyzer',
     'v30mz-cpu-analyzer', 'wonderswan-hardware-analyzer',
 }
+ADDED_AFTER_EMULATOR = {'free-llm-apis'}
 SECTIONS = ['Purpose', 'When to Use', 'When Not to Use', 'Inputs', 'Workflow',
             'Evidence Requirements', 'Verification', 'Output', 'Guardrails']
 
@@ -43,7 +44,8 @@ class EmulatorSkillTests(unittest.TestCase):
 
     def test_inventory_and_bundled_contract(self):
         baseline = json.loads((ROOT / 'tests/fixtures/pre-emulator-manifest.json').read_text(encoding='utf-8'))
-        self.assertEqual(set(self.by_name) - {s['name'] for s in baseline['skills']}, NEW)
+        self.assertEqual(set(self.by_name) - {s['name'] for s in baseline['skills']},
+                         NEW | ADDED_AFTER_EMULATOR)
         self.assertEqual(len(NEW), 13)
         self.assertEqual(self.manifest['schema_version'], 2)
         self.assertRegex(self.manifest['checked_at'], r'^\d{4}-\d{2}-\d{2}$')
@@ -61,14 +63,16 @@ class EmulatorSkillTests(unittest.TestCase):
     def test_existing_entries_pins_and_retirement_unchanged(self):
         baseline = json.loads((ROOT / 'tests/fixtures/pre-emulator-manifest.json').read_text(encoding='utf-8'))
         self.assertEqual(len(baseline['skills']), 15)
+        allowed_changes = {
+            'log-analyzer': ('version', 'note'),
+            'create-kr-patch': ('ref',),
+            'binary-re': ('version', 'upstream_ref', 'note'),
+        }
         for item in baseline['skills']:
             current = self.by_name[item['name']]
-            if item['name'] == 'log-analyzer':
-                # v3 intentionally changes only version/note; keep historical fixture intact.
-                self.assertEqual({k: v for k, v in current.items() if k not in ('version', 'note')},
-                                 {k: v for k, v in item.items() if k not in ('version', 'note')})
-            else:
-                self.assertEqual(current, item)
+            omitted = allowed_changes.get(item['name'], ())
+            self.assertEqual({k: v for k, v in current.items() if k not in omitted},
+                             {k: v for k, v in item.items() if k not in omitted})
         self.assertEqual(self.manifest['retired_skills'], baseline['retired_skills'])
         self.assertEqual(self.manifest['unresolved'], baseline['unresolved'])
 
@@ -185,7 +189,7 @@ class EmulatorSkillTests(unittest.TestCase):
         section = text.split('## 현재 설치되는 스킬')[1].split('## 설치')[0]
         for name in self.by_name:
             self.assertIn('`' + name + '`', section)
-        for category in ['계획·요구사항', '품질·분석', '지식 관리', '역공학·한글화',
+        for category in ['계획·요구사항', '품질·분석', '지식 관리', 'LLM API 설정', '역공학·한글화',
                          '에뮬레이터 공통 개발', 'GameYob', 'GBARunner3', 'NitroSwan']:
             self.assertIn('| ' + category + ' |', section)
 

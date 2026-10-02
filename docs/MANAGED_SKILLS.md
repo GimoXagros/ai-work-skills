@@ -10,10 +10,10 @@
 | `deep-interview` | `Yeachan-Heo/oh-my-codex/skills/deep-interview` | `cb955b0d5becbef76d2c1f0096b6e1f238e1e7f7` |
 | `frontend-testing-debugging` | `openai/plugins/plugins/build-web-apps/skills/frontend-testing-debugging` | `1dc195897af4161d039b80d8471ec0a10c9bbc89` |
 | `log-analyzer` | `skills/log-analyzer` | `3.0.0` |
-| `create-kr-patch` | `mcpads/create-retro-game-kr-patch/skills/create-kr-patch` | `56b31cc138926d769de97820df76e11beec6abb0` |
+| `create-kr-patch` | `mcpads/create-retro-game-kr-patch/skills/create-kr-patch` | `10de53e790535ad656ddccf916759661c4269f68` |
 | `akm-workflow` | `skills/akm-workflow` | `1.0.0` |
 | `gba-pointer-fixer` | `skills/gba-pointer-fixer` | `1.0.0` |
-| `binary-re` | `skills/binary-re` | `1.1.0` |
+| `binary-re` | `skills/binary-re`, [2389-research/binary-re](https://github.com/2389-research/binary-re/tree/31d0a3fdf705ed78c9d8f7d7c1aef673ad15a3a0/skills/binary-re) | `1.2.0` |
 | `image-glyph-generator` | `skills/image-glyph-generator` | `1.0.0` |
 | `encoding-mapper` | `skills/encoding-mapper` | `1.0.0` |
 | `nftr-font-editor` | `skills/nftr-font-editor` | `1.0.0` |

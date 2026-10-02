@@ -27,7 +27,7 @@ class LogAnalyzerTests(unittest.TestCase):
         self.assertEqual(entry['status'], 'custom')
         self.assertFalse(entry.get('requires'))
         self.assertFalse(entry.get('tool_requirements'))
-        self.assertEqual(manifest['checked_at'], '2026-09-19')
+        self.assertRegex(manifest['checked_at'], r'^\d{4}-\d{2}-\d{2}$')
 
     def test_frontmatter_modes_and_major_sections(self):
         text = (SKILL / 'SKILL.md').read_text(encoding='utf-8')
