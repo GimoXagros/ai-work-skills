@@ -1,3 +1,12 @@
+# 현재 관리 스킬 검토 - 2026-10-07
+
+활성 30개(번들 27개, 고정 upstream 3개), 은퇴 2개, unresolved 0개입니다. 현재 전체 목록은 docs/MANAGED_SKILLS.md와 skills-lock.json을 기준으로 합니다. 아래 과거 검토는 당시 결과로 보존합니다.
+
+- humanize-korean: epoko77-ai/im-not-ai 2f3d943d08056b612a92e12bfb72ea94dd2acd18, v2.3.2, MIT. Codex 엔트리포인트, 실제 참조 폴더, 공용 런타임 7개와 라이선스를 포함합니다. 외부 저장소 경로 의존 wrapper를 제외하고 verify_change_rate의 참조 검색을 번들 내부로 변경했습니다. Windows Python 호출도 반영했습니다.
+- 기존 원본 7개 HEAD 비교 완료. deep-interview, frontend-testing-debugging, free-llm-apis는 저장소 HEAD만 변경됐고 스킬 경로 diff/tree는 동일하므로 기존 pin을 유지합니다. 나머지 4개 원본 HEAD도 기존 pin과 같습니다.
+- origin/main a75582b의 image-glyph-generator 의존성 갱신을 수신했습니다.
+- 패키징·설치 및 Python 실행 검사는 실제 한국어 윤문 품질이나 자동 스킬 선택을 보장하지 않습니다.
+
 # free-llm-apis 편입 검토 — 2026-10-02
 
 `mnfst/awesome-free-llm-apis`의 `free-llm-apis` 스킬을 원본 커밋 `167013ff729e30f3a92bb8d416062d6c34a84507` 기준으로 확인했습니다. 원본은 `SKILL.md`와 공급자별 참조 문서 2개로 구성되며 실행 스크립트나 패키지 의존성이 없습니다. 저장소 라이선스는 CC0 1.0입니다.
@@ -227,3 +236,5 @@ Codex 공식 문서는 `/review`가 전용 리뷰어를 실행해 변경 없이 
 
 - [Codex 스킬 문서](https://developers.openai.com/codex/skills)
 - [Codex 코드 리뷰 문서](https://developers.openai.com/codex/code-review)
+
+검증: skill-creator validator PASS, 저장소 unittest 49개 PASS, 설치된 독립 런타임의 한국어 입력 준비·변경률·보존 게이트·서법 복원 smoke PASS, install.py 설치 지문 검사 PASS, install.py --list 30 active / 2 retired / Unresolved 없음, git diff --check PASS. 실제 LLM 윤문과 암묵적 자동 선택은 미실행.

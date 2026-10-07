@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "checked_at": "2026-10-02",
+  "checked_at": "2026-10-07",
   "skills": [
     {
       "name": "exec-plan",
@@ -274,6 +274,18 @@
       "upstream_ref": "167013ff729e30f3a92bb8d416062d6c34a84507",
       "license": "CC0-1.0",
       "note": "Upstream skill and provider references for selecting and configuring no-cost LLM API tiers; API keys remain user-managed and must not be committed."
+    },
+    {
+      "name": "humanize-korean",
+      "requested_name": "humanize-korean",
+      "source": "bundled",
+      "path": "skills/humanize-korean",
+      "status": "adapted",
+      "version": "2.3.2-codex.1",
+      "upstream_repo": "epoko77-ai/im-not-ai",
+      "upstream_ref": "2f3d943d08056b612a92e12bfb72ea94dd2acd18",
+      "license": "MIT",
+      "note": "Self-contained Codex bundle: materialized references, shared runtime scripts, portable reference lookup and Windows Python invocation; upstream meaning-preservation gates retained."
     }
   ],
   "retired_skills": [

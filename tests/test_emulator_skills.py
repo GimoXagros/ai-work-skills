@@ -22,7 +22,7 @@ NEW = {
     'sgb-host-debugger', 'gb-link-nifi-debugger', 'arm7-arm946-jit-analyzer',
     'v30mz-cpu-analyzer', 'wonderswan-hardware-analyzer',
 }
-ADDED_AFTER_EMULATOR = {'free-llm-apis'}
+ADDED_AFTER_EMULATOR = {'free-llm-apis', 'humanize-korean'}
 SECTIONS = ['Purpose', 'When to Use', 'When Not to Use', 'Inputs', 'Workflow',
             'Evidence Requirements', 'Verification', 'Output', 'Guardrails']
 

@@ -1,8 +1,8 @@
 # 저장소 전체 관리 목록
 
-기준: 2026-10-02, `main`의 `skills-lock.json`. 활성 **29개 전체**가 이 저장소의 기본 설치·업데이트 대상입니다. 기존 28개와 `free-llm-apis`를 별도 관리 집합으로 나누지 않습니다.
+기준: 2026-10-07, `main`의 `skills-lock.json`. 활성 **30개 전체**가 이 저장소의 기본 설치·업데이트 대상입니다. 모든 활성 스킬에 같은 설치·업데이트 정책을 적용합니다.
 
-번들 26개는 이 저장소의 파일로 관리하고, upstream 3개는 매니페스트의 고정 커밋으로 관리합니다. 원본 최신 커밋을 자동 추종하지 않으며 검토 후 pin을 변경합니다. `free-llm-apis`는 CC0 원본과 참조 문서를 번들로 보존하고 원본 커밋을 매니페스트에 기록합니다. `create-kr-patch`도 관리 목록에 포함되며 동일 pin의 플러그인이 있으면 캐시를 수정하지 않고 재사용합니다. 직접 설치본과 플러그인 노출 수를 더해서 별개 스킬로 세지 않습니다.
+번들 27개는 이 저장소의 파일로 관리하고, upstream 3개는 매니페스트의 고정 커밋으로 관리합니다. 원본 최신 커밋을 자동 추종하지 않으며 검토 후 pin을 변경합니다. `free-llm-apis`는 CC0 원본과 참조 문서를 번들로 보존하고 원본 커밋을 매니페스트에 기록합니다. `create-kr-patch`도 관리 목록에 포함되며 동일 pin의 플러그인이 있으면 캐시를 수정하지 않고 재사용합니다. 직접 설치본과 플러그인 노출 수를 더해서 별개 스킬로 세지 않습니다.
 
 | 실제 스킬 이름 | 관리 원본 | 버전 또는 고정 커밋 |
 |---|---|---|
@@ -36,6 +36,8 @@
 | `wonderswan-hardware-analyzer` | `skills/wonderswan-hardware-analyzer` | `1.0.0` |
 | `free-llm-apis` | `skills/free-llm-apis`, [mnfst/awesome-free-llm-apis](https://github.com/mnfst/awesome-free-llm-apis/tree/167013ff729e30f3a92bb8d416062d6c34a84507/free-llm-apis) | `167013ff729e30f3a92bb8d416062d6c34a84507` |
 
+| `humanize-korean` | `skills/humanize-korean`, [epoko77-ai/im-not-ai](https://github.com/epoko77-ai/im-not-ai/tree/2f3d943d08056b612a92e12bfb72ea94dd2acd18/codex/skills/humanize-korean) | `2.3.2-codex.1` |
+
 ## 관리 절차
 
 ```powershell
@@ -48,6 +50,6 @@ python setup_tools.py
 
 `--list`는 현재 체크아웃의 저장소 관리 총수와 선택된 항목 수를 표시하며, PC에 실제 설치되었다는 판정을 대신하지 않습니다. `install.py`는 전체 관리 목록을 설치·동기화하고 변경된 기존 폴더를 `skill-backups/<UTC 시각>/`에 보존합니다. 동일 파일은 CURRENT로 건너뜁니다. 이 정책은 전문 13개에도 동일하게 적용됩니다.
 
-은퇴 항목 `create-plan`, `code-review` 2개는 활성 29개에 포함하지 않습니다. 알려진 원본만 백업 후 은퇴시키고 사용자 수정본은 보존합니다. 시스템 스킬, 플러그인 캐시와 매니페스트에 없는 사용자 스킬은 변경하지 않습니다.
+은퇴 항목 `create-plan`, `code-review` 2개는 활성 30개에 포함하지 않습니다. 알려진 원본만 백업 후 은퇴시키고 사용자 수정본은 보존합니다. 시스템 스킬, 플러그인 캐시와 매니페스트에 없는 사용자 스킬은 변경하지 않습니다.
 
 15개라고 표시된 보고서는 체크아웃 커밋과 과거 검토일을 함께 확인해야 합니다. 최신 수치는 이 문서보다도 현재 `skills-lock.json`과 `python install.py --list`를 우선합니다.
