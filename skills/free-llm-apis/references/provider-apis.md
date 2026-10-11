@@ -1,12 +1,11 @@
 # Provider APIs - Setup Guides
 
+> Setup starting points, reviewed 2026-10-11. Provider UI, endpoints, permission labels and free-tier eligibility must be verified against current official documentation before use. No provider API was called during this repository update.
+
 APIs run by the companies that train or fine-tune the models themselves.
 
 ## Google Gemini
 
-**Models:** Gemini 2.5 Pro, Flash, Flash-Lite +4 more
-**Limits:** 5-15 RPM, 100-1K RPD
-**Region restriction:** Free tier not available in the EEA, UK, or Switzerland.
 
 ### Get your API key
 
@@ -15,22 +14,25 @@ APIs run by the companies that train or fine-tune the models themselves.
 3. Click "Create API Key" and select or create a Google Cloud project.
 4. Copy the generated key.
 
-### Usage example
+### Example structure (verify endpoint and SDK first)
 
 ```python
+import os
 from openai import OpenAI
 
 client = OpenAI(
-    api_key="YOUR_GEMINI_API_KEY",
+    api_key=os.environ["LLM_API_KEY"],
     base_url="https://generativelanguage.googleapis.com/v1beta/openai/"
 )
 
 response = client.chat.completions.create(
-    model="gemini-2.5-flash",
+    model=os.environ["LLM_MODEL"],
     messages=[{"role": "user", "content": "Hello!"}]
 )
 print(response.choices[0].message.content)
 ```
+
+Set `LLM_API_KEY` locally from your provider key and `LLM_MODEL` from its current eligible model catalog. The provider-specific names below are alternatives; map them explicitly if using the generic example.
 
 ### Environment variable
 
@@ -45,8 +47,6 @@ export OPENAI_BASE_URL="https://generativelanguage.googleapis.com/v1beta/openai/
 
 ## Cohere
 
-**Models:** Command A, Command R+, Aya Expanse 32B +9 more
-**Limits:** 20 RPM, 1K requests/month
 
 ### Get your API key
 
@@ -55,22 +55,25 @@ export OPENAI_BASE_URL="https://generativelanguage.googleapis.com/v1beta/openai/
 3. Go to API Keys and generate a trial key.
 4. Copy the key.
 
-### Usage example
+### Example structure (verify endpoint and SDK first)
 
 ```python
+import os
 from openai import OpenAI
 
 client = OpenAI(
-    api_key="YOUR_COHERE_API_KEY",
+    api_key=os.environ["LLM_API_KEY"],
     base_url="https://api.cohere.com/v2/"
 )
 
 response = client.chat.completions.create(
-    model="command-a-03-2025",
+    model=os.environ["LLM_MODEL"],
     messages=[{"role": "user", "content": "Hello!"}]
 )
 print(response.choices[0].message.content)
 ```
+
+Set `LLM_API_KEY` locally from your provider key and `LLM_MODEL` from its current eligible model catalog. The provider-specific names below are alternatives; map them explicitly if using the generic example.
 
 ### Environment variable
 
@@ -82,8 +85,6 @@ export CO_API_KEY="your-key-here"
 
 ## Mistral AI
 
-**Models:** Mistral Large 3, Small 3.1, Ministral 8B +3 more
-**Limits:** 1 request/second, 1B tokens/month
 
 ### Get your API key
 
@@ -92,22 +93,25 @@ export CO_API_KEY="your-key-here"
 3. Go to API Keys and create a new key.
 4. Copy the key.
 
-### Usage example
+### Example structure (verify endpoint and SDK first)
 
 ```python
+import os
 from openai import OpenAI
 
 client = OpenAI(
-    api_key="YOUR_MISTRAL_API_KEY",
+    api_key=os.environ["LLM_API_KEY"],
     base_url="https://api.mistral.ai/v1/"
 )
 
 response = client.chat.completions.create(
-    model="mistral-small-latest",
+    model=os.environ["LLM_MODEL"],
     messages=[{"role": "user", "content": "Hello!"}]
 )
 print(response.choices[0].message.content)
 ```
+
+Set `LLM_API_KEY` locally from your provider key and `LLM_MODEL` from its current eligible model catalog. The provider-specific names below are alternatives; map them explicitly if using the generic example.
 
 ### Environment variable
 
@@ -119,8 +123,6 @@ export MISTRAL_API_KEY="your-key-here"
 
 ## Zhipu AI
 
-**Models:** GLM-4.7-Flash, GLM-4.5-Flash, GLM-4.6V-Flash
-**Limits:** Undocumented
 
 ### Get your API key
 
@@ -129,22 +131,25 @@ export MISTRAL_API_KEY="your-key-here"
 3. Go to API Keys and create a new key.
 4. Copy the key.
 
-### Usage example
+### Example structure (verify endpoint and SDK first)
 
 ```python
+import os
 from openai import OpenAI
 
 client = OpenAI(
-    api_key="YOUR_ZHIPU_API_KEY",
+    api_key=os.environ["LLM_API_KEY"],
     base_url="https://open.bigmodel.cn/api/paas/v4/"
 )
 
 response = client.chat.completions.create(
-    model="glm-4-flash",
+    model=os.environ["LLM_MODEL"],
     messages=[{"role": "user", "content": "Hello!"}]
 )
 print(response.choices[0].message.content)
 ```
+
+Set `LLM_API_KEY` locally from your provider key and `LLM_MODEL` from its current eligible model catalog. The provider-specific names below are alternatives; map them explicitly if using the generic example.
 
 ### Environment variable
 

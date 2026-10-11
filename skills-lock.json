@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "checked_at": "2026-10-07",
+  "checked_at": "2026-10-11",
   "skills": [
     {
       "name": "exec-plan",
@@ -16,7 +16,7 @@
       "requested_name": "deep-interview",
       "repo": "Yeachan-Heo/oh-my-codex",
       "path": "skills/deep-interview",
-      "ref": "cb955b0d5becbef76d2c1f0096b6e1f238e1e7f7",
+      "ref": "2db7d5136b22252e83091a12ea27567b2fdd5971",
       "status": "current",
       "note": "Current upstream skill. Basic questioning has a native fallback; OMX state and handoff features require the OMX runtime."
     },
@@ -25,7 +25,7 @@
       "requested_name": "frontend-testing-debugging",
       "repo": "openai/plugins",
       "path": "plugins/build-web-apps/skills/frontend-testing-debugging",
-      "ref": "1dc195897af4161d039b80d8471ec0a10c9bbc89",
+      "ref": "0722921d5542fc593105c27bd52630babd8b8c2a",
       "status": "current",
       "note": "Current Browser-first frontend QA workflow with a project Playwright fallback."
     },
@@ -43,9 +43,9 @@
       "requested_name": "create-retro-game-kr-patch",
       "repo": "mcpads/create-retro-game-kr-patch",
       "path": "skills/create-kr-patch",
-      "ref": "10de53e790535ad656ddccf916759661c4269f68",
+      "ref": "4b360ab36399aea0c7dbd4ea1b5a0acec075726f",
       "status": "current",
-      "note": "Canonical skill name is create-kr-patch; stable plugin version 3.2.0."
+      "note": "Canonical skill name is create-kr-patch; upstream plugin version 3.4.0, including playthrough review and consumer-boundary verification guidance."
     },
     {
       "name": "akm-workflow",
@@ -53,10 +53,10 @@
       "source": "bundled",
       "path": "skills/akm-workflow",
       "status": "adapted",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "upstream_repo": "DECK6/akm",
-      "upstream_ref": "f26ace2a16caba724b24db12cbee238ebb52498f",
-      "note": "Codex adaptation of AKM routing, evidence, risk-based verification, Learn Back, security, and bounded migration guidance."
+      "upstream_ref": "70e99b51b4e6b075dc98aab8754c9ef16f602dfe",
+      "note": "Standalone Codex adaptation reviewed against current AKM: optional layers, linked knowledge provenance, bounded maintenance and revision-aware verification; upstream multi-skill runtime is not bundled."
     },
     {
       "name": "gba-pointer-fixer",
@@ -269,11 +269,12 @@
       "requested_name": "free-llm-apis",
       "source": "bundled",
       "path": "skills/free-llm-apis",
-      "status": "current",
+      "status": "adapted",
       "upstream_repo": "mnfst/awesome-free-llm-apis",
-      "upstream_ref": "167013ff729e30f3a92bb8d416062d6c34a84507",
+      "upstream_ref": "cf97c32fec1b2e96e9936746e2731a81bd5ea33f",
       "license": "CC0-1.0",
-      "note": "Upstream skill and provider references for selecting and configuring no-cost LLM API tiers; API keys remain user-managed and must not be committed."
+      "note": "Latest upstream repository reviewed; skill subtree unchanged but provider catalog changed. Codex adaptation requires live official pricing/model checks and uses environment-based examples instead of stale guaranteed quotas.",
+      "version": "1.0.0-codex.1"
     },
     {
       "name": "humanize-korean",

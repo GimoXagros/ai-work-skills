@@ -1,17 +1,17 @@
 # 저장소 전체 관리 목록
 
-기준: 2026-10-07, `main`의 `skills-lock.json`. 활성 **30개 전체**가 이 저장소의 기본 설치·업데이트 대상입니다. 모든 활성 스킬에 같은 설치·업데이트 정책을 적용합니다.
+기준: 2026-10-11, `main`의 `skills-lock.json`. 활성 **30개 전체**가 이 저장소의 기본 설치·업데이트 대상입니다. 모든 활성 스킬에 같은 설치·업데이트 정책을 적용합니다.
 
-번들 27개는 이 저장소의 파일로 관리하고, upstream 3개는 매니페스트의 고정 커밋으로 관리합니다. 원본 최신 커밋을 자동 추종하지 않으며 검토 후 pin을 변경합니다. `free-llm-apis`는 CC0 원본과 참조 문서를 번들로 보존하고 원본 커밋을 매니페스트에 기록합니다. `create-kr-patch`도 관리 목록에 포함되며 동일 pin의 플러그인이 있으면 캐시를 수정하지 않고 재사용합니다. 직접 설치본과 플러그인 노출 수를 더해서 별개 스킬로 세지 않습니다.
+번들 27개는 이 저장소의 파일로 관리하고, upstream 3개는 매니페스트의 고정 커밋으로 관리합니다. 원본 최신 커밋을 자동 추종하지 않으며 검토 후 pin을 변경합니다. `free-llm-apis`는 CC0 원본의 설정 안내를 Codex용으로 보완해 번들로 관리하고 원본 커밋을 매니페스트에 기록합니다. `create-kr-patch`도 관리 목록에 포함되며 동일 pin의 플러그인이 있으면 캐시를 수정하지 않고 재사용합니다. 직접 설치본과 플러그인 노출 수를 더해서 별개 스킬로 세지 않습니다.
 
 | 실제 스킬 이름 | 관리 원본 | 버전 또는 고정 커밋 |
 |---|---|---|
 | `exec-plan` | `skills/exec-plan` | `1.0.0` |
-| `deep-interview` | `Yeachan-Heo/oh-my-codex/skills/deep-interview` | `cb955b0d5becbef76d2c1f0096b6e1f238e1e7f7` |
-| `frontend-testing-debugging` | `openai/plugins/plugins/build-web-apps/skills/frontend-testing-debugging` | `1dc195897af4161d039b80d8471ec0a10c9bbc89` |
+| `deep-interview` | `Yeachan-Heo/oh-my-codex/skills/deep-interview` | `2db7d5136b22252e83091a12ea27567b2fdd5971` |
+| `frontend-testing-debugging` | `openai/plugins/plugins/build-web-apps/skills/frontend-testing-debugging` | `0722921d5542fc593105c27bd52630babd8b8c2a` |
 | `log-analyzer` | `skills/log-analyzer` | `3.0.0` |
-| `create-kr-patch` | `mcpads/create-retro-game-kr-patch/skills/create-kr-patch` | `10de53e790535ad656ddccf916759661c4269f68` |
-| `akm-workflow` | `skills/akm-workflow` | `1.0.0` |
+| `create-kr-patch` | `mcpads/create-retro-game-kr-patch/skills/create-kr-patch` | `4b360ab36399aea0c7dbd4ea1b5a0acec075726f` |
+| `akm-workflow` | `skills/akm-workflow` | `1.1.0` |
 | `gba-pointer-fixer` | `skills/gba-pointer-fixer` | `1.0.0` |
 | `binary-re` | `skills/binary-re`, [2389-research/binary-re](https://github.com/2389-research/binary-re/tree/31d0a3fdf705ed78c9d8f7d7c1aef673ad15a3a0/skills/binary-re) | `1.2.0` |
 | `image-glyph-generator` | `skills/image-glyph-generator` | `1.0.0` |
@@ -34,8 +34,7 @@
 | `arm7-arm946-jit-analyzer` | `skills/arm7-arm946-jit-analyzer` | `1.0.0` |
 | `v30mz-cpu-analyzer` | `skills/v30mz-cpu-analyzer` | `1.0.0` |
 | `wonderswan-hardware-analyzer` | `skills/wonderswan-hardware-analyzer` | `1.0.0` |
-| `free-llm-apis` | `skills/free-llm-apis`, [mnfst/awesome-free-llm-apis](https://github.com/mnfst/awesome-free-llm-apis/tree/167013ff729e30f3a92bb8d416062d6c34a84507/free-llm-apis) | `167013ff729e30f3a92bb8d416062d6c34a84507` |
-
+| `free-llm-apis` | `skills/free-llm-apis`, [mnfst/awesome-free-llm-apis](https://github.com/mnfst/awesome-free-llm-apis/tree/cf97c32fec1b2e96e9936746e2731a81bd5ea33f/free-llm-apis) | `cf97c32fec1b2e96e9936746e2731a81bd5ea33f` |
 | `humanize-korean` | `skills/humanize-korean`, [epoko77-ai/im-not-ai](https://github.com/epoko77-ai/im-not-ai/tree/2f3d943d08056b612a92e12bfb72ea94dd2acd18/codex/skills/humanize-korean) | `2.3.2-codex.1` |
 
 ## 관리 절차

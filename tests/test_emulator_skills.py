@@ -65,7 +65,10 @@ class EmulatorSkillTests(unittest.TestCase):
         self.assertEqual(len(baseline['skills']), 15)
         allowed_changes = {
             'log-analyzer': ('version', 'note'),
-            'create-kr-patch': ('ref',),
+            'create-kr-patch': ('ref', 'note'),
+            'deep-interview': ('ref',),
+            'frontend-testing-debugging': ('ref',),
+            'akm-workflow': ('version', 'upstream_ref', 'note'),
             'binary-re': ('version', 'upstream_ref', 'note'),
         }
         for item in baseline['skills']:

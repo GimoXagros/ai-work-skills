@@ -5,14 +5,21 @@ description: Design, operate, migrate, or audit an AKM-style Markdown knowledge 
 
 # AKM workflow
 
-Adapted for Codex from [DECK6/akm](https://github.com/DECK6/akm/tree/f26ace2a16caba724b24db12cbee238ebb52498f), MIT, revision `f26ace2a16caba724b24db12cbee238ebb52498f`. The target AKM checkout is authoritative; this skill supplies routing and operating guidance, not a bundled vault or memory service.
+Adapted for Codex from [DECK6/akm](https://github.com/DECK6/akm/tree/70e99b51b4e6b075dc98aab8754c9ef16f602dfe), MIT, revision `70e99b51b4e6b075dc98aab8754c9ef16f602dfe`. The target AKM checkout is authoritative; this skill supplies routing and operating guidance, not a bundled vault or memory service.
 
 ## Establish the target and authority
 
-- Confirm the intended AKM root by locating `99-system/ROUTER.md` and `99-system/SCHEMA.md`. Do not create an AKM hierarchy merely because this skill was selected.
+- Locate the existing knowledge root and map its current structure before writing; never require renamed folders or every AKM layer. For a standard AKM checkout, locate `99-system/ROUTER.md` and `99-system/SCHEMA.md`. Do not create an AKM hierarchy merely because this skill was selected.
 - In an existing AKM checkout, read its root instructions or applicable adapter, then `99-system/INDEX.md`, all short pointers in `40-memory/`, and the relevant parts of `ROUTER.md`, `SECURITY.md`, `LOOP.md`, and `VERIFICATION.md` before writing durable material.
 - Treat Markdown and original sources as canonical. Runtime indexes, retrieval packets, generated summaries, and adapter state are derived and must never silently outrank their cited source.
 - Preserve the user's existing taxonomy, paths, language, and authorization boundaries. A migration or adapter update is not permission to reorganize private notes.
+
+## Scope the workflow
+
+- Existing knowledge spaces start from the requested query, ingestion, correction or maintenance task, not a repeated setup interview. New domains need only the missing domain-specific context. Reuse prior answers; silence is not consent.
+- For a new workspace, agree on the useful layers, inbox policy and depth. Omitted layers do not need replacement folders. Record where canonical sources, questions and verification live.
+- Distinguish storage layers, ontology (concepts and relation meanings), and explanatory wiki notes. A link is not evidence that a relationship is true.
+- This portable adapter does not install the upstream multi-skill suite or its shared runtime. Use only tools actually present in the target checkout.
 
 ## Classify before writing
 
@@ -48,6 +55,15 @@ Keep long knowledge out of memory and domain facts out of procedures. Store an e
 - Tier 3: medical, legal, safety, contract, official, or otherwise consequential work; add a claim ledger and independent second pass.
 
 Report `HOLD` instead of completion when important scope or evidence remains unresolved. Structural lint is useful but does not prove that the work answered the request or that a citation supports a claim.
+
+## Linked knowledge and bounded maintenance
+
+- Reuse stable source, question, concept, relation, assertion and note IDs. Keep evidence kind (`source-supported`, `user-stated`, `llm-proposed`) separate from lifecycle status (`current`, `needs-review`, `disputed`, `deprecated`). Preserve the local schema when it differs.
+- Keep immutable originals separate from a mutable source ledger. Record the actual source location, read range and check date; discovery alone is not reading. Synthetic examples and model proposals are not user history.
+- When definitions or claims change, update affected notes, examples, question answers and indexes together. Mark remaining affected material `needs-review` in the actual files.
+- For delegated maintenance, use the authorized domains, source scope and finite task/time/source budget. Do the authorized edits and re-checks; installation alone does not activate background maintenance. Scheduling and publication require their own user intent.
+- Serialize writers to shared canonical state. If the base revision changed, read and integrate it before writing. Keep resumable task IDs and checkpoints; do not repeat a failed task at the same revision without new evidence.
+- Verify links/IDs, re-run representative questions, and assess semantic support separately. Record a shared revision as verified only with actual evidence. Budget exhaustion is not completion; report remaining scope explicitly.
 
 ## Learn Back
 
