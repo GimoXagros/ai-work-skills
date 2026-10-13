@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "checked_at": "2026-10-11",
+  "checked_at": "2026-10-13",
   "skills": [
     {
       "name": "exec-plan",
@@ -282,11 +282,44 @@
       "source": "bundled",
       "path": "skills/humanize-korean",
       "status": "adapted",
-      "version": "2.3.2-codex.1",
+      "version": "2.3.2-codex.2",
       "upstream_repo": "epoko77-ai/im-not-ai",
-      "upstream_ref": "2f3d943d08056b612a92e12bfb72ea94dd2acd18",
+      "upstream_ref": "b37e0206d31fffd9149bf57168d4d62eb2086bee",
       "license": "MIT",
       "note": "Self-contained Codex bundle: materialized references, shared runtime scripts, portable reference lookup and Windows Python invocation; upstream meaning-preservation gates retained."
+    },
+    {
+      "name": "kr-patch-qa",
+      "requested_name": "kr-patch-qa",
+      "source": "bundled",
+      "path": "skills/kr-patch-qa",
+      "status": "adapted",
+      "version": "1.0.0",
+      "upstream_repo": "gagnonjung/kr-patch-qa",
+      "upstream_ref": "cab74ca62c817e1b4626644d99f254b59796e80d",
+      "note": "Independent Codex entrypoint with pinned upstream guidance. Upstream runtime/template/documents are not redistributed or automatically installed."
+    },
+    {
+      "name": "create-kr-patch-template",
+      "requested_name": "create-kr-patch-template",
+      "source": "bundled",
+      "path": "skills/create-kr-patch-template",
+      "status": "adapted",
+      "version": "1.0.0",
+      "upstream_repo": "mcpads/create-kr-patch-template",
+      "upstream_ref": "c0e930286ccba37e6b83b9405a06e0b0ea4e6293",
+      "note": "Independent Codex entrypoint with pinned upstream guidance. Upstream runtime/template/documents are not redistributed or automatically installed."
+    },
+    {
+      "name": "emucap",
+      "requested_name": "emucap",
+      "source": "bundled",
+      "path": "skills/emucap",
+      "status": "adapted",
+      "version": "1.0.0",
+      "upstream_repo": "mcpads/emucap",
+      "upstream_ref": "cd0a39b6a4b102bd64c5877229b57e501f93697c",
+      "note": "Independent Codex entrypoint with pinned upstream guidance. Upstream runtime/template/documents are not redistributed or automatically installed."
     }
   ],
   "retired_skills": [

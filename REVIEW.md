@@ -1,3 +1,22 @@
+# 현재 검토 - 2026-10-13
+
+# v2026.10.13.1
+
+- kr-patch-qa, create-kr-patch-template, emucap을 Codex용 독립 번들 스킬로 추가.
+- QA 원본은 설치 폴더 밖 표준을 참조하므로 고정 커밋의 문서로 연결합니다. 원본 문서를 재배포하지 않습니다.
+- 템플릿과 emucap은 독립 SKILL.md가 없는 저장소여서 역할별 엔트리포인트를 작성했습니다. MCP/어댑터/게임 이미지 설치를 스킬 설치와 구분합니다.
+- humanize-korean 원본 b37e0206d31fffd9149bf57168d4d62eb2086bee의 입력 처리·검증 갱신을 반영하고 Windows 독립 실행 보완을 유지합니다.
+- 2026-10-11 main의 기존 스킬 및 글리프 의존성 갱신도 로컬에 동기화합니다.
+- 활성 33개(번들 30개 + 고정 upstream 3개), 은퇴 2개, unresolved 없음.
+
+설치: python -X utf8 install.py
+도구: python -X utf8 setup_tools.py
+목록: python -X utf8 install.py --list
+
+스킬·설치 검사는 실제 게임 QA와 에뮬레이터 실행을 대신하지 않습니다.
+
+## 과거 검토 기록
+
 # 2026-10-11 최신 원본 재검토
 
 활성 30개, 외부 원본 8개를 재검토했습니다. 상세 커밋과 변경 판정은 [외부 원본 검토](docs/UPSTREAM_REVIEW_2026-10-11.md)를 확인하세요. 아래 내용은 각 날짜의 역사적 검토 기록입니다.
@@ -242,3 +261,5 @@ Codex 공식 문서는 `/review`가 전용 리뷰어를 실행해 변경 없이 
 - [Codex 코드 리뷰 문서](https://developers.openai.com/codex/code-review)
 
 검증: skill-creator validator PASS, 저장소 unittest 49개 PASS, 설치된 독립 런타임의 한국어 입력 준비·변경률·보존 게이트·서법 복원 smoke PASS, install.py 설치 지문 검사 PASS, install.py --list 30 active / 2 retired / Unresolved 없음, git diff --check PASS. 실제 LLM 윤문과 암묵적 자동 선택은 미실행.
+
+최종 검사: 신규 3개와 humanize-korean validator PASS; unittest 49개 PASS; 설치된 humanize-korean 입력·변경률·보존·서법 smoke PASS; 전체 33개 오프라인 설치 지문 확인 완료; Unresolved 없음. fonttools 4.66.1 적용. 실제 게임 실행·QA·MCP 런타임 설치는 이번 작업 대상이 아닙니다.
