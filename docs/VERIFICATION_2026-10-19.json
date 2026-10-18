@@ -1,0 +1,14 @@
+{
+  "date": "2026-10-19",
+  "platform": "Windows x64",
+  "unit_tests": {"passed": 55, "failed": 0},
+  "runtime_bootstrap": {"bun": "1.4.3", "uvx": "0.13.1", "ecc_locked_dependencies_installed": true},
+  "session_start_direct_callbacks": {"GSD": 0, "ECC": 0, "Ponytail": 0},
+  "claude_mem_health": "ok",
+  "limitations": [
+    "Direct callback tests do not prove every natural lifecycle event.",
+    "New-PC authentication and hook trust remain user actions.",
+    "Python transitive dependencies are not fully locked.",
+    "A clean second physical PC was not tested."
+  ]
+}

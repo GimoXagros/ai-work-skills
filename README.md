@@ -11,6 +11,8 @@
 
 공식 플러그인 5개·GSD 생성 스킬 72개·실행 도구는 별도 카탈로그로 함께 관리합니다. [외부 통합 설치와 23개 요청별 결과](docs/INTEGRATIONS.md)를 확인하세요.
 
+다른 PC에서의 훅 의존성 설치, Claude-Mem·Headroom·Firecrawl·Whisper 설정과 사용자 신뢰 승인은 [추가 설정 안내](docs/ACTIVATION.md)에 정리했습니다.
+
 ## 현재 설치되는 스킬
 
 | 분류 | 스킬 |

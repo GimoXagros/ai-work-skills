@@ -10,6 +10,7 @@ import json
 import os
 from pathlib import Path
 import platform
+import re
 import shutil
 import subprocess
 import sys
@@ -60,6 +61,31 @@ def save_environment(home, paths):
     print('Environment:', destination)
 
 
+def local_memory_enabled(home):
+    config = home / 'config.toml'
+    text = config.read_text(encoding='utf-8') if config.exists() else ''
+    section = re.search(r'(?m)^\[plugins\."claude-mem@claude-mem-local"\]\s*\n([^\[]*)', text)
+    return bool(section and re.search(r'(?m)^enabled\s*=\s*true\s*(?:#.*)?$', section[1]))
+
+
+def install_plugin(codex, name, home, env):
+    if name == 'claude-mem' and local_memory_enabled(home):
+        print('Keeping enabled Claude-Mem official local runtime; skipping duplicate plugin.')
+        return
+    result = json.loads(subprocess.check_output(
+        [codex, 'plugin', 'add', name + '@ai-work-skills', '--json'], env=env, text=True, encoding='utf-8'))
+    if name == 'ecc':
+        target = Path(result['installedPath']).resolve()
+        owned = (home / 'plugins/cache/ai-work-skills/ecc').resolve()
+        if not target.is_relative_to(owned) or not (target / 'package-lock.json').is_file():
+            raise ValueError('Unexpected ECC installation path or missing dependency lock')
+        npm = shutil.which('npm.cmd' if sys.platform == 'win32' else 'npm', path=env.get('PATH'))
+        if not npm:
+            raise RuntimeError('ECC hooks require Node/npm. Run --install first.')
+        run([npm, 'ci', '--omit=dev', '--ignore-scripts', '--no-audit', '--no-fund'], cwd=target, env=env)
+    print('Installed plugin:', name)
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--install', action='store_true', help='Install pinned runtimes and generated GSD skills')
@@ -78,6 +104,8 @@ def main():
     toolchains = home / 'toolchains'
     toolchains.mkdir(parents=True, exist_ok=True)
     env = os.environ.copy()
+    node_dir = toolchains / ('node-v' + lock['bootstrap']['node']['version'] + '-win-x64')
+    env['PATH'] = os.pathsep.join([str(node_dir), env.get('PATH', '')])
     if args.install:
         if sys.platform != 'win32' or platform.machine().lower() not in ('amd64', 'x86_64'):
             raise SystemExit('Runtime bootstrap supports Windows x64. See docs/INTEGRATIONS.md for other systems.')
@@ -111,8 +139,14 @@ def main():
         ff_bin = toolchains / ('ffmpeg-' + ff['version'] + '-essentials_build') / 'bin'
         if not (ff_bin / 'ffmpeg.exe').is_file():
             unpack_verified(ff['url'], ff['sha256'], toolchains)
-        env['PATH'] = os.pathsep.join([str(binary_dir), str(ff_bin), env['PATH']])
-        save_environment(home, [node_dir, prefix / 'node_modules/.bin', binary_dir, ff_bin])
+        bun = lock['bootstrap']['bun']
+        bun_root = toolchains / ('bun-' + bun['version'])
+        bun_bin = bun_root / 'bun-windows-x64'
+        if not (bun_bin / 'bun.exe').is_file():
+            unpack_verified(bun['url'], bun['sha256'], bun_root)
+        paths = [node_dir, prefix / 'node_modules/.bin', binary_dir, ff_bin, bootstrap / 'Scripts', bun_bin]
+        env['PATH'] = os.pathsep.join([*(str(p) for p in paths), env.get('PATH', '')])
+        save_environment(home, paths)
         if args.user_path:
             import winreg
             with winreg.CreateKey(winreg.HKEY_CURRENT_USER, 'Environment') as key:
@@ -125,7 +159,7 @@ def main():
                     backup_file.write_text(json.dumps({'Path': old_path, 'type': value_type}), encoding='utf-8')
                 entries = old_path.split(';') if old_path else []
                 existing = {os.path.normcase(os.path.normpath(p)) for p in entries}
-                for path in (node_dir, prefix / 'node_modules/.bin', binary_dir, ff_bin):
+                for path in paths:
                     if os.path.normcase(os.path.normpath(str(path))) not in existing:
                         entries.append(str(path))
                 winreg.SetValueEx(key, 'Path', 0, value_type, ';'.join(entries))
@@ -156,7 +190,7 @@ def main():
         run([codex, 'plugin', 'marketplace', 'add', str(ROOT), '--json'], env=env)
         marketplace = json.loads((ROOT / '.agents/plugins/marketplace.json').read_text(encoding='utf-8'))
         for plugin in marketplace['plugins']:
-            run([codex, 'plugin', 'add', plugin['name'] + '@ai-work-skills', '--json'], env=env)
+            install_plugin(codex, plugin['name'], home, env)
     print('Installation finished. Reopen Codex and load the generated environment for CLI tools.')
     print('Account login, plugin hook trust, proxy routing and Whisper model downloads remain separate.')
 

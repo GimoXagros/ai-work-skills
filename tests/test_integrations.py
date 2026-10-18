@@ -15,6 +15,35 @@ import setup_integrations as setup
 
 
 class IntegrationTests(unittest.TestCase):
+    def test_memory_runtime_selection(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            home = Path(tmp)
+            self.assertFalse(setup.local_memory_enabled(home))
+            config = home / 'config.toml'
+            config.write_text('[plugins."claude-mem@claude-mem-local"]\nenabled = true\n[hooks.state]\nvalue = "unchanged"\n')
+            with patch.object(setup.subprocess, 'check_output') as call:
+                setup.install_plugin('codex', 'claude-mem', home, {})
+                call.assert_not_called()
+            self.assertIn('unchanged', config.read_text())
+            config.write_text('[plugins."claude-mem@claude-mem-local"]\nenabled = false\n[other]\nenabled = true\n')
+            self.assertFalse(setup.local_memory_enabled(home))
+
+    def test_ecc_locked_dependencies_and_boundary(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            home = Path(tmp)
+            target = home / 'plugins/cache/ai-work-skills/ecc/2.2.3'
+            target.mkdir(parents=True)
+            (target / 'package-lock.json').write_text('{}')
+            result = json.dumps({'installedPath': str(target)})
+            with patch.object(setup.subprocess, 'check_output', return_value=result), patch.object(setup.shutil, 'which', return_value='npm'), patch.object(setup, 'run') as run:
+                setup.install_plugin('codex', 'ecc', home, {})
+                self.assertIn('--ignore-scripts', run.call_args.args[0])
+                self.assertIn('--omit=dev', run.call_args.args[0])
+                self.assertEqual(run.call_args.kwargs['cwd'], target.resolve())
+            with patch.object(setup.subprocess, 'check_output', return_value=json.dumps({'installedPath': str(home)})):
+                with self.assertRaisesRegex(ValueError, 'Unexpected ECC'):
+                    setup.install_plugin('codex', 'ecc', home, {})
+
     def test_catalog_and_plugin_pins(self):
         lock = setup.read_lock()
         self.assertEqual(lock['requested_links'], 23)
