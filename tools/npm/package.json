@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "@opengsd/gsd-core": "1.17.0",
+    "agent-browser": "0.39.1",
+    "firecrawl-cli": "1.26.9",
+    "hyperframes": "0.8.171"
+  },
+  "private": true
+}

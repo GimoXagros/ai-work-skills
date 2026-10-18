@@ -1,8 +1,6 @@
 # 저장소 전체 관리 목록
 
-기준: 2026-10-13, `main`의 `skills-lock.json`. 활성 **33개 전체**가 이 저장소의 기본 설치·업데이트 대상입니다. 모든 활성 스킬에 같은 설치·업데이트 정책을 적용합니다.
-
-번들 30개는 이 저장소의 파일로 관리하고, upstream 3개는 매니페스트의 고정 커밋으로 관리합니다. 원본 최신 커밋을 자동 추종하지 않으며 검토 후 pin을 변경합니다. `free-llm-apis`는 CC0 원본의 설정 안내를 Codex용으로 보완해 번들로 관리하고 원본 커밋을 매니페스트에 기록합니다. `create-kr-patch`도 관리 목록에 포함되며 동일 pin의 플러그인이 있으면 캐시를 수정하지 않고 재사용합니다. 직접 설치본과 플러그인 노출 수를 더해서 별개 스킬로 세지 않습니다.
+기준: 2026-10-18. 독립 스킬 **64개** = 번들 **43개** + 고정 upstream **21개**. 공식 플러그인 5개와 GSD 생성 72개는 별도입니다. [통합 관리 안내](INTEGRATIONS.md).
 
 | 실제 스킬 이름 | 관리 원본 | 버전 또는 고정 커밋 |
 |---|---|---|
@@ -13,7 +11,7 @@
 | `create-kr-patch` | `mcpads/create-retro-game-kr-patch/skills/create-kr-patch` | `4b360ab36399aea0c7dbd4ea1b5a0acec075726f` |
 | `akm-workflow` | `skills/akm-workflow` | `1.1.0` |
 | `gba-pointer-fixer` | `skills/gba-pointer-fixer` | `1.0.0` |
-| `binary-re` | `skills/binary-re`, [2389-research/binary-re](https://github.com/2389-research/binary-re/tree/31d0a3fdf705ed78c9d8f7d7c1aef673ad15a3a0/skills/binary-re) | `1.2.0` |
+| `binary-re` | `skills/binary-re` | `1.2.0` |
 | `image-glyph-generator` | `skills/image-glyph-generator` | `1.0.0` |
 | `encoding-mapper` | `skills/encoding-mapper` | `1.0.0` |
 | `nftr-font-editor` | `skills/nftr-font-editor` | `1.0.0` |
@@ -34,25 +32,39 @@
 | `arm7-arm946-jit-analyzer` | `skills/arm7-arm946-jit-analyzer` | `1.0.0` |
 | `v30mz-cpu-analyzer` | `skills/v30mz-cpu-analyzer` | `1.0.0` |
 | `wonderswan-hardware-analyzer` | `skills/wonderswan-hardware-analyzer` | `1.0.0` |
-| `free-llm-apis` | `skills/free-llm-apis`, [mnfst/awesome-free-llm-apis](https://github.com/mnfst/awesome-free-llm-apis/tree/cf97c32fec1b2e96e9936746e2731a81bd5ea33f/free-llm-apis) | `cf97c32fec1b2e96e9936746e2731a81bd5ea33f` |
-| `humanize-korean` | `skills/humanize-korean`, [epoko77-ai/im-not-ai](https://github.com/epoko77-ai/im-not-ai/tree/b37e0206d31fffd9149bf57168d4d62eb2086bee/codex/skills/humanize-korean) | `2.3.2-codex.2` |
-
-| `kr-patch-qa` | `skills/kr-patch-qa` / gagnonjung/kr-patch-qa | `cab74ca62c817e1b4626644d99f254b59796e80d` |
-| `create-kr-patch-template` | `skills/create-kr-patch-template` / mcpads/create-kr-patch-template | `c0e930286ccba37e6b83b9405a06e0b0ea4e6293` |
-| `emucap` | `skills/emucap` / mcpads/emucap | `cd0a39b6a4b102bd64c5877229b57e501f93697c` |
-
-## 관리 절차
-
-```powershell
-git switch main
-git pull --ff-only
-python install.py --list
-python install.py
-python setup_tools.py
-```
-
-`--list`는 현재 체크아웃의 저장소 관리 총수와 선택된 항목 수를 표시하며, PC에 실제 설치되었다는 판정을 대신하지 않습니다. `install.py`는 전체 관리 목록을 설치·동기화하고 변경된 기존 폴더를 `skill-backups/<UTC 시각>/`에 보존합니다. 동일 파일은 CURRENT로 건너뜁니다. 이 정책은 전문 13개에도 동일하게 적용됩니다.
-
-은퇴 항목 `create-plan`, `code-review` 2개는 활성 33개에 포함하지 않습니다. 알려진 원본만 백업 후 은퇴시키고 사용자 수정본은 보존합니다. 시스템 스킬, 플러그인 캐시와 매니페스트에 없는 사용자 스킬은 변경하지 않습니다.
-
-15개라고 표시된 보고서는 체크아웃 커밋과 과거 검토일을 함께 확인해야 합니다. 최신 수치는 이 문서보다도 현재 `skills-lock.json`과 `python install.py --list`를 우선합니다.
+| `free-llm-apis` | `skills/free-llm-apis` | `1.0.0-codex.1` |
+| `humanize-korean` | `skills/humanize-korean` | `2.3.2-codex.2` |
+| `kr-patch-qa` | `skills/kr-patch-qa` | `1.0.0` |
+| `create-kr-patch-template` | `skills/create-kr-patch-template` | `1.0.0` |
+| `emucap` | `skills/emucap` | `1.0.0` |
+| `claude-automation-recommender` | `anthropics/claude-plugins-official/plugins/claude-code-setup/skills/claude-automation-recommender` | `ea10b213686c90bb1984b2016937310e05336cf3` |
+| `task-observer` | `skills/task-observer` | `2026.10.18.1` |
+| `karpathy-guidelines` | `multica-ai/andrej-karpathy-skills/skills/karpathy-guidelines` | `2c606141936f1eeef17fa3043a72095b4765b9c2` |
+| `ui-ux-pro-max` | `skills/ui-ux-pro-max` | `2026.10.18.1` |
+| `agent-browser` | `skills/agent-browser` | `2026.10.18.1` |
+| `design-taste-frontend` | `leonxlnx/taste-skill/skills/taste-skill` | `f624f37a8c650b9cc550253104925efe4c8de246` |
+| `find-skills` | `vercel-labs/skills/skills/find-skills` | `13e4063a1cf913f5606d57d42ab83a86f5001e04` |
+| `mcp-builder` | `anthropics/skills/skills/mcp-builder` | `dbd4588f9e1033efb41dad4bef2f7947c8993d44` |
+| `frontend-design` | `anthropics/skills/skills/frontend-design` | `dbd4588f9e1033efb41dad4bef2f7947c8993d44` |
+| `firecrawl-build-interact` | `skills/firecrawl-build-interact` | `2026.10.18.1` |
+| `firecrawl-build-onboarding` | `skills/firecrawl-build-onboarding` | `2026.10.18.1` |
+| `firecrawl-build-scrape` | `skills/firecrawl-build-scrape` | `2026.10.18.1` |
+| `firecrawl-build-search` | `skills/firecrawl-build-search` | `2026.10.18.1` |
+| `firecrawl-build` | `skills/firecrawl-build` | `2026.10.18.1` |
+| `remotion-best-practices` | `remotion-dev/skills/skills/remotion-best-practices` | `1441a11e95db35443bd76bb318386c0d3ca00053` |
+| `remotion-captions` | `remotion-dev/skills/skills/remotion-captions` | `1441a11e95db35443bd76bb318386c0d3ca00053` |
+| `remotion-create` | `remotion-dev/skills/skills/remotion-create` | `1441a11e95db35443bd76bb318386c0d3ca00053` |
+| `remotion-docs` | `remotion-dev/skills/skills/remotion-docs` | `1441a11e95db35443bd76bb318386c0d3ca00053` |
+| `remotion-interactivity` | `remotion-dev/skills/skills/remotion-interactivity` | `1441a11e95db35443bd76bb318386c0d3ca00053` |
+| `remotion-maps` | `remotion-dev/skills/skills/remotion-maps` | `1441a11e95db35443bd76bb318386c0d3ca00053` |
+| `remotion-markup` | `remotion-dev/skills/skills/remotion-markup` | `1441a11e95db35443bd76bb318386c0d3ca00053` |
+| `remotion-multimedia` | `remotion-dev/skills/skills/remotion-multimedia` | `1441a11e95db35443bd76bb318386c0d3ca00053` |
+| `remotion-render` | `remotion-dev/skills/skills/remotion-render` | `1441a11e95db35443bd76bb318386c0d3ca00053` |
+| `remotion-saas` | `remotion-dev/skills/skills/remotion-saas` | `1441a11e95db35443bd76bb318386c0d3ca00053` |
+| `remotion-studio` | `remotion-dev/skills/skills/remotion-studio` | `1441a11e95db35443bd76bb318386c0d3ca00053` |
+| `remotion-upgrade` | `remotion-dev/skills/skills/remotion-upgrade` | `1441a11e95db35443bd76bb318386c0d3ca00053` |
+| `headroom` | `skills/headroom` | `2026.10.18.1` |
+| `graphify` | `skills/graphify` | `2026.10.18.1` |
+| `yt-dlp` | `skills/yt-dlp` | `2026.10.18.1` |
+| `whisper` | `skills/whisper` | `2026.10.18.1` |
+| `ffmpeg-local` | `skills/ffmpeg-local` | `2026.10.18.1` |

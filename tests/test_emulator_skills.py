@@ -23,6 +23,16 @@ NEW = {
     'v30mz-cpu-analyzer', 'wonderswan-hardware-analyzer',
 }
 ADDED_AFTER_EMULATOR = {'free-llm-apis', 'humanize-korean', 'kr-patch-qa', 'create-kr-patch-template', 'emucap'}
+ADDED_AFTER_EMULATOR |= {
+    'claude-automation-recommender', 'task-observer', 'karpathy-guidelines',
+    'ui-ux-pro-max', 'agent-browser', 'design-taste-frontend', 'find-skills',
+    'mcp-builder', 'frontend-design', 'firecrawl-build', 'firecrawl-build-interact',
+    'firecrawl-build-onboarding', 'firecrawl-build-scrape', 'firecrawl-build-search',
+    'remotion-best-practices', 'remotion-captions', 'remotion-create', 'remotion-docs',
+    'remotion-interactivity', 'remotion-maps', 'remotion-markup', 'remotion-multimedia',
+    'remotion-render', 'remotion-saas', 'remotion-studio', 'remotion-upgrade',
+    'headroom', 'graphify', 'yt-dlp', 'whisper', 'ffmpeg-local',
+}
 SECTIONS = ['Purpose', 'When to Use', 'When Not to Use', 'Inputs', 'Workflow',
             'Evidence Requirements', 'Verification', 'Output', 'Guardrails']
 

@@ -4,10 +4,12 @@
   <img src="logo.png" alt="AI Work Skills logo" width="560">
 </p>
 
-현재 Codex 환경에서 사용하는 **33개 스킬**(은퇴 항목 2개 제외)을 동일한 버전으로 설치하는 공개 저장소입니다.
-매니페스트 검토일은 **2026-10-13**이며, 전체 판정과 제한 사항은 [REVIEW.md](REVIEW.md)에 정리되어 있습니다.
+현재 Codex 환경에서 사용하는 **64개 스킬**(은퇴 항목 2개 제외)을 동일한 버전으로 설치하는 공개 저장소입니다.
+매니페스트 검토일은 **2026-10-18**이며, 전체 판정과 제한 사항은 [REVIEW.md](REVIEW.md)에 정리되어 있습니다.
 
-**33개 모두 이 저장소의 관리 대상**입니다. 기존 스킬과 `free-llm-apis`, `humanize-korean`은 모두 [skills-lock.json](skills-lock.json)에 등록되어 기본 설치·업데이트·선택 설치·변경 전 백업에 같은 설치기를 사용합니다. 현재 구성은 저장소 번들 30개와 고정 upstream 3개이며, [전체 관리 목록](docs/MANAGED_SKILLS.md)에서 확인할 수 있습니다. `python install.py --list`는 저장소 관리 총수와 선택된 항목 수를 구분해서 표시합니다. 과거 문서의 15개와 28개는 각 검토 당시 수치입니다.
+**64개 모두 이 저장소의 관리 대상**입니다. 기존 스킬과 `free-llm-apis`, `humanize-korean`은 모두 [skills-lock.json](skills-lock.json)에 등록되어 기본 설치·업데이트·선택 설치·변경 전 백업에 같은 설치기를 사용합니다. 현재 구성은 저장소 번들 43개와 고정 upstream 21개이며, [전체 관리 목록](docs/MANAGED_SKILLS.md)에서 확인할 수 있습니다. `python install.py --list`는 저장소 관리 총수와 선택된 항목 수를 구분해서 표시합니다. 과거 문서의 15개와 28개는 각 검토 당시 수치입니다.
+
+공식 플러그인 5개·GSD 생성 스킬 72개·실행 도구는 별도 카탈로그로 함께 관리합니다. [외부 통합 설치와 23개 요청별 결과](docs/INTEGRATIONS.md)를 확인하세요.
 
 ## 현재 설치되는 스킬
 
@@ -24,6 +26,12 @@
 | GameYob | `sgb-host-debugger`, `gb-link-nifi-debugger` |
 | GBARunner3 | `arm7-arm946-jit-analyzer` |
 | NitroSwan | `v30mz-cpu-analyzer`, `wonderswan-hardware-analyzer` |
+| 자동화·작업 관찰 | `claude-automation-recommender`, `task-observer`, `karpathy-guidelines`, `find-skills`, `mcp-builder` |
+| UI·브라우저 | `ui-ux-pro-max`, `agent-browser`, `design-taste-frontend`, `frontend-design` |
+| 웹 수집 개발 | `firecrawl-build-interact`, `firecrawl-build-onboarding`, `firecrawl-build-scrape`, `firecrawl-build-search`, `firecrawl-build` |
+| Remotion | `remotion-best-practices`, `remotion-captions`, `remotion-create`, `remotion-docs`, `remotion-interactivity`, `remotion-maps`, `remotion-markup`, `remotion-multimedia`, `remotion-render`, `remotion-saas`, `remotion-studio`, `remotion-upgrade` |
+| 외부 실행 도구 | `headroom`, `graphify`, `yt-dlp`, `whisper`, `ffmpeg-local` |
+
 
 `create-plan`은 설치하지 않습니다. 짧은 계획은 Codex 내장 `/plan`, 장기 다단계 작업은 `exec-plan`을 사용합니다.
 외부 OMX용 `code-review`도 설치하지 않습니다. 현재 Codex의 전용 `/review` 기능으로 대체합니다.
@@ -38,9 +46,11 @@ git clone --branch main https://github.com/GimoXagros/ai-work-skills.git
 cd ai-work-skills
 python install.py
 python setup_tools.py
+# 외부 실행 도구·공식 플러그인도 설치할 경우 (Windows x64):
+python setup_integrations.py --install --plugins --user-path
 ```
 
-33개 스킬 구성은 기본 브랜치 `main`에서 제공합니다. 최신 배포 내용은 [v2026.10.13.1 릴리스](https://github.com/GimoXagros/ai-work-skills/releases/tag/v2026.10.13.1)와 [배포 기록](RELEASE_NOTES_v2026.10.13.1.md)에서 확인할 수 있습니다. 기존 작업 브랜치를 사용 중이라면 작업 내용을 보존한 뒤 `main`으로 전환하고 아래 업데이트 절차를 실행합니다.
+64개 스킬 구성은 기본 브랜치 `main`에서 제공합니다. 최신 배포 내용은 [v2026.10.18.1 릴리스](https://github.com/GimoXagros/ai-work-skills/releases/tag/v2026.10.18.1)와 [배포 기록](RELEASE_NOTES_v2026.10.18.1.md)에서 확인할 수 있습니다. 기존 작업 브랜치를 사용 중이라면 작업 내용을 보존한 뒤 `main`으로 전환하고 아래 업데이트 절차를 실행합니다.
 
 기본 설치 위치는 `$CODEX_HOME/skills`이며, 환경 변수가 없으면 `~/.codex/skills`입니다.
 `setup_tools.py`는 글리프 생성에 필요한 Pillow와 fontTools를 저장소의 `.venv`에 설치합니다.
@@ -58,12 +68,14 @@ python install.py --dest "$env:USERPROFILE/.agents/skills"
 git pull --ff-only
 python install.py
 python setup_tools.py
+# 외부 실행 도구·공식 플러그인도 설치할 경우 (Windows x64):
+python setup_integrations.py --install --plugins --user-path
 ```
 
 - 설치기는 [skills-lock.json](skills-lock.json)에 기록된 고정 커밋과 번들 스킬만 사용합니다.
 - 같은 내용은 건너뛰고, 변경된 기존 스킬은 `skill-backups/<UTC 시각>/`에 보존합니다.
 - 확인된 구형 `create-plan`과 OMX `code-review`만 안전하게 은퇴시키며, 사용자가 수정한 동명 스킬은 보존합니다.
-- `.system`, 플러그인 캐시, 인증 정보, Codex 전체 설정은 변경하지 않습니다.
+- `install.py`는 `.system`, 플러그인 캐시, 인증 정보, Codex 전체 설정을 변경하지 않습니다. 별도 `setup_integrations.py`의 GSD 설치는 백업 후 Codex 설정·에이전트·훅을 추가하고, 공식 플러그인은 Codex 설치기로 관리합니다.
 - 오프라인 재설치: `python install.py --offline`
 - 목록 확인: `python install.py --list`
 - 선택 설치: `python install.py --skill emulator-regression-tester` (여러 `--skill` 지정 가능)

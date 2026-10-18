@@ -1,0 +1,42 @@
+{
+  "release": "v2026.10.18.1",
+  "platform": "Windows x64",
+  "requested_links": 23,
+  "reviewed_repositories": 22,
+  "standalone_skills": 64,
+  "standalone_bundled": 43,
+  "standalone_pinned_downloads": 21,
+  "standalone_frontmatter_errors": 0,
+  "standalone_local_hash_mismatches": 0,
+  "native_plugins": {
+    "ecc": "2.2.3",
+    "claude-mem": "14.0.1",
+    "ponytail": "5.3.2",
+    "superpowers": "7.0.0",
+    "hyperframes": "0.8.171"
+  },
+  "gsd_core": {"version": "1.17.0", "generated_skills": 72, "agent_roles": 64, "runtime_identity_verified": true},
+  "existing_codex_config_values_removed_or_changed": 0,
+  "repository_tests": {"run": 53, "failures": 0, "errors": 0},
+  "smoke_checks": {
+    "uiux": "local ux search returned 2 results",
+    "taste": "local sector list loaded",
+    "graphify": "synthetic Python code extracted to 2 nodes and 1 edge without LLM",
+    "ffmpeg": "synthetic 1-second video encoded, probed and fully decoded",
+    "headroom": "version 0.41.0",
+    "agent_browser": "version 0.39.1",
+    "firecrawl": "version 1.26.9",
+    "hyperframes": "version 0.8.171",
+    "yt_dlp": "version 2026.08.19",
+    "whisper": "CLI import and help"
+  },
+  "not_verified": [
+    "Cloud credentials and billable API calls",
+    "Plugin hook trust and memory collection",
+    "Headroom provider routing or compression quality",
+    "Browser workflow and video rendering",
+    "Whisper model download or transcription accuracy",
+    "Every GSD/ECC/Superpowers/Ponytail workflow",
+    "Real game or hardware compatibility"
+  ]
+}

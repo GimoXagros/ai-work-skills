@@ -1,0 +1,73 @@
+{
+  "name": "ai-work-skills",
+  "interface": {
+    "displayName": "AI Work Skills — reviewed plugins"
+  },
+  "plugins": [
+    {
+      "name": "ecc",
+      "source": {
+        "source": "url",
+        "url": "https://github.com/affaan-m/ecc.git",
+        "ref": "76aaa77df6adc5b889e689007bf99b9a4f74af34"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    },
+    {
+      "name": "claude-mem",
+      "source": {
+        "source": "url",
+        "url": "https://github.com/thedotmack/claude-mem.git",
+        "ref": "b85cd123daf8e5bd59edb2d1c7b98e0bba28b3a0"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    },
+    {
+      "name": "ponytail",
+      "source": {
+        "source": "url",
+        "url": "https://github.com/dietrichgebert/ponytail.git",
+        "ref": "09c434ab73ca43761c5d8b0c5d341926c2fba710"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    },
+    {
+      "name": "superpowers",
+      "source": {
+        "source": "url",
+        "url": "https://github.com/obra/superpowers.git",
+        "ref": "bb92a77741419a4ab5f06e711a283343f1ada0c3"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    },
+    {
+      "name": "hyperframes",
+      "source": {
+        "source": "url",
+        "url": "https://github.com/heygen-com/hyperframes.git",
+        "ref": "dc0e80e73af185cc892ea90d5a9f1412a055e9a1"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    }
+  ]
+}

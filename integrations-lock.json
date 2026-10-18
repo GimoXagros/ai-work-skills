@@ -1,0 +1,264 @@
+{
+  "schema_version": 1,
+  "checked_at": "2026-10-18",
+  "requested_links": 23,
+  "repositories": [
+    {
+      "repo": "affaan-m/ecc",
+      "ref": "76aaa77df6adc5b889e689007bf99b9a4f74af34",
+      "url": "https://github.com/affaan-m/ecc",
+      "license": "MIT",
+      "skills": [],
+      "kind": "skills",
+      "plugin": "ecc"
+    },
+    {
+      "repo": "anthropics/claude-plugins-official",
+      "ref": "ea10b213686c90bb1984b2016937310e05336cf3",
+      "url": "https://github.com/anthropics/claude-plugins-official",
+      "license": "Apache-2.0",
+      "skills": [
+        "claude-automation-recommender"
+      ],
+      "kind": "skills"
+    },
+    {
+      "repo": "anthropics/skills",
+      "ref": "dbd4588f9e1033efb41dad4bef2f7947c8993d44",
+      "url": "https://github.com/anthropics/skills",
+      "license": "NOASSERTION",
+      "skills": [
+        "mcp-builder",
+        "frontend-design"
+      ],
+      "kind": "skills"
+    },
+    {
+      "repo": "dietrichgebert/ponytail",
+      "ref": "09c434ab73ca43761c5d8b0c5d341926c2fba710",
+      "url": "https://github.com/dietrichgebert/ponytail",
+      "license": "MIT",
+      "skills": [],
+      "kind": "skills",
+      "plugin": "ponytail"
+    },
+    {
+      "repo": "ffmpeg/ffmpeg",
+      "ref": "b60ab6c9a4583cd4bbdc010b412d598945919da8",
+      "url": "https://github.com/ffmpeg/ffmpeg",
+      "license": "NOASSERTION",
+      "skills": [
+        "ffmpeg-local"
+      ],
+      "kind": "windows-build",
+      "version": "9.0.2"
+    },
+    {
+      "repo": "firecrawl/firecrawl",
+      "ref": "7ccc8f4e99571cd3e66f437cce0edb8dfa02c8a7",
+      "url": "https://github.com/firecrawl/firecrawl",
+      "license": "AGPL-3.0",
+      "skills": [
+        "firecrawl-build-interact",
+        "firecrawl-build-onboarding",
+        "firecrawl-build-scrape",
+        "firecrawl-build-search",
+        "firecrawl-build"
+      ],
+      "kind": "npm",
+      "package": "firecrawl-cli@1.26.9"
+    },
+    {
+      "repo": "gagnonjung/kr-patch-qa",
+      "ref": "cab74ca62c817e1b4626644d99f254b59796e80d",
+      "url": "https://github.com/gagnonjung/kr-patch-qa",
+      "license": "NOASSERTION",
+      "skills": [
+        "kr-patch-qa"
+      ],
+      "kind": "skills"
+    },
+    {
+      "repo": "Graphify-Labs/graphify",
+      "ref": "86c57be8204673c2a1b9849a3292a7dd3ab373d8",
+      "url": "https://github.com/Graphify-Labs/graphify",
+      "license": "Apache-2.0",
+      "skills": [
+        "graphify"
+      ],
+      "kind": "python",
+      "package": "graphifyy==0.9.92"
+    },
+    {
+      "repo": "headroomlabs-ai/headroom",
+      "ref": "fbf7bc3278c11975299b9bd0a2ecf200dfd25a05",
+      "url": "https://github.com/headroomlabs-ai/headroom",
+      "license": "Apache-2.0",
+      "skills": [
+        "headroom"
+      ],
+      "kind": "python",
+      "package": "headroom-ai[proxy,code,mcp]==0.41.0"
+    },
+    {
+      "repo": "heygen-com/hyperframes",
+      "ref": "dc0e80e73af185cc892ea90d5a9f1412a055e9a1",
+      "url": "https://github.com/heygen-com/hyperframes",
+      "license": "Apache-2.0",
+      "skills": [],
+      "kind": "npm",
+      "package": "hyperframes@0.8.171",
+      "plugin": "hyperframes"
+    },
+    {
+      "repo": "iamneilroberts/claude-skills",
+      "ref": "947953f2a0664ac95996a4c7b35794a7cc8fc93a",
+      "url": "https://github.com/iamneilroberts/claude-skills",
+      "license": "NOASSERTION",
+      "skills": [
+        "task-observer"
+      ],
+      "kind": "skills"
+    },
+    {
+      "repo": "leonxlnx/taste-skill",
+      "ref": "f624f37a8c650b9cc550253104925efe4c8de246",
+      "url": "https://github.com/leonxlnx/taste-skill",
+      "license": "MIT",
+      "skills": [
+        "design-taste-frontend"
+      ],
+      "kind": "skills"
+    },
+    {
+      "repo": "multica-ai/andrej-karpathy-skills",
+      "ref": "2c606141936f1eeef17fa3043a72095b4765b9c2",
+      "url": "https://github.com/multica-ai/andrej-karpathy-skills",
+      "license": "NOASSERTION",
+      "skills": [
+        "karpathy-guidelines"
+      ],
+      "kind": "skills"
+    },
+    {
+      "repo": "nextlevelbuilder/ui-ux-pro-max-skill",
+      "ref": "56ea9cf174ed86786187daa9de0e6247cb0747e4",
+      "url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill",
+      "license": "MIT",
+      "skills": [
+        "ui-ux-pro-max"
+      ],
+      "kind": "skills"
+    },
+    {
+      "repo": "obra/superpowers",
+      "ref": "bb92a77741419a4ab5f06e711a283343f1ada0c3",
+      "url": "https://github.com/obra/superpowers",
+      "license": "MIT",
+      "skills": [],
+      "kind": "skills",
+      "plugin": "superpowers"
+    },
+    {
+      "repo": "open-gsd/gsd-core",
+      "ref": "274f8cae13d03ad80e18959b135b0e51b33329e8",
+      "url": "https://github.com/open-gsd/gsd-core",
+      "license": "MIT",
+      "skills": [],
+      "kind": "npm",
+      "package": "@opengsd/gsd-core@1.17.0"
+    },
+    {
+      "repo": "openai/whisper",
+      "ref": "86098128c0b4f24f0e2aa2994de830614b474227",
+      "url": "https://github.com/openai/whisper",
+      "license": "MIT",
+      "skills": [
+        "whisper"
+      ],
+      "kind": "python",
+      "package": "openai-whisper==20250625"
+    },
+    {
+      "repo": "remotion-dev/skills",
+      "ref": "1441a11e95db35443bd76bb318386c0d3ca00053",
+      "url": "https://github.com/remotion-dev/skills",
+      "license": "NOASSERTION",
+      "skills": [
+        "remotion-best-practices",
+        "remotion-captions",
+        "remotion-create",
+        "remotion-docs",
+        "remotion-interactivity",
+        "remotion-maps",
+        "remotion-markup",
+        "remotion-multimedia",
+        "remotion-render",
+        "remotion-saas",
+        "remotion-studio",
+        "remotion-upgrade"
+      ],
+      "kind": "skills"
+    },
+    {
+      "repo": "thedotmack/claude-mem",
+      "ref": "b85cd123daf8e5bd59edb2d1c7b98e0bba28b3a0",
+      "url": "https://github.com/thedotmack/claude-mem",
+      "license": "Apache-2.0",
+      "skills": [],
+      "kind": "skills",
+      "plugin": "claude-mem"
+    },
+    {
+      "repo": "vercel-labs/agent-browser",
+      "ref": "dac13bb87468fe9d74a040d862720f6cc17a9565",
+      "url": "https://github.com/vercel-labs/agent-browser",
+      "license": "Apache-2.0",
+      "skills": [
+        "agent-browser"
+      ],
+      "kind": "npm",
+      "package": "agent-browser@0.39.1"
+    },
+    {
+      "repo": "vercel-labs/skills",
+      "ref": "13e4063a1cf913f5606d57d42ab83a86f5001e04",
+      "url": "https://github.com/vercel-labs/skills",
+      "license": "MIT",
+      "skills": [
+        "find-skills"
+      ],
+      "kind": "skills"
+    },
+    {
+      "repo": "yt-dlp/yt-dlp",
+      "ref": "897341241f2bfb2439fe0367f4c7c9ccd29a3828",
+      "url": "https://github.com/yt-dlp/yt-dlp",
+      "license": "Unlicense",
+      "skills": [
+        "yt-dlp"
+      ],
+      "kind": "python",
+      "package": "yt-dlp==2026.8.19"
+    }
+  ],
+  "bootstrap": {
+    "node": {
+      "version": "24.22.0",
+      "url": "https://nodejs.org/dist/v24.22.0/node-v24.22.0-win-x64.zip",
+      "sha256": "f9683a19877e12a9b167305c8db71040d812876359de21f0d2e97c3f321f80c3"
+    },
+    "uv": "0.13.1",
+    "python": "3.13.16",
+    "ffmpeg": {
+      "version": "9.0.2",
+      "url": "https://www.gyan.dev/ffmpeg/builds/packages/ffmpeg-9.0.2-essentials_build.zip",
+      "sha256": "60f467265b1e312373dbcd92200c2618a74850f98d3d078e94296bb3fa2047ba"
+    }
+  },
+  "notes": [
+    "Source HEAD pins and published runtime package versions are separate identities.",
+    "Native plugin hooks require Codex trust; account authentication is not provisioned.",
+    "GSD is installed through its Codex converter; its generated skills are not standalone manifest entries."
+  ]
+}

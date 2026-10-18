@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "checked_at": "2026-10-13",
+  "checked_at": "2026-10-18",
   "skills": [
     {
       "name": "exec-plan",
@@ -320,6 +320,293 @@
       "upstream_repo": "mcpads/emucap",
       "upstream_ref": "cd0a39b6a4b102bd64c5877229b57e501f93697c",
       "note": "Independent Codex entrypoint with pinned upstream guidance. Upstream runtime/template/documents are not redistributed or automatically installed."
+    },
+    {
+      "name": "claude-automation-recommender",
+      "repo": "anthropics/claude-plugins-official",
+      "path": "plugins/claude-code-setup/skills/claude-automation-recommender",
+      "ref": "ea10b213686c90bb1984b2016937310e05336cf3",
+      "requested_name": "claude-automation-recommender",
+      "status": "current"
+    },
+    {
+      "name": "task-observer",
+      "requested_name": "task-observer",
+      "source": "bundled",
+      "path": "skills/task-observer",
+      "status": "adapted",
+      "version": "2026.10.18.1",
+      "upstream_repo": "iamneilroberts/claude-skills",
+      "upstream_ref": "947953f2a0664ac95996a4c7b35794a7cc8fc93a",
+      "note": "Codex portability adaptation; source attribution and scope retained."
+    },
+    {
+      "name": "karpathy-guidelines",
+      "repo": "multica-ai/andrej-karpathy-skills",
+      "path": "skills/karpathy-guidelines",
+      "ref": "2c606141936f1eeef17fa3043a72095b4765b9c2",
+      "requested_name": "karpathy-guidelines",
+      "status": "current"
+    },
+    {
+      "name": "ui-ux-pro-max",
+      "requested_name": "ui-ux-pro-max",
+      "source": "bundled",
+      "path": "skills/ui-ux-pro-max",
+      "status": "adapted",
+      "version": "2026.10.18.1",
+      "upstream_repo": "nextlevelbuilder/ui-ux-pro-max-skill",
+      "upstream_ref": "56ea9cf174ed86786187daa9de0e6247cb0747e4",
+      "note": "Codex portability adaptation; source attribution and scope retained."
+    },
+    {
+      "name": "agent-browser",
+      "requested_name": "agent-browser",
+      "source": "bundled",
+      "path": "skills/agent-browser",
+      "status": "adapted",
+      "version": "2026.10.18.1",
+      "upstream_repo": "vercel-labs/agent-browser",
+      "upstream_ref": "dac13bb87468fe9d74a040d862720f6cc17a9565",
+      "note": "Codex portability adaptation; source attribution and scope retained."
+    },
+    {
+      "name": "design-taste-frontend",
+      "repo": "leonxlnx/taste-skill",
+      "path": "skills/taste-skill",
+      "ref": "f624f37a8c650b9cc550253104925efe4c8de246",
+      "requested_name": "design-taste-frontend",
+      "status": "current"
+    },
+    {
+      "name": "find-skills",
+      "repo": "vercel-labs/skills",
+      "path": "skills/find-skills",
+      "ref": "13e4063a1cf913f5606d57d42ab83a86f5001e04",
+      "requested_name": "find-skills",
+      "status": "current"
+    },
+    {
+      "name": "mcp-builder",
+      "repo": "anthropics/skills",
+      "path": "skills/mcp-builder",
+      "ref": "dbd4588f9e1033efb41dad4bef2f7947c8993d44",
+      "requested_name": "mcp-builder",
+      "status": "current"
+    },
+    {
+      "name": "frontend-design",
+      "repo": "anthropics/skills",
+      "path": "skills/frontend-design",
+      "ref": "dbd4588f9e1033efb41dad4bef2f7947c8993d44",
+      "requested_name": "frontend-design",
+      "status": "current"
+    },
+    {
+      "name": "firecrawl-build-interact",
+      "requested_name": "firecrawl-build-interact",
+      "source": "bundled",
+      "path": "skills/firecrawl-build-interact",
+      "status": "adapted",
+      "version": "2026.10.18.1",
+      "upstream_repo": "firecrawl/firecrawl",
+      "upstream_ref": "7ccc8f4e99571cd3e66f437cce0edb8dfa02c8a7",
+      "note": "Codex portability adaptation; source attribution and scope retained."
+    },
+    {
+      "name": "firecrawl-build-onboarding",
+      "requested_name": "firecrawl-build-onboarding",
+      "source": "bundled",
+      "path": "skills/firecrawl-build-onboarding",
+      "status": "adapted",
+      "version": "2026.10.18.1",
+      "upstream_repo": "firecrawl/firecrawl",
+      "upstream_ref": "7ccc8f4e99571cd3e66f437cce0edb8dfa02c8a7",
+      "note": "Codex portability adaptation; source attribution and scope retained."
+    },
+    {
+      "name": "firecrawl-build-scrape",
+      "requested_name": "firecrawl-build-scrape",
+      "source": "bundled",
+      "path": "skills/firecrawl-build-scrape",
+      "status": "adapted",
+      "version": "2026.10.18.1",
+      "upstream_repo": "firecrawl/firecrawl",
+      "upstream_ref": "7ccc8f4e99571cd3e66f437cce0edb8dfa02c8a7",
+      "note": "Codex portability adaptation; source attribution and scope retained."
+    },
+    {
+      "name": "firecrawl-build-search",
+      "requested_name": "firecrawl-build-search",
+      "source": "bundled",
+      "path": "skills/firecrawl-build-search",
+      "status": "adapted",
+      "version": "2026.10.18.1",
+      "upstream_repo": "firecrawl/firecrawl",
+      "upstream_ref": "7ccc8f4e99571cd3e66f437cce0edb8dfa02c8a7",
+      "note": "Codex portability adaptation; source attribution and scope retained."
+    },
+    {
+      "name": "firecrawl-build",
+      "requested_name": "firecrawl-build",
+      "source": "bundled",
+      "path": "skills/firecrawl-build",
+      "status": "adapted",
+      "version": "2026.10.18.1",
+      "upstream_repo": "firecrawl/firecrawl",
+      "upstream_ref": "7ccc8f4e99571cd3e66f437cce0edb8dfa02c8a7",
+      "note": "Codex portability adaptation; source attribution and scope retained."
+    },
+    {
+      "name": "remotion-best-practices",
+      "repo": "remotion-dev/skills",
+      "path": "skills/remotion-best-practices",
+      "ref": "1441a11e95db35443bd76bb318386c0d3ca00053",
+      "requested_name": "remotion-best-practices",
+      "status": "current"
+    },
+    {
+      "name": "remotion-captions",
+      "repo": "remotion-dev/skills",
+      "path": "skills/remotion-captions",
+      "ref": "1441a11e95db35443bd76bb318386c0d3ca00053",
+      "requested_name": "remotion-captions",
+      "status": "current"
+    },
+    {
+      "name": "remotion-create",
+      "repo": "remotion-dev/skills",
+      "path": "skills/remotion-create",
+      "ref": "1441a11e95db35443bd76bb318386c0d3ca00053",
+      "requested_name": "remotion-create",
+      "status": "current"
+    },
+    {
+      "name": "remotion-docs",
+      "repo": "remotion-dev/skills",
+      "path": "skills/remotion-docs",
+      "ref": "1441a11e95db35443bd76bb318386c0d3ca00053",
+      "requested_name": "remotion-docs",
+      "status": "current"
+    },
+    {
+      "name": "remotion-interactivity",
+      "repo": "remotion-dev/skills",
+      "path": "skills/remotion-interactivity",
+      "ref": "1441a11e95db35443bd76bb318386c0d3ca00053",
+      "requested_name": "remotion-interactivity",
+      "status": "current"
+    },
+    {
+      "name": "remotion-maps",
+      "repo": "remotion-dev/skills",
+      "path": "skills/remotion-maps",
+      "ref": "1441a11e95db35443bd76bb318386c0d3ca00053",
+      "requested_name": "remotion-maps",
+      "status": "current"
+    },
+    {
+      "name": "remotion-markup",
+      "repo": "remotion-dev/skills",
+      "path": "skills/remotion-markup",
+      "ref": "1441a11e95db35443bd76bb318386c0d3ca00053",
+      "requested_name": "remotion-markup",
+      "status": "current"
+    },
+    {
+      "name": "remotion-multimedia",
+      "repo": "remotion-dev/skills",
+      "path": "skills/remotion-multimedia",
+      "ref": "1441a11e95db35443bd76bb318386c0d3ca00053",
+      "requested_name": "remotion-multimedia",
+      "status": "current"
+    },
+    {
+      "name": "remotion-render",
+      "repo": "remotion-dev/skills",
+      "path": "skills/remotion-render",
+      "ref": "1441a11e95db35443bd76bb318386c0d3ca00053",
+      "requested_name": "remotion-render",
+      "status": "current"
+    },
+    {
+      "name": "remotion-saas",
+      "repo": "remotion-dev/skills",
+      "path": "skills/remotion-saas",
+      "ref": "1441a11e95db35443bd76bb318386c0d3ca00053",
+      "requested_name": "remotion-saas",
+      "status": "current"
+    },
+    {
+      "name": "remotion-studio",
+      "repo": "remotion-dev/skills",
+      "path": "skills/remotion-studio",
+      "ref": "1441a11e95db35443bd76bb318386c0d3ca00053",
+      "requested_name": "remotion-studio",
+      "status": "current"
+    },
+    {
+      "name": "remotion-upgrade",
+      "repo": "remotion-dev/skills",
+      "path": "skills/remotion-upgrade",
+      "ref": "1441a11e95db35443bd76bb318386c0d3ca00053",
+      "requested_name": "remotion-upgrade",
+      "status": "current"
+    },
+    {
+      "name": "headroom",
+      "requested_name": "headroom",
+      "source": "bundled",
+      "path": "skills/headroom",
+      "status": "custom",
+      "version": "2026.10.18.1",
+      "upstream_repo": "headroomlabs-ai/headroom",
+      "upstream_ref": "fbf7bc3278c11975299b9bd0a2ecf200dfd25a05",
+      "note": "Independent scoped CLI routing skill; runtime installed separately."
+    },
+    {
+      "name": "graphify",
+      "requested_name": "graphify",
+      "source": "bundled",
+      "path": "skills/graphify",
+      "status": "custom",
+      "version": "2026.10.18.1",
+      "upstream_repo": "Graphify-Labs/graphify",
+      "upstream_ref": "86c57be8204673c2a1b9849a3292a7dd3ab373d8",
+      "note": "Independent scoped CLI routing skill; runtime installed separately."
+    },
+    {
+      "name": "yt-dlp",
+      "requested_name": "yt-dlp",
+      "source": "bundled",
+      "path": "skills/yt-dlp",
+      "status": "custom",
+      "version": "2026.10.18.1",
+      "upstream_repo": "yt-dlp/yt-dlp",
+      "upstream_ref": "897341241f2bfb2439fe0367f4c7c9ccd29a3828",
+      "note": "Independent scoped CLI routing skill; runtime installed separately."
+    },
+    {
+      "name": "whisper",
+      "requested_name": "whisper",
+      "source": "bundled",
+      "path": "skills/whisper",
+      "status": "custom",
+      "version": "2026.10.18.1",
+      "upstream_repo": "openai/whisper",
+      "upstream_ref": "86098128c0b4f24f0e2aa2994de830614b474227",
+      "note": "Independent scoped CLI routing skill; runtime installed separately."
+    },
+    {
+      "name": "ffmpeg-local",
+      "requested_name": "ffmpeg-local",
+      "source": "bundled",
+      "path": "skills/ffmpeg-local",
+      "status": "custom",
+      "version": "2026.10.18.1",
+      "upstream_repo": "ffmpeg/ffmpeg",
+      "upstream_ref": "b60ab6c9a4583cd4bbdc010b412d598945919da8",
+      "note": "Independent scoped CLI routing skill; runtime installed separately."
     }
   ],
   "retired_skills": [
