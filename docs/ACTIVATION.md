@@ -1,5 +1,7 @@
 # 다른 PC에서 추가 설정과 훅 활성화
 
+스킬 목록 용량과 Chrome DevTools MCP 설치·승인·CLI 시작 오류 해결은 [브라우저 설정 안내](BROWSER_SETUP.md)에 있습니다.
+
 2026-10-19 기준. 먼저 저장소 루트에서 다음 명령을 실행합니다(Windows x64).
 
 ```powershell

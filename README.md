@@ -13,6 +13,8 @@
 
 다른 PC에서의 훅 의존성 설치, Claude-Mem·Headroom·Firecrawl·Whisper 설정과 사용자 신뢰 승인은 [추가 설정 안내](docs/ACTIVATION.md)에 정리했습니다.
 
+스킬 목록 용량, Chrome DevTools 설치·도구 승인, CLI 시작 오류 해결은 [브라우저 설정 안내](docs/BROWSER_SETUP.md)를 확인하세요. 실행 도구 설치 후 `python -X utf8 configure_codex.py`로 설정하고 `pwsh -NoProfile -File ./verify_browser.ps1 -NoDaemon`으로 사용자 승인 검사를 진행할 수 있습니다.
+
 ## 현재 설치되는 스킬
 
 | 분류 | 스킬 |

@@ -2,6 +2,7 @@
   "dependencies": {
     "@opengsd/gsd-core": "1.17.0",
     "agent-browser": "0.39.1",
+    "chrome-devtools-mcp": "1.10.1",
     "firecrawl-cli": "1.26.9",
     "hyperframes": "0.8.171"
   },

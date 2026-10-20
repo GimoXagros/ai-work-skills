@@ -193,6 +193,7 @@ def main():
             install_plugin(codex, plugin['name'], home, env)
     print('Installation finished. Reopen Codex and load the generated environment for CLI tools.')
     print('Account login, plugin hook trust, proxy routing and Whisper model downloads remain separate.')
+    print('For skill catalog budget and Chrome MCP registration, run: python configure_codex.py')
 
 
 if __name__ == '__main__':

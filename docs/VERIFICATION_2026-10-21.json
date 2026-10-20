@@ -1,0 +1,29 @@
+{
+  "date": "2026-10-21",
+  "platform": "Windows x64",
+  "tests": {"passed": 59, "failed": 0},
+  "runtime_install": "passed",
+  "configure_codex": {
+    "actual_apply": "passed",
+    "repeated_application_identical": true,
+    "unrelated_effective_config_preserved": true,
+    "serialization_note": "Codex writer omitted an empty args array; effective behavior unchanged.",
+    "trusted_hooks": 11,
+    "untrusted_hooks": 0
+  },
+  "managed_chrome_mcp": {"version": "1.10.1", "initialize": "passed", "tools": 30},
+  "interactive_browser_verification": {
+    "mode": "no-daemon, on-request, read-only",
+    "new_page": "completed",
+    "take_snapshot_same_page_id": "completed",
+    "title_and_body": "confirmed",
+    "task_complete": true
+  },
+  "powershell_launcher_syntax": "passed",
+  "limitations": [
+    "The interactive browser test preceded consolidation into the managed npm prefix; the consolidated path was separately initialized and its tools listed.",
+    "No second physical PC was tested.",
+    "Login, uploads, performance profiling and all plugin workflows were not tested.",
+    "Other PCs require their own tool approvals and hook trust."
+  ]
+}
