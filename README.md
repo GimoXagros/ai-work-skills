@@ -4,10 +4,10 @@
   <img src="logo.png" alt="AI Work Skills logo" width="560">
 </p>
 
-현재 Codex 환경에서 사용하는 **64개 스킬**(은퇴 항목 2개 제외)을 동일한 버전으로 설치하는 공개 저장소입니다.
-매니페스트 검토일은 **2026-10-18**이며, 전체 판정과 제한 사항은 [REVIEW.md](REVIEW.md)에 정리되어 있습니다.
+현재 Codex 환경에서 사용하는 **77개 스킬**(은퇴 항목 2개 제외)을 동일한 버전으로 설치하는 공개 저장소입니다.
+매니페스트 검토일은 **2026-10-22**이며, 전체 판정과 제한 사항은 [REVIEW.md](REVIEW.md)에 정리되어 있습니다.
 
-**64개 모두 이 저장소의 관리 대상**입니다. 기존 스킬과 `free-llm-apis`, `humanize-korean`은 모두 [skills-lock.json](skills-lock.json)에 등록되어 기본 설치·업데이트·선택 설치·변경 전 백업에 같은 설치기를 사용합니다. 현재 구성은 저장소 번들 43개와 고정 upstream 21개이며, [전체 관리 목록](docs/MANAGED_SKILLS.md)에서 확인할 수 있습니다. `python install.py --list`는 저장소 관리 총수와 선택된 항목 수를 구분해서 표시합니다. 과거 문서의 15개와 28개는 각 검토 당시 수치입니다.
+**77개 모두 이 저장소의 관리 대상**입니다. 기존 스킬과 `free-llm-apis`, `humanize-korean`은 모두 [skills-lock.json](skills-lock.json)에 등록되어 기본 설치·업데이트·선택 설치·변경 전 백업에 같은 설치기를 사용합니다. 현재 구성은 저장소 번들 56개와 고정 upstream 21개이며, [전체 관리 목록](docs/MANAGED_SKILLS.md)에서 확인할 수 있습니다. `python install.py --list`는 저장소 관리 총수와 선택된 항목 수를 구분해서 표시합니다. 과거 문서의 15개와 28개는 각 검토 당시 수치입니다.
 
 공식 플러그인 5개·GSD 생성 스킬 72개·실행 도구는 별도 카탈로그로 함께 관리합니다. [외부 통합 설치와 23개 요청별 결과](docs/INTEGRATIONS.md)를 확인하세요.
 
@@ -23,6 +23,7 @@
 | 품질·분석 | `frontend-testing-debugging`, `log-analyzer` |
 | 지식 관리 | `akm-workflow` |
 | LLM API 설정 | `free-llm-apis` |
+| SNS·Instagram | `ig-audit`, `ig-caption`, `ig-carousel`, `ig-comment`, `ig-dm`, `ig-human`, `ig-plan`, `ig-profile`, `ig-reel`, `ig-reply`, `ig-repurpose`, `ig-story`, `ig-viral` |
 | 한국어 윤문 | `humanize-korean` |
 | 패치 QA·프로젝트·실행 | `kr-patch-qa`, `create-kr-patch-template`, `emucap` |
 | 역공학·한글화 | `create-kr-patch`, `binary-re`, `re`, `gba-pointer-fixer`, `encoding-mapper`, `image-glyph-generator`, `nftr-font-editor`, `ws-tile-compressor`, `retro-font-allocator`, `script-translator-limiter` |
@@ -54,7 +55,7 @@ python setup_tools.py
 python setup_integrations.py --install --plugins --user-path
 ```
 
-64개 스킬 구성은 기본 브랜치 `main`에서 제공합니다. 최신 배포 내용은 [v2026.10.18.1 릴리스](https://github.com/GimoXagros/ai-work-skills/releases/tag/v2026.10.18.1)와 [배포 기록](RELEASE_NOTES_v2026.10.18.1.md)에서 확인할 수 있습니다. 기존 작업 브랜치를 사용 중이라면 작업 내용을 보존한 뒤 `main`으로 전환하고 아래 업데이트 절차를 실행합니다.
+77개 스킬 구성은 기본 브랜치 `main`에서 제공합니다. 최신 배포 내용은 [v2026.10.22.1 릴리스](https://github.com/GimoXagros/ai-work-skills/releases/tag/v2026.10.22.1)와 [배포 기록](RELEASE_NOTES_v2026.10.22.1.md)에서 확인할 수 있습니다. 기존 작업 브랜치를 사용 중이라면 작업 내용을 보존한 뒤 `main`으로 전환하고 아래 업데이트 절차를 실행합니다.
 
 기본 설치 위치는 `$CODEX_HOME/skills`이며, 환경 변수가 없으면 `~/.codex/skills`입니다.
 `setup_tools.py`는 글리프 생성에 필요한 Pillow와 fontTools를 저장소의 `.venv`에 설치합니다.
@@ -118,3 +119,5 @@ python setup_tools.py
 `humanize-korean`은 epoko77-ai/im-not-ai v2.3.2의 MIT 원본을 Codex용 독립 복사 번들로 제공합니다. 한국어 의미·수치·인용을 보존하며 진단, 윤문, 변경률 및 보존 검사를 실행합니다. Python 표준 라이브러리만 사용하며 `$humanize-korean`으로 호출할 수 있습니다.
 
 새 3개는 고정 원본 안내에 연결하는 Codex용 번들 스킬입니다. kr-patch-qa의 상세 QA 표준은 사용 시 원본에서 읽으며, 템플릿 파일과 emucap MCP·에뮬레이터 설치는 해당 작업을 요청할 때 수행합니다. 스킬 설치만으로 런타임 설치나 게임 검증을 완료하지 않습니다.
+
+SNS 운영 흐름과 기존 미디어·윤문 스킬의 구분은 [SNS 스킬 묶음](docs/SNS_SKILLS.md)을 확인하세요. 새 13개는 계정 연결 없이 초안을 작성하며 게시·DM을 자동 전송하지 않습니다.

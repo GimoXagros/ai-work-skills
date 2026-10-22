@@ -33,6 +33,7 @@ ADDED_AFTER_EMULATOR |= {
     'remotion-render', 'remotion-saas', 'remotion-studio', 'remotion-upgrade',
     'headroom', 'graphify', 'yt-dlp', 'whisper', 'ffmpeg-local',
 }
+ADDED_AFTER_EMULATOR |= {'ig-audit', 'ig-caption', 'ig-carousel', 'ig-comment', 'ig-dm', 'ig-human', 'ig-plan', 'ig-profile', 'ig-reel', 'ig-reply', 'ig-repurpose', 'ig-story', 'ig-viral'}
 SECTIONS = ['Purpose', 'When to Use', 'When Not to Use', 'Inputs', 'Workflow',
             'Evidence Requirements', 'Verification', 'Output', 'Guardrails']
 

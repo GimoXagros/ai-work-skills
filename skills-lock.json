@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "checked_at": "2026-10-18",
+  "checked_at": "2026-10-22",
   "skills": [
     {
       "name": "exec-plan",
@@ -607,6 +607,183 @@
       "upstream_repo": "ffmpeg/ffmpeg",
       "upstream_ref": "b60ab6c9a4583cd4bbdc010b412d598945919da8",
       "note": "Independent scoped CLI routing skill; runtime installed separately."
+    },
+    {
+      "name": "ig-audit",
+      "requested_name": "ig-audit",
+      "source": "bundled",
+      "path": "skills/ig-audit",
+      "status": "adapted",
+      "version": "2026.10.22.1",
+      "upstream_repo": "Jakeschincariol/instagram-agent-skill",
+      "upstream_ref": "d03c56bb598be770c60b201f94237e5d1a4268a6",
+      "license": "MIT",
+      "note": "Codex SNS bundle: local paths, explicit skill calls, portable script entrypoints, private voice template and draft-only account boundaries; English heuristic limits documented."
+    },
+    {
+      "name": "ig-caption",
+      "requested_name": "ig-caption",
+      "source": "bundled",
+      "path": "skills/ig-caption",
+      "status": "adapted",
+      "version": "2026.10.22.1",
+      "upstream_repo": "Jakeschincariol/instagram-agent-skill",
+      "upstream_ref": "d03c56bb598be770c60b201f94237e5d1a4268a6",
+      "license": "MIT",
+      "note": "Codex SNS bundle: local paths, explicit skill calls, portable script entrypoints, private voice template and draft-only account boundaries; English heuristic limits documented.",
+      "requires": [
+        "ig-human"
+      ]
+    },
+    {
+      "name": "ig-carousel",
+      "requested_name": "ig-carousel",
+      "source": "bundled",
+      "path": "skills/ig-carousel",
+      "status": "adapted",
+      "version": "2026.10.22.1",
+      "upstream_repo": "Jakeschincariol/instagram-agent-skill",
+      "upstream_ref": "d03c56bb598be770c60b201f94237e5d1a4268a6",
+      "license": "MIT",
+      "note": "Codex SNS bundle: local paths, explicit skill calls, portable script entrypoints, private voice template and draft-only account boundaries; English heuristic limits documented.",
+      "requires": [
+        "ig-human"
+      ]
+    },
+    {
+      "name": "ig-comment",
+      "requested_name": "ig-comment",
+      "source": "bundled",
+      "path": "skills/ig-comment",
+      "status": "adapted",
+      "version": "2026.10.22.1",
+      "upstream_repo": "Jakeschincariol/instagram-agent-skill",
+      "upstream_ref": "d03c56bb598be770c60b201f94237e5d1a4268a6",
+      "license": "MIT",
+      "note": "Codex SNS bundle: local paths, explicit skill calls, portable script entrypoints, private voice template and draft-only account boundaries; English heuristic limits documented.",
+      "requires": [
+        "ig-human"
+      ]
+    },
+    {
+      "name": "ig-dm",
+      "requested_name": "ig-dm",
+      "source": "bundled",
+      "path": "skills/ig-dm",
+      "status": "adapted",
+      "version": "2026.10.22.1",
+      "upstream_repo": "Jakeschincariol/instagram-agent-skill",
+      "upstream_ref": "d03c56bb598be770c60b201f94237e5d1a4268a6",
+      "license": "MIT",
+      "note": "Codex SNS bundle: local paths, explicit skill calls, portable script entrypoints, private voice template and draft-only account boundaries; English heuristic limits documented.",
+      "requires": [
+        "ig-human"
+      ]
+    },
+    {
+      "name": "ig-human",
+      "requested_name": "ig-human",
+      "source": "bundled",
+      "path": "skills/ig-human",
+      "status": "adapted",
+      "version": "2026.10.22.1",
+      "upstream_repo": "Jakeschincariol/instagram-agent-skill",
+      "upstream_ref": "d03c56bb598be770c60b201f94237e5d1a4268a6",
+      "license": "MIT",
+      "note": "Codex SNS bundle: local paths, explicit skill calls, portable script entrypoints, private voice template and draft-only account boundaries; English heuristic limits documented."
+    },
+    {
+      "name": "ig-plan",
+      "requested_name": "ig-plan",
+      "source": "bundled",
+      "path": "skills/ig-plan",
+      "status": "adapted",
+      "version": "2026.10.22.1",
+      "upstream_repo": "Jakeschincariol/instagram-agent-skill",
+      "upstream_ref": "d03c56bb598be770c60b201f94237e5d1a4268a6",
+      "license": "MIT",
+      "note": "Codex SNS bundle: local paths, explicit skill calls, portable script entrypoints, private voice template and draft-only account boundaries; English heuristic limits documented."
+    },
+    {
+      "name": "ig-profile",
+      "requested_name": "ig-profile",
+      "source": "bundled",
+      "path": "skills/ig-profile",
+      "status": "adapted",
+      "version": "2026.10.22.1",
+      "upstream_repo": "Jakeschincariol/instagram-agent-skill",
+      "upstream_ref": "d03c56bb598be770c60b201f94237e5d1a4268a6",
+      "license": "MIT",
+      "note": "Codex SNS bundle: local paths, explicit skill calls, portable script entrypoints, private voice template and draft-only account boundaries; English heuristic limits documented.",
+      "requires": [
+        "ig-human"
+      ]
+    },
+    {
+      "name": "ig-reel",
+      "requested_name": "ig-reel",
+      "source": "bundled",
+      "path": "skills/ig-reel",
+      "status": "adapted",
+      "version": "2026.10.22.1",
+      "upstream_repo": "Jakeschincariol/instagram-agent-skill",
+      "upstream_ref": "d03c56bb598be770c60b201f94237e5d1a4268a6",
+      "license": "MIT",
+      "note": "Codex SNS bundle: local paths, explicit skill calls, portable script entrypoints, private voice template and draft-only account boundaries; English heuristic limits documented.",
+      "requires": [
+        "ig-human"
+      ]
+    },
+    {
+      "name": "ig-reply",
+      "requested_name": "ig-reply",
+      "source": "bundled",
+      "path": "skills/ig-reply",
+      "status": "adapted",
+      "version": "2026.10.22.1",
+      "upstream_repo": "Jakeschincariol/instagram-agent-skill",
+      "upstream_ref": "d03c56bb598be770c60b201f94237e5d1a4268a6",
+      "license": "MIT",
+      "note": "Codex SNS bundle: local paths, explicit skill calls, portable script entrypoints, private voice template and draft-only account boundaries; English heuristic limits documented."
+    },
+    {
+      "name": "ig-repurpose",
+      "requested_name": "ig-repurpose",
+      "source": "bundled",
+      "path": "skills/ig-repurpose",
+      "status": "adapted",
+      "version": "2026.10.22.1",
+      "upstream_repo": "Jakeschincariol/instagram-agent-skill",
+      "upstream_ref": "d03c56bb598be770c60b201f94237e5d1a4268a6",
+      "license": "MIT",
+      "note": "Codex SNS bundle: local paths, explicit skill calls, portable script entrypoints, private voice template and draft-only account boundaries; English heuristic limits documented.",
+      "requires": [
+        "ig-human"
+      ]
+    },
+    {
+      "name": "ig-story",
+      "requested_name": "ig-story",
+      "source": "bundled",
+      "path": "skills/ig-story",
+      "status": "adapted",
+      "version": "2026.10.22.1",
+      "upstream_repo": "Jakeschincariol/instagram-agent-skill",
+      "upstream_ref": "d03c56bb598be770c60b201f94237e5d1a4268a6",
+      "license": "MIT",
+      "note": "Codex SNS bundle: local paths, explicit skill calls, portable script entrypoints, private voice template and draft-only account boundaries; English heuristic limits documented."
+    },
+    {
+      "name": "ig-viral",
+      "requested_name": "ig-viral",
+      "source": "bundled",
+      "path": "skills/ig-viral",
+      "status": "adapted",
+      "version": "2026.10.22.1",
+      "upstream_repo": "Jakeschincariol/instagram-agent-skill",
+      "upstream_ref": "d03c56bb598be770c60b201f94237e5d1a4268a6",
+      "license": "MIT",
+      "note": "Codex SNS bundle: local paths, explicit skill calls, portable script entrypoints, private voice template and draft-only account boundaries; English heuristic limits documented."
     }
   ],
   "retired_skills": [

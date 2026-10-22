@@ -1,6 +1,6 @@
 # 저장소 전체 관리 목록
 
-기준: 2026-10-18. 독립 스킬 **64개** = 번들 **43개** + 고정 upstream **21개**. 공식 플러그인 5개와 GSD 생성 72개는 별도입니다. [통합 관리 안내](INTEGRATIONS.md).
+기준: 2026-10-22. 독립 스킬 **77개** = 번들 **56개** + 고정 upstream **21개**. 공식 플러그인 5개와 GSD 생성 72개는 별도입니다. [통합 관리 안내](INTEGRATIONS.md).
 
 | 실제 스킬 이름 | 관리 원본 | 버전 또는 고정 커밋 |
 |---|---|---|
@@ -68,3 +68,23 @@
 | `yt-dlp` | `skills/yt-dlp` | `2026.10.18.1` |
 | `whisper` | `skills/whisper` | `2026.10.18.1` |
 | `ffmpeg-local` | `skills/ffmpeg-local` | `2026.10.18.1` |
+
+## SNS 추가 관리 항목
+
+| 실제 스킬 이름 | 관리 원본 | 버전 또는 고정 커밋 |
+|---|---|---|
+| `ig-audit` | `skills/ig-audit` / Jakeschincariol/instagram-agent-skill | `2026.10.22.1` / `d03c56bb598be770c60b201f94237e5d1a4268a6` |
+| `ig-caption` | `skills/ig-caption` / Jakeschincariol/instagram-agent-skill | `2026.10.22.1` / `d03c56bb598be770c60b201f94237e5d1a4268a6` |
+| `ig-carousel` | `skills/ig-carousel` / Jakeschincariol/instagram-agent-skill | `2026.10.22.1` / `d03c56bb598be770c60b201f94237e5d1a4268a6` |
+| `ig-comment` | `skills/ig-comment` / Jakeschincariol/instagram-agent-skill | `2026.10.22.1` / `d03c56bb598be770c60b201f94237e5d1a4268a6` |
+| `ig-dm` | `skills/ig-dm` / Jakeschincariol/instagram-agent-skill | `2026.10.22.1` / `d03c56bb598be770c60b201f94237e5d1a4268a6` |
+| `ig-human` | `skills/ig-human` / Jakeschincariol/instagram-agent-skill | `2026.10.22.1` / `d03c56bb598be770c60b201f94237e5d1a4268a6` |
+| `ig-plan` | `skills/ig-plan` / Jakeschincariol/instagram-agent-skill | `2026.10.22.1` / `d03c56bb598be770c60b201f94237e5d1a4268a6` |
+| `ig-profile` | `skills/ig-profile` / Jakeschincariol/instagram-agent-skill | `2026.10.22.1` / `d03c56bb598be770c60b201f94237e5d1a4268a6` |
+| `ig-reel` | `skills/ig-reel` / Jakeschincariol/instagram-agent-skill | `2026.10.22.1` / `d03c56bb598be770c60b201f94237e5d1a4268a6` |
+| `ig-reply` | `skills/ig-reply` / Jakeschincariol/instagram-agent-skill | `2026.10.22.1` / `d03c56bb598be770c60b201f94237e5d1a4268a6` |
+| `ig-repurpose` | `skills/ig-repurpose` / Jakeschincariol/instagram-agent-skill | `2026.10.22.1` / `d03c56bb598be770c60b201f94237e5d1a4268a6` |
+| `ig-story` | `skills/ig-story` / Jakeschincariol/instagram-agent-skill | `2026.10.22.1` / `d03c56bb598be770c60b201f94237e5d1a4268a6` |
+| `ig-viral` | `skills/ig-viral` / Jakeschincariol/instagram-agent-skill | `2026.10.22.1` / `d03c56bb598be770c60b201f94237e5d1a4268a6` |
+
+SNS 역할·설치 선택과 도구의 한계: [SNS_SKILLS.md](SNS_SKILLS.md).
