@@ -1,0 +1,647 @@
+{
+  "checked_at": "2026-10-24T16:18:20.203027+00:00",
+  "main_sha": "63a8581634282508c4355a72686839d4c0016008",
+  "github_sbom_created": "2026-10-24T16:16:32Z",
+  "open_alerts": 49,
+  "vulnerable_current_versions": 0,
+  "github_graph_matches_main_and_pc": true,
+  "alerts": [
+    {
+      "number": 49,
+      "package": "fallow",
+      "manifest": "tools/npm/package-lock.json",
+      "advisory": "GHSA-h4fr-cmh5-qr62",
+      "range": "< 3.34.0",
+      "version": [
+        "3.35.0"
+      ],
+      "state": "open",
+      "updated_at": "2026-10-24T09:55:24Z",
+      "classification": "fixed_version_present_alert_state_pending"
+    },
+    {
+      "number": 48,
+      "package": "fallow",
+      "manifest": "tools/npm/package-lock.json",
+      "advisory": "GHSA-jfwm-3p3c-6hx5",
+      "range": ">= 2.68.0, < 3.34.0",
+      "version": [
+        "3.35.0"
+      ],
+      "state": "open",
+      "updated_at": "2026-10-24T09:55:23Z",
+      "classification": "fixed_version_present_alert_state_pending"
+    },
+    {
+      "number": 47,
+      "package": "fast-uri",
+      "manifest": "tools/npm/package-lock.json",
+      "advisory": "GHSA-w74x-v6f9-j3xg",
+      "range": ">= 3.0.0, < 3.1.9",
+      "version": [
+        "3.1.9"
+      ],
+      "state": "open",
+      "updated_at": "2026-10-24T09:55:23Z",
+      "classification": "fixed_version_present_alert_state_pending"
+    },
+    {
+      "number": 46,
+      "package": "fast-uri",
+      "manifest": "tools/npm/package-lock.json",
+      "advisory": "GHSA-xhq7-xmqj-769h",
+      "range": ">= 3.0.0, < 3.1.9",
+      "version": [
+        "3.1.9"
+      ],
+      "state": "open",
+      "updated_at": "2026-10-24T09:55:23Z",
+      "classification": "fixed_version_present_alert_state_pending"
+    },
+    {
+      "number": 45,
+      "package": "fast-uri",
+      "manifest": "tools/npm/package-lock.json",
+      "advisory": "GHSA-wjr9-j795-jxcr",
+      "range": ">= 3.1.3, < 3.1.9",
+      "version": [
+        "3.1.9"
+      ],
+      "state": "open",
+      "updated_at": "2026-10-24T09:55:23Z",
+      "classification": "fixed_version_present_alert_state_pending"
+    },
+    {
+      "number": 44,
+      "package": "fast-uri",
+      "manifest": "tools/npm/package-lock.json",
+      "advisory": "GHSA-333x-w4r6-6crp",
+      "range": ">= 3.0.0, < 3.1.9",
+      "version": [
+        "3.1.9"
+      ],
+      "state": "open",
+      "updated_at": "2026-10-24T09:55:22Z",
+      "classification": "fixed_version_present_alert_state_pending"
+    },
+    {
+      "number": 43,
+      "package": "body-parser",
+      "manifest": "tools/npm/package-lock.json",
+      "advisory": "GHSA-27r3-jxmh-p828",
+      "range": ">= 2.0.0, < 2.4.0",
+      "version": [
+        "2.4.0"
+      ],
+      "state": "open",
+      "updated_at": "2026-10-24T09:55:22Z",
+      "classification": "fixed_version_present_alert_state_pending"
+    },
+    {
+      "number": 42,
+      "package": "zod",
+      "manifest": "tools/npm/package-lock.json",
+      "advisory": "GHSA-mrhx-c7xc-m3w5",
+      "range": "< 4.6.6",
+      "version": [
+        "4.6.7"
+      ],
+      "state": "open",
+      "updated_at": "2026-10-24T09:55:22Z",
+      "classification": "fixed_version_present_alert_state_pending"
+    },
+    {
+      "number": 41,
+      "package": "pillow",
+      "manifest": "skills/image-glyph-generator/requirements.txt",
+      "advisory": "GHSA-5x8w-8jj5-q52h",
+      "range": "<= 12.3.0",
+      "version": [
+        "13.0.0"
+      ],
+      "state": "open",
+      "updated_at": "2026-10-24T09:55:21Z",
+      "classification": "fixed_version_present_alert_state_pending"
+    },
+    {
+      "number": 40,
+      "package": "pillow",
+      "manifest": "skills/image-glyph-generator/requirements.txt",
+      "advisory": "GHSA-654x-cwwv-5j9c",
+      "range": ">= 11.2.1, < 13.0.0",
+      "version": [
+        "13.0.0"
+      ],
+      "state": "open",
+      "updated_at": "2026-10-24T09:55:21Z",
+      "classification": "fixed_version_present_alert_state_pending"
+    },
+    {
+      "number": 39,
+      "package": "pillow",
+      "manifest": "skills/image-glyph-generator/requirements.txt",
+      "advisory": "GHSA-78g4-xqwv-q3g8",
+      "range": ">= 11.1.0, < 13.0.0",
+      "version": [
+        "13.0.0"
+      ],
+      "state": "open",
+      "updated_at": "2026-10-24T09:55:21Z",
+      "classification": "fixed_version_present_alert_state_pending"
+    },
+    {
+      "number": 38,
+      "package": "pillow",
+      "manifest": "skills/image-glyph-generator/requirements.txt",
+      "advisory": "GHSA-g7cr-3p24-7wf7",
+      "range": ">= 9.4.0, < 13.0.0",
+      "version": [
+        "13.0.0"
+      ],
+      "state": "open",
+      "updated_at": "2026-10-24T09:55:20Z",
+      "classification": "fixed_version_present_alert_state_pending"
+    },
+    {
+      "number": 37,
+      "package": "pillow",
+      "manifest": "skills/image-glyph-generator/requirements.txt",
+      "advisory": "GHSA-9v9v-9qvf-h2hj",
+      "range": "< 13.0.0",
+      "version": [
+        "13.0.0"
+      ],
+      "state": "open",
+      "updated_at": "2026-10-24T09:55:20Z",
+      "classification": "fixed_version_present_alert_state_pending"
+    },
+    {
+      "number": 36,
+      "package": "pillow",
+      "manifest": "skills/image-glyph-generator/requirements.txt",
+      "advisory": "GHSA-g4qv-2jxx-769h",
+      "range": ">= 11.0.0, < 13.0.0",
+      "version": [
+        "13.0.0"
+      ],
+      "state": "open",
+      "updated_at": "2026-10-24T09:55:20Z",
+      "classification": "fixed_version_present_alert_state_pending"
+    },
+    {
+      "number": 35,
+      "package": "pillow",
+      "manifest": "skills/image-glyph-generator/requirements.txt",
+      "advisory": "GHSA-3j72-p6qg-6xp7",
+      "range": "< 13.0.0",
+      "version": [
+        "13.0.0"
+      ],
+      "state": "open",
+      "updated_at": "2026-10-24T09:55:19Z",
+      "classification": "fixed_version_present_alert_state_pending"
+    },
+    {
+      "number": 34,
+      "package": "pillow",
+      "manifest": "skills/image-glyph-generator/requirements.txt",
+      "advisory": "GHSA-4rm8-3hmm-39fg",
+      "range": "< 13.0.0",
+      "version": [
+        "13.0.0"
+      ],
+      "state": "open",
+      "updated_at": "2026-10-24T09:55:19Z",
+      "classification": "fixed_version_present_alert_state_pending"
+    },
+    {
+      "number": 33,
+      "package": "pillow",
+      "manifest": "skills/image-glyph-generator/requirements.txt",
+      "advisory": "GHSA-mrfp-p49p-3hf2",
+      "range": ">= 5.1.0, < 13.0.0",
+      "version": [
+        "13.0.0"
+      ],
+      "state": "open",
+      "updated_at": "2026-10-24T09:55:19Z",
+      "classification": "fixed_version_present_alert_state_pending"
+    },
+    {
+      "number": 32,
+      "package": "pillow",
+      "manifest": "skills/image-glyph-generator/requirements.txt",
+      "advisory": "GHSA-v9pv-5gc8-w2m6",
+      "range": ">= 11.0.0, < 13.0.0",
+      "version": [
+        "13.0.0"
+      ],
+      "state": "open",
+      "updated_at": "2026-10-24T09:55:18Z",
+      "classification": "fixed_version_present_alert_state_pending"
+    },
+    {
+      "number": 31,
+      "package": "pillow",
+      "manifest": "skills/image-glyph-generator/requirements.txt",
+      "advisory": "GHSA-24rc-8hj2-v98c",
+      "range": ">= 9.1.0, < 13.0.0",
+      "version": [
+        "13.0.0"
+      ],
+      "state": "open",
+      "updated_at": "2026-10-24T09:55:18Z",
+      "classification": "fixed_version_present_alert_state_pending"
+    },
+    {
+      "number": 30,
+      "package": "pillow",
+      "manifest": "skills/image-glyph-generator/requirements.txt",
+      "advisory": "GHSA-g842-9rc4-69pw",
+      "range": "< 13.0.0",
+      "version": [
+        "13.0.0"
+      ],
+      "state": "open",
+      "updated_at": "2026-10-24T09:55:18Z",
+      "classification": "fixed_version_present_alert_state_pending"
+    },
+    {
+      "number": 29,
+      "package": "pillow",
+      "manifest": "skills/image-glyph-generator/requirements.txt",
+      "advisory": "GHSA-p8hx-v2p6-rp84",
+      "range": "< 13.0.0",
+      "version": [
+        "13.0.0"
+      ],
+      "state": "open",
+      "updated_at": "2026-10-24T09:55:17Z",
+      "classification": "fixed_version_present_alert_state_pending"
+    },
+    {
+      "number": 28,
+      "package": "pillow",
+      "manifest": "skills/image-glyph-generator/requirements.txt",
+      "advisory": "GHSA-xvh5-g6gv-559v",
+      "range": "<= 12.3.0",
+      "version": [
+        "13.0.0"
+      ],
+      "state": "open",
+      "updated_at": "2026-10-24T09:55:17Z",
+      "classification": "fixed_version_present_alert_state_pending"
+    },
+    {
+      "number": 27,
+      "package": "pillow",
+      "manifest": "skills/image-glyph-generator/requirements.txt",
+      "advisory": "GHSA-332p-7hrc-92wf",
+      "range": ">= 2.0.0, < 13.0.0",
+      "version": [
+        "13.0.0"
+      ],
+      "state": "open",
+      "updated_at": "2026-10-24T09:55:17Z",
+      "classification": "fixed_version_present_alert_state_pending"
+    },
+    {
+      "number": 26,
+      "package": "pillow",
+      "manifest": "skills/image-glyph-generator/requirements.txt",
+      "advisory": "GHSA-4rr5-89j8-mwwm",
+      "range": ">= 11.3.0, < 13.0.0",
+      "version": [
+        "13.0.0"
+      ],
+      "state": "open",
+      "updated_at": "2026-10-24T09:55:17Z",
+      "classification": "fixed_version_present_alert_state_pending"
+    },
+    {
+      "number": 25,
+      "package": "pillow",
+      "manifest": "skills/image-glyph-generator/requirements.txt",
+      "advisory": "GHSA-f2g6-542v-9j58",
+      "range": ">= 5.1.0, < 13.0.0",
+      "version": [
+        "13.0.0"
+      ],
+      "state": "open",
+      "updated_at": "2026-10-24T09:55:16Z",
+      "classification": "fixed_version_present_alert_state_pending"
+    },
+    {
+      "number": 24,
+      "package": "pillow",
+      "manifest": "skills/image-glyph-generator/requirements.txt",
+      "advisory": "GHSA-5xm2-6676-qcp9",
+      "range": ">= 8.1.0, < 13.0.0",
+      "version": [
+        "13.0.0"
+      ],
+      "state": "open",
+      "updated_at": "2026-10-24T09:55:16Z",
+      "classification": "fixed_version_present_alert_state_pending"
+    },
+    {
+      "number": 23,
+      "package": "pillow",
+      "manifest": "skills/image-glyph-generator/requirements.txt",
+      "advisory": "GHSA-gg2r-wvfm-q9rx",
+      "range": ">= 4.1.0, < 13.0.0",
+      "version": [
+        "13.0.0"
+      ],
+      "state": "open",
+      "updated_at": "2026-10-24T09:55:16Z",
+      "classification": "fixed_version_present_alert_state_pending"
+    },
+    {
+      "number": 22,
+      "package": "pillow",
+      "manifest": "skills/image-glyph-generator/requirements.txt",
+      "advisory": "GHSA-jg86-v3jv-hrpm",
+      "range": ">= 5.1.0, < 13.0.0",
+      "version": [
+        "13.0.0"
+      ],
+      "state": "open",
+      "updated_at": "2026-10-24T09:55:15Z",
+      "classification": "fixed_version_present_alert_state_pending"
+    },
+    {
+      "number": 21,
+      "package": "pillow",
+      "manifest": "skills/image-glyph-generator/requirements.txt",
+      "advisory": "GHSA-254f-3936-288h",
+      "range": ">= 5.1.0, < 13.0.0",
+      "version": [
+        "13.0.0"
+      ],
+      "state": "open",
+      "updated_at": "2026-10-24T09:55:15Z",
+      "classification": "fixed_version_present_alert_state_pending"
+    },
+    {
+      "number": 20,
+      "package": "pillow",
+      "manifest": "skills/image-glyph-generator/requirements.txt",
+      "advisory": "GHSA-xgh8-jp6q-p5x8",
+      "range": "<= 12.3.0",
+      "version": [
+        "13.0.0"
+      ],
+      "state": "open",
+      "updated_at": "2026-10-24T09:55:15Z",
+      "classification": "fixed_version_present_alert_state_pending"
+    },
+    {
+      "number": 19,
+      "package": "pillow",
+      "manifest": "skills/image-glyph-generator/requirements.txt",
+      "advisory": "GHSA-rfgq-q3w2-pmv2",
+      "range": ">= 9.1.0, < 13.0.0",
+      "version": [
+        "13.0.0"
+      ],
+      "state": "open",
+      "updated_at": "2026-10-24T09:55:14Z",
+      "classification": "fixed_version_present_alert_state_pending"
+    },
+    {
+      "number": 18,
+      "package": "pillow",
+      "manifest": "skills/image-glyph-generator/requirements.txt",
+      "advisory": "GHSA-74r2-7ff9-mjj2",
+      "range": ">= 5.4.0, < 13.0.0",
+      "version": [
+        "13.0.0"
+      ],
+      "state": "open",
+      "updated_at": "2026-10-24T09:55:14Z",
+      "classification": "fixed_version_present_alert_state_pending"
+    },
+    {
+      "number": 17,
+      "package": "pillow",
+      "manifest": "skills/image-glyph-generator/requirements.txt",
+      "advisory": "GHSA-22hg-r758-rrw9",
+      "range": ">= 7.2.0, < 13.0.0",
+      "version": [
+        "13.0.0"
+      ],
+      "state": "open",
+      "updated_at": "2026-10-24T09:55:14Z",
+      "classification": "fixed_version_present_alert_state_pending"
+    },
+    {
+      "number": 16,
+      "package": "pillow",
+      "manifest": "skills/image-glyph-generator/requirements.txt",
+      "advisory": "GHSA-fc9g-5qg7-mf45",
+      "range": ">= 9.2.0, < 13.0.0",
+      "version": [
+        "13.0.0"
+      ],
+      "state": "open",
+      "updated_at": "2026-10-24T09:55:13Z",
+      "classification": "fixed_version_present_alert_state_pending"
+    },
+    {
+      "number": 15,
+      "package": "pillow",
+      "manifest": "skills/image-glyph-generator/requirements.txt",
+      "advisory": "GHSA-27h8-gf7j-v5hc",
+      "range": "<= 12.3.0",
+      "version": [
+        "13.0.0"
+      ],
+      "state": "open",
+      "updated_at": "2026-10-24T09:55:13Z",
+      "classification": "fixed_version_present_alert_state_pending"
+    },
+    {
+      "number": 14,
+      "package": "pillow",
+      "manifest": "skills/image-glyph-generator/requirements.txt",
+      "advisory": "GHSA-cp9v-662q-vvx9",
+      "range": ">= 12.0.0, < 13.0.0",
+      "version": [
+        "13.0.0"
+      ],
+      "state": "open",
+      "updated_at": "2026-10-24T09:55:13Z",
+      "classification": "fixed_version_present_alert_state_pending"
+    },
+    {
+      "number": 13,
+      "package": "pillow",
+      "manifest": "skills/image-glyph-generator/requirements.txt",
+      "advisory": "GHSA-j4m9-6w36-pw47",
+      "range": ">= 10.0.0, < 13.0.0",
+      "version": [
+        "13.0.0"
+      ],
+      "state": "open",
+      "updated_at": "2026-10-24T09:55:12Z",
+      "classification": "fixed_version_present_alert_state_pending"
+    },
+    {
+      "number": 12,
+      "package": "pillow",
+      "manifest": "skills/image-glyph-generator/requirements.txt",
+      "advisory": "GHSA-7mwm-ghpf-9vrm",
+      "range": "<= 12.3.0",
+      "version": [
+        "13.0.0"
+      ],
+      "state": "open",
+      "updated_at": "2026-10-24T09:55:12Z",
+      "classification": "fixed_version_present_alert_state_pending"
+    },
+    {
+      "number": 11,
+      "package": "pillow",
+      "manifest": "skills/image-glyph-generator/requirements.txt",
+      "advisory": "GHSA-4558-3h8r-v8xp",
+      "range": "<= 12.3.0",
+      "version": [
+        "13.0.0"
+      ],
+      "state": "open",
+      "updated_at": "2026-10-24T09:55:12Z",
+      "classification": "fixed_version_present_alert_state_pending"
+    },
+    {
+      "number": 10,
+      "package": "pillow",
+      "manifest": "skills/image-glyph-generator/requirements.txt",
+      "advisory": "GHSA-w889-685w-c8fh",
+      "range": ">= 2.6.0, < 13.0.0",
+      "version": [
+        "13.0.0"
+      ],
+      "state": "open",
+      "updated_at": "2026-10-24T09:55:11Z",
+      "classification": "fixed_version_present_alert_state_pending"
+    },
+    {
+      "number": 9,
+      "package": "pillow",
+      "manifest": "skills/image-glyph-generator/requirements.txt",
+      "advisory": "GHSA-vx6w-vv9f-6gvg",
+      "range": ">= 2.3.0, <= 12.3.0",
+      "version": [
+        "13.0.0"
+      ],
+      "state": "open",
+      "updated_at": "2026-10-24T03:12:41Z",
+      "classification": "fixed_version_present_alert_state_pending"
+    },
+    {
+      "number": 8,
+      "package": "pillow",
+      "manifest": "skills/image-glyph-generator/requirements.txt",
+      "advisory": "GHSA-p4wg-p73j-c528",
+      "range": ">= 5.1.0, < 13.0.0",
+      "version": [
+        "13.0.0"
+      ],
+      "state": "open",
+      "updated_at": "2026-10-24T03:10:33Z",
+      "classification": "fixed_version_present_alert_state_pending"
+    },
+    {
+      "number": 7,
+      "package": "pillow",
+      "manifest": "skills/image-glyph-generator/requirements.txt",
+      "advisory": "GHSA-q45j-58j2-45rg",
+      "range": ">= 5.3.0, < 13.0.0",
+      "version": [
+        "13.0.0"
+      ],
+      "state": "open",
+      "updated_at": "2026-10-24T02:53:08Z",
+      "classification": "fixed_version_present_alert_state_pending"
+    },
+    {
+      "number": 6,
+      "package": "pillow",
+      "manifest": "skills/image-glyph-generator/requirements.txt",
+      "advisory": "GHSA-c6hw-5grf-ff96",
+      "range": ">= 8.1.0, < 13.0.0",
+      "version": [
+        "13.0.0"
+      ],
+      "state": "open",
+      "updated_at": "2026-10-24T01:33:39Z",
+      "classification": "fixed_version_present_alert_state_pending"
+    },
+    {
+      "number": 5,
+      "package": "pillow",
+      "manifest": "skills/image-glyph-generator/requirements.txt",
+      "advisory": "GHSA-462x-pgg6-55fp",
+      "range": ">= 8.2.0, < 13.0.0",
+      "version": [
+        "13.0.0"
+      ],
+      "state": "open",
+      "updated_at": "2026-10-24T01:27:15Z",
+      "classification": "fixed_version_present_alert_state_pending"
+    },
+    {
+      "number": 4,
+      "package": "pillow",
+      "manifest": "skills/image-glyph-generator/requirements.txt",
+      "advisory": "GHSA-65qm-jvmh-6pqg",
+      "range": ">= 9.2.0, < 13.0.0",
+      "version": [
+        "13.0.0"
+      ],
+      "state": "open",
+      "updated_at": "2026-10-24T01:06:37Z",
+      "classification": "fixed_version_present_alert_state_pending"
+    },
+    {
+      "number": 3,
+      "package": "pillow",
+      "manifest": "skills/image-glyph-generator/requirements.txt",
+      "advisory": "GHSA-pchr-8j38-3x4p",
+      "range": "<= 12.3.0",
+      "version": [
+        "13.0.0"
+      ],
+      "state": "open",
+      "updated_at": "2026-10-24T00:52:50Z",
+      "classification": "fixed_version_present_alert_state_pending"
+    },
+    {
+      "number": 2,
+      "package": "pillow",
+      "manifest": "skills/image-glyph-generator/requirements.txt",
+      "advisory": "GHSA-8g5g-8vmr-9782",
+      "range": "<= 12.3.0",
+      "version": [
+        "13.0.0"
+      ],
+      "state": "open",
+      "updated_at": "2026-10-24T00:10:53Z",
+      "classification": "fixed_version_present_alert_state_pending"
+    },
+    {
+      "number": 1,
+      "package": "pillow",
+      "manifest": "skills/image-glyph-generator/requirements.txt",
+      "advisory": "GHSA-58r4-6rv3-gfh8",
+      "range": "<= 12.3.0",
+      "version": [
+        "13.0.0"
+      ],
+      "state": "open",
+      "updated_at": "2026-10-24T00:08:19Z",
+      "classification": "fixed_version_present_alert_state_pending"
+    }
+  ]
+}
