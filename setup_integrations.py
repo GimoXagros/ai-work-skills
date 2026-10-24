@@ -82,6 +82,13 @@ def install_plugin(codex, name, home, env):
         npm = shutil.which('npm.cmd' if sys.platform == 'win32' else 'npm', path=env.get('PATH'))
         if not npm:
             raise RuntimeError('ECC hooks require Node/npm. Run --install first.')
+        package_path = target / 'package.json'
+        package = json.loads(package_path.read_text(encoding='utf-8'))
+        # ECC's release lock pins a vulnerable fast-uri; preserve its other overrides.
+        package.setdefault('overrides', {}).update(read_lock()['runtime_overrides']['ecc'])
+        package_path.write_text(json.dumps(package, indent=2) + '\n', encoding='utf-8')
+        run([npm, 'install', '--package-lock-only', '--ignore-scripts', '--no-audit', '--no-fund'],
+            cwd=target, env=env)
         run([npm, 'ci', '--omit=dev', '--ignore-scripts', '--no-audit', '--no-fund'], cwd=target, env=env)
     print('Installed plugin:', name)
 

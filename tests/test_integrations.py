@@ -34,12 +34,17 @@ class IntegrationTests(unittest.TestCase):
             target = home / 'plugins/cache/ai-work-skills/ecc/2.2.3'
             target.mkdir(parents=True)
             (target / 'package-lock.json').write_text('{}')
+            (target / 'package.json').write_text('{"overrides":{"keep-me":"1.0.0","fast-uri":"3.1.7"}}')
             result = json.dumps({'installedPath': str(target)})
             with patch.object(setup.subprocess, 'check_output', return_value=result), patch.object(setup.shutil, 'which', return_value='npm'), patch.object(setup, 'run') as run:
                 setup.install_plugin('codex', 'ecc', home, {})
                 self.assertIn('--ignore-scripts', run.call_args.args[0])
                 self.assertIn('--omit=dev', run.call_args.args[0])
                 self.assertEqual(run.call_args.kwargs['cwd'], target.resolve())
+                overrides = json.loads((target / 'package.json').read_text())['overrides']
+                self.assertEqual(overrides['fast-uri'], '3.1.9')
+                self.assertEqual(overrides['keep-me'], '1.0.0')
+                self.assertEqual(run.call_count, 2)
             with patch.object(setup.subprocess, 'check_output', return_value=json.dumps({'installedPath': str(home)})):
                 with self.assertRaisesRegex(ValueError, 'Unexpected ECC'):
                     setup.install_plugin('codex', 'ecc', home, {})

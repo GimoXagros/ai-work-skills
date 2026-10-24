@@ -14,7 +14,7 @@ python -X utf8 configure_codex.py
 ## 적용되는 설정
 
 - `skills.max_context_tokens = 10000`: 설치된 스킬을 삭제·비활성화하지 않고 초기 목록 예산을 늘립니다. 공식 최대값이며 전체 모델 문맥 크기를 늘리는 설정은 아닙니다. 앞으로 스킬이 더 늘거나 모델이 달라지면 경고가 다시 나타날 수 있습니다.
-- Chrome DevTools MCP **1.10.1**: 검증한 버전을 npm package-lock.json으로 설치합니다. 최신 버전을 자동 선택하지 않습니다.
+- Chrome DevTools MCP **1.12.0**: 검증한 버전을 npm package-lock.json으로 설치합니다. 최신 버전을 자동 선택하지 않습니다.
 - `chrome-devtools` 사용자 MCP 설정: Node 실행 파일과 서버 JS 파일의 절대 경로를 사용해 Windows의 `npx` 탐색 실패를 방지합니다. 기존 같은 이름의 사용자 MCP 설정은 이 구성으로 교체합니다.
 - 브라우저는 `--headless --isolated`로 실행합니다. 사용자 Chrome 프로필과 분리되며 사용 통계 및 CrUX 조회는 비활성화합니다.
 
@@ -61,3 +61,5 @@ pwsh -NoProfile -File ./verify_browser.ps1 -NoDaemon
 모든 PC·모든 모델에서 동일한 결과를 보장하지 않습니다. 별도의 실물 PC, 로그인·업로드·성능 측정은 검증하지 않았습니다.
 
 공식 출처: [Codex 설정](https://learn.chatgpt.com/docs/config-file/config-reference), [Chrome DevTools MCP](https://github.com/ChromeDevTools/chrome-devtools-mcp).
+
+2026-10-25: 1.12.0의 새 MCP 프로세스에서 도구 32개 발견, 페이지 열기와 `pageId`를 명시한 스냅샷 성공을 확인했습니다. 이는 새 PC의 사용자 승인 상태를 대신하지 않습니다.

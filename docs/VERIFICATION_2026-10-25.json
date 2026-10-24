@@ -1,0 +1,61 @@
+{
+  "checked_at": "2026-10-25",
+  "scope": "Windows maintenance PC; not another physical PC",
+  "npm_versions": {
+    "@opengsd/gsd-core": "1.18.0",
+    "agent-browser": "0.39.2",
+    "chrome-devtools-mcp": "1.12.0",
+    "firecrawl-cli": "1.26.22",
+    "hyperframes": "0.8.192"
+  },
+  "npm_overrides": {
+    "zod": "4.6.7",
+    "zod-to-json-schema": "3.25.2",
+    "fallow": "3.35.0"
+  },
+  "runtime_overrides": {
+    "ecc": {
+      "fast-uri": "3.1.9"
+    }
+  },
+  "npm_audit": {
+    "repository_total": 0,
+    "installed_total": 0,
+    "ecc_production_total": 0
+  },
+  "unit_tests": {
+    "passed": 61
+  },
+  "hooks": {
+    "trusted": 11,
+    "untrusted": 0,
+    "fresh_cli_response": "runtime-smoke-ok",
+    "catalog_warning": false,
+    "session_start_synthetic": [
+      "gsd",
+      "ecc",
+      "ponytail"
+    ],
+    "claude_mem_health": "ok",
+    "claude_mem_version": "15.0.2",
+    "all_event_lifecycles_tested": false
+  },
+  "runtime_checks": {
+    "firecrawl": "live scrape + local JSON Schema and Zod v3 fixture",
+    "chrome_devtools": "32 tools + new_page + take_snapshot",
+    "agent_browser": "open + snapshot + close",
+    "hyperframes": "10s 1920x1080 30fps H264 render",
+    "ffmpeg": "full decode",
+    "headroom": "compress + retrieve",
+    "graphify": "local code graph re-extraction",
+    "whisper": "base English synthetic speech",
+    "yt_dlp": "local HTTP media download SHA256 match"
+  },
+  "video_sha256": "3755715989d4277c55e88f8006a0a833ec7cce4839366d81bf024426d4c2ec41",
+  "limitations": [
+    "GSD converter reports some remaining .claude references",
+    "All Python dependencies not security-audited",
+    "All plugin workflows and hook events not tested",
+    "No physical second-PC verification"
+  ]
+}
