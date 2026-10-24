@@ -34,3 +34,7 @@ python -X utf8 setup_integrations.py --install --skip-gsd
 ## 유지한 항목과 한계
 
 외부 원본의 최신 HEAD와 실제 배포 버전은 다릅니다. 이번 배포는 관리 스킬과 위 의존성 갱신입니다. `integrations-lock.json`의 실행 도구·플러그인·GSD 버전은 기존 검증본을 유지하며, 이들을 모두 최신 버전으로 올렸다는 의미가 아닙니다. 독립 작성된 emucap·Headroom·Graphify·미디어 도구 안내도 기존 런타임 기준을 유지합니다. 인증 API 호출, 브라우저 승인 흐름, 실제 게임·실기 동작, 다른 물리 PC와 Python 3.10 실행은 이번에 재검증하지 않았습니다.
+
+## 남아 있는 보안 경고
+
+2026-10-25 `npm audit` 기준 관리 npm 구성은 critical 0, high 4, low 2입니다. high 4는 Firecrawl의 Zod 3 계열 의존 경로에서 파생되며 [GHSA-mrhx-c7xc-m3w5](https://github.com/advisories/GHSA-mrhx-c7xc-m3w5)의 대용량 검증 입력에 의한 메모리 소진 문제입니다. low 2는 GSD/Fallow의 프로젝트 외부 경로 접근 관련 [GHSA-h4fr-cmh5-qr62](https://github.com/advisories/GHSA-h4fr-cmh5-qr62), [GHSA-jfwm-3p3c-6hx5](https://github.com/advisories/GHSA-jfwm-3p3c-6hx5) 경로입니다. 상위 패키지를 포함한 경고 수이며 독립 취약점 6개라는 뜻은 아닙니다. 자동 수정 제안이 Firecrawl CLI의 이전 버전으로 되돌리기를 포함하므로 무검증 강제 변경하지 않았습니다. 신뢰하지 않는 대용량 입력과 저장소 분석에는 이 잔여 위험이 있습니다. GitHub 저장소 전체 경고 집계와 이 npm 설치 트리의 검사 범위는 다릅니다.
