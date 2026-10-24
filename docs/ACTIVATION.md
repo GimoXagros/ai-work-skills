@@ -2,7 +2,7 @@
 
 스킬 목록 용량과 Chrome DevTools MCP 설치·승인·CLI 시작 오류 해결은 [브라우저 설정 안내](BROWSER_SETUP.md)에 있습니다.
 
-2026-10-25 기준. 먼저 저장소 루트에서 다음 명령을 실행합니다(Windows x64).
+2026-10-25 기준. 먼저 저장소 루트에서 다음 명령을 실행합니다(Windows x64). 글리프 도구를 함께 설치할 때는 Python 3.11 이상을 사용합니다.
 
 ```powershell
 python -X utf8 install.py

@@ -24,7 +24,7 @@
     "ecc_production_total": 0
   },
   "unit_tests": {
-    "passed": 61
+    "passed": 62
   },
   "hooks": {
     "trusted": 11,
@@ -57,5 +57,12 @@
     "All Python dependencies not security-audited",
     "All plugin workflows and hook events not tested",
     "No physical second-PC verification"
-  ]
+  ],
+  "glyph_runtime": {
+    "python_minimum": "3.11",
+    "Pillow": "13.0.0",
+    "fontTools": "4.67.0",
+    "python310_fallback_removed": true,
+    "pip_audit_known_vulnerabilities": 0
+  }
 }
