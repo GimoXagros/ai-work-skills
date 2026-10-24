@@ -1,0 +1,244 @@
+{
+  "checked_at": "2026-10-25",
+  "scope": "Skill source review; integration runtime/plugin upgrades are not included",
+  "repositories": [
+    {
+      "repo": "Yeachan-Heo/oh-my-codex",
+      "observed_head": "78e6860f88d52c33eb27e1403e0bb8fa8a885da4",
+      "previous_refs": [
+        "2db7d5136b22252e83091a12ea27567b2fdd5971"
+      ],
+      "result": "스킬 고정 커밋/수정본 갱신"
+    },
+    {
+      "repo": "openai/plugins",
+      "observed_head": "0722921d5542fc593105c27bd52630babd8b8c2a",
+      "previous_refs": [],
+      "result": "원본 변경 없음"
+    },
+    {
+      "repo": "mcpads/create-retro-game-kr-patch",
+      "observed_head": "4b360ab36399aea0c7dbd4ea1b5a0acec075726f",
+      "previous_refs": [],
+      "result": "원본 변경 없음"
+    },
+    {
+      "repo": "DECK6/akm",
+      "observed_head": "fe1b82d5c27fc2223853feec0a684964699337cf",
+      "previous_refs": [
+        "70e99b51b4e6b075dc98aab8754c9ef16f602dfe"
+      ],
+      "result": "스킬 고정 커밋/수정본 갱신"
+    },
+    {
+      "repo": "2389-research/binary-re",
+      "observed_head": "31d0a3fdf705ed78c9d8f7d7c1aef673ad15a3a0",
+      "previous_refs": [],
+      "result": "원본 변경 없음"
+    },
+    {
+      "repo": "vgrichina/re-skill",
+      "observed_head": "64c3bffb54ae4b9d99804a03fa4f179f4dd080c5",
+      "previous_refs": [],
+      "result": "원본 변경 없음"
+    },
+    {
+      "repo": "mnfst/awesome-free-llm-apis",
+      "observed_head": "639807877a43bb85b34348ccf7146d7376fc75eb",
+      "previous_refs": [
+        "cf97c32fec1b2e96e9936746e2731a81bd5ea33f"
+      ],
+      "result": "스킬 고정 커밋/수정본 갱신"
+    },
+    {
+      "repo": "epoko77-ai/im-not-ai",
+      "observed_head": "b37e0206d31fffd9149bf57168d4d62eb2086bee",
+      "previous_refs": [],
+      "result": "원본 변경 없음"
+    },
+    {
+      "repo": "gagnonjung/kr-patch-qa",
+      "observed_head": "cab74ca62c817e1b4626644d99f254b59796e80d",
+      "previous_refs": [],
+      "result": "원본 변경 없음"
+    },
+    {
+      "repo": "mcpads/create-kr-patch-template",
+      "observed_head": "c0e930286ccba37e6b83b9405a06e0b0ea4e6293",
+      "previous_refs": [],
+      "result": "원본 변경 없음"
+    },
+    {
+      "repo": "mcpads/emucap",
+      "observed_head": "da7a2e76f37173e15c8d370844f28c4ffe542a5a",
+      "previous_refs": [
+        "cd0a39b6a4b102bd64c5877229b57e501f93697c"
+      ],
+      "result": "기존 고정 버전 유지 — 별도 실행 도구·플러그인 또는 독립 안내 스킬"
+    },
+    {
+      "repo": "anthropics/claude-plugins-official",
+      "observed_head": "58267944f92187b7d6a1c822165c96c81c864806",
+      "previous_refs": [
+        "ea10b213686c90bb1984b2016937310e05336cf3"
+      ],
+      "result": "스킬 고정 커밋/수정본 갱신"
+    },
+    {
+      "repo": "iamneilroberts/claude-skills",
+      "observed_head": "947953f2a0664ac95996a4c7b35794a7cc8fc93a",
+      "previous_refs": [],
+      "result": "원본 변경 없음"
+    },
+    {
+      "repo": "multica-ai/andrej-karpathy-skills",
+      "observed_head": "2c606141936f1eeef17fa3043a72095b4765b9c2",
+      "previous_refs": [],
+      "result": "원본 변경 없음"
+    },
+    {
+      "repo": "nextlevelbuilder/ui-ux-pro-max-skill",
+      "observed_head": "d14efff8ed1faa4187f004f79926f428c8074ec7",
+      "previous_refs": [
+        "56ea9cf174ed86786187daa9de0e6247cb0747e4"
+      ],
+      "result": "스킬 고정 커밋/수정본 갱신"
+    },
+    {
+      "repo": "vercel-labs/agent-browser",
+      "observed_head": "372ac5ce20fab885dbf45ee0c9d510ec8c3b6fdb",
+      "previous_refs": [
+        "dac13bb87468fe9d74a040d862720f6cc17a9565"
+      ],
+      "result": "스킬 고정 커밋/수정본 갱신"
+    },
+    {
+      "repo": "leonxlnx/taste-skill",
+      "observed_head": "6010f91a9935f1c167dfc500fb1a475681892e6b",
+      "previous_refs": [
+        "f624f37a8c650b9cc550253104925efe4c8de246"
+      ],
+      "result": "스킬 고정 커밋/수정본 갱신"
+    },
+    {
+      "repo": "vercel-labs/skills",
+      "observed_head": "a80e4c9d12d607631249d4d7d059f835d4b2f13a",
+      "previous_refs": [
+        "13e4063a1cf913f5606d57d42ab83a86f5001e04"
+      ],
+      "result": "스킬 고정 커밋/수정본 갱신"
+    },
+    {
+      "repo": "anthropics/skills",
+      "observed_head": "dbd4588f9e1033efb41dad4bef2f7947c8993d44",
+      "previous_refs": [],
+      "result": "원본 변경 없음"
+    },
+    {
+      "repo": "firecrawl/firecrawl",
+      "observed_head": "e1dc7a43954b1dd61eb7c7230363c62539a652b2",
+      "previous_refs": [
+        "7ccc8f4e99571cd3e66f437cce0edb8dfa02c8a7"
+      ],
+      "result": "스킬 고정 커밋/수정본 갱신"
+    },
+    {
+      "repo": "remotion-dev/skills",
+      "observed_head": "6c67adcd9cdbe6eb84d76342da89b225f9161cb2",
+      "previous_refs": [
+        "1441a11e95db35443bd76bb318386c0d3ca00053"
+      ],
+      "result": "스킬 고정 커밋/수정본 갱신"
+    },
+    {
+      "repo": "headroomlabs-ai/headroom",
+      "observed_head": "a616232d7506cbc94144ad0f43e8df466c53ef09",
+      "previous_refs": [
+        "fbf7bc3278c11975299b9bd0a2ecf200dfd25a05"
+      ],
+      "result": "기존 고정 버전 유지 — 별도 실행 도구·플러그인 또는 독립 안내 스킬"
+    },
+    {
+      "repo": "Graphify-Labs/graphify",
+      "observed_head": "92741d162b2094ffc2fed58cfbd8ee823e9da62c",
+      "previous_refs": [
+        "86c57be8204673c2a1b9849a3292a7dd3ab373d8"
+      ],
+      "result": "기존 고정 버전 유지 — 별도 실행 도구·플러그인 또는 독립 안내 스킬"
+    },
+    {
+      "repo": "yt-dlp/yt-dlp",
+      "observed_head": "fa9886678eb65103303c627b8e013f13f8999b41",
+      "previous_refs": [
+        "897341241f2bfb2439fe0367f4c7c9ccd29a3828"
+      ],
+      "result": "기존 고정 버전 유지 — 별도 실행 도구·플러그인 또는 독립 안내 스킬"
+    },
+    {
+      "repo": "openai/whisper",
+      "observed_head": "86098128c0b4f24f0e2aa2994de830614b474227",
+      "previous_refs": [],
+      "result": "원본 변경 없음"
+    },
+    {
+      "repo": "ffmpeg/ffmpeg",
+      "observed_head": "f5f31760f81f15db09d25c84cfdd9c7d87ef12fd",
+      "previous_refs": [
+        "b60ab6c9a4583cd4bbdc010b412d598945919da8"
+      ],
+      "result": "기존 고정 버전 유지 — 별도 실행 도구·플러그인 또는 독립 안내 스킬"
+    },
+    {
+      "repo": "Jakeschincariol/instagram-agent-skill",
+      "observed_head": "d03c56bb598be770c60b201f94237e5d1a4268a6",
+      "previous_refs": [],
+      "result": "원본 변경 없음"
+    },
+    {
+      "repo": "affaan-m/ecc",
+      "observed_head": "90606c8315ee09cafc303515c5f33024db6b9882",
+      "previous_refs": [
+        "76aaa77df6adc5b889e689007bf99b9a4f74af34"
+      ],
+      "result": "기존 고정 버전 유지 — 별도 실행 도구·플러그인 또는 독립 안내 스킬"
+    },
+    {
+      "repo": "dietrichgebert/ponytail",
+      "observed_head": "09c434ab73ca43761c5d8b0c5d341926c2fba710",
+      "previous_refs": [],
+      "result": "원본 변경 없음"
+    },
+    {
+      "repo": "heygen-com/hyperframes",
+      "observed_head": "da4386f0d06955cbdd09bce5a6e837f4c657654f",
+      "previous_refs": [
+        "dc0e80e73af185cc892ea90d5a9f1412a055e9a1"
+      ],
+      "result": "기존 고정 버전 유지 — 별도 실행 도구·플러그인 또는 독립 안내 스킬"
+    },
+    {
+      "repo": "obra/superpowers",
+      "observed_head": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b",
+      "previous_refs": [
+        "bb92a77741419a4ab5f06e711a283343f1ada0c3"
+      ],
+      "result": "기존 고정 버전 유지 — 별도 실행 도구·플러그인 또는 독립 안내 스킬"
+    },
+    {
+      "repo": "open-gsd/gsd-core",
+      "observed_head": "eedc1968aefd6e85633e5e89e5cb749491e241f8",
+      "previous_refs": [
+        "274f8cae13d03ad80e18959b135b0e51b33329e8"
+      ],
+      "result": "기존 고정 버전 유지 — 별도 실행 도구·플러그인 또는 독립 안내 스킬"
+    },
+    {
+      "repo": "thedotmack/claude-mem",
+      "observed_head": "75fc021a40655cbdd258f0e070f55a03ea9c8642",
+      "previous_refs": [
+        "b85cd123daf8e5bd59edb2d1c7b98e0bba28b3a0"
+      ],
+      "result": "기존 고정 버전 유지 — 별도 실행 도구·플러그인 또는 독립 안내 스킬"
+    }
+  ]
+}

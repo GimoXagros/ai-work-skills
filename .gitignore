@@ -13,3 +13,4 @@ credentials*
 *.wsc
 *.sav
 .venv/
+tools/npm/node_modules/
