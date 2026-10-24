@@ -289,3 +289,7 @@ Codex 공식 문서는 `/review`가 전용 리뷰어를 실행해 변경 없이 
 최종 검사: 신규 3개와 humanize-korean validator PASS; unittest 49개 PASS; 설치된 humanize-korean 입력·변경률·보존·서법 smoke PASS; 전체 33개 오프라인 설치 지문 확인 완료; Unresolved 없음. fonttools 4.66.1 적용. 실제 게임 실행·QA·MCP 런타임 설치는 이번 작업 대상이 아닙니다.
 
 검증: 신규 13개 skill validator PASS, unittest 61개 PASS(6개 Python 엔트리포인트와 의존성/템플릿/라이선스 검사 포함), 전체 오프라인 설치·지문 확인 PASS, 목록 77 active / 2 retired / Unresolved 없음, git diff --check PASS. 기존 로컬 ig-* 13개는 설치기가 변경 전 백업했습니다. 계정 접근·게시·댓글·DM 전송·실제 SNS 성과는 미실행입니다.
+
+## 2026-10-25 유지보수 검토
+
+독립 스킬 77개를 설치 대상으로 유지하고 외부 원본 33개를 비교했다. 실제 갱신, 동일 문서의 원본 커밋 갱신, 별도 런타임 고정 유지 항목을 구분했다. 상세 범위와 미검증 항목은 [배포 기록](RELEASE_NOTES_v2026.10.25.1.md), 원본 관측치는 [감사 자료](docs/UPSTREAM_AUDIT_2026-10-25.json)를 참조한다. 저장소 밖 설치와 현재 PC의 77개 전체 파일 지문 일치, unittest 61개, npm 잠금 설치와 두 변경 패키지 기본 동작 확인을 통과했다. 플러그인·GSD·계정 신뢰 갱신 및 게임/실기 검증으로 확대 해석하지 않는다.

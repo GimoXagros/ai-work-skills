@@ -37,6 +37,8 @@ Run new material through the target repository's router. The default AKM meaning
 | External deliverable | `80-outputs/` |
 | Superseded or deprecated material | `90-archive/` |
 
+Even when asked to remember a preference or constraint, update its canonical note in the matching `30-context/` scope first. Put only stable session essentials in a one-line `40-memory/` pointer; update that pointer when the canonical note changes.
+
 Keep long knowledge out of memory and domain facts out of procedures. Store an execution record only when reproduction, verification, recovery, or handoff needs it. Use links instead of duplicating the same body across layers.
 
 ## Execute with evidence

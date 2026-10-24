@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "checked_at": "2026-10-22",
+  "checked_at": "2026-10-25",
   "skills": [
     {
       "name": "exec-plan",
@@ -16,7 +16,7 @@
       "requested_name": "deep-interview",
       "repo": "Yeachan-Heo/oh-my-codex",
       "path": "skills/deep-interview",
-      "ref": "2db7d5136b22252e83091a12ea27567b2fdd5971",
+      "ref": "78e6860f88d52c33eb27e1403e0bb8fa8a885da4",
       "status": "current",
       "note": "Current upstream skill. Basic questioning has a native fallback; OMX state and handoff features require the OMX runtime."
     },
@@ -53,9 +53,9 @@
       "source": "bundled",
       "path": "skills/akm-workflow",
       "status": "adapted",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "upstream_repo": "DECK6/akm",
-      "upstream_ref": "70e99b51b4e6b075dc98aab8754c9ef16f602dfe",
+      "upstream_ref": "fe1b82d5c27fc2223853feec0a684964699337cf",
       "note": "Standalone Codex adaptation reviewed against current AKM: optional layers, linked knowledge provenance, bounded maintenance and revision-aware verification; upstream multi-skill runtime is not bundled."
     },
     {
@@ -271,10 +271,10 @@
       "path": "skills/free-llm-apis",
       "status": "adapted",
       "upstream_repo": "mnfst/awesome-free-llm-apis",
-      "upstream_ref": "cf97c32fec1b2e96e9936746e2731a81bd5ea33f",
+      "upstream_ref": "639807877a43bb85b34348ccf7146d7376fc75eb",
       "license": "CC0-1.0",
-      "note": "Latest upstream repository reviewed; skill subtree unchanged but provider catalog changed. Codex adaptation requires live official pricing/model checks and uses environment-based examples instead of stale guaranteed quotas.",
-      "version": "1.0.0-codex.1"
+      "note": "Upstream catalog reviewed 2026-10-25; Gonka Broker added as an unverified candidate. Live official pricing/model checks remain required; no provider API called.",
+      "version": "1.0.0-codex.2"
     },
     {
       "name": "humanize-korean",
@@ -325,7 +325,7 @@
       "name": "claude-automation-recommender",
       "repo": "anthropics/claude-plugins-official",
       "path": "plugins/claude-code-setup/skills/claude-automation-recommender",
-      "ref": "ea10b213686c90bb1984b2016937310e05336cf3",
+      "ref": "58267944f92187b7d6a1c822165c96c81c864806",
       "requested_name": "claude-automation-recommender",
       "status": "current"
     },
@@ -356,7 +356,7 @@
       "status": "adapted",
       "version": "2026.10.18.1",
       "upstream_repo": "nextlevelbuilder/ui-ux-pro-max-skill",
-      "upstream_ref": "56ea9cf174ed86786187daa9de0e6247cb0747e4",
+      "upstream_ref": "d14efff8ed1faa4187f004f79926f428c8074ec7",
       "note": "Codex portability adaptation; source attribution and scope retained."
     },
     {
@@ -367,14 +367,14 @@
       "status": "adapted",
       "version": "2026.10.18.1",
       "upstream_repo": "vercel-labs/agent-browser",
-      "upstream_ref": "dac13bb87468fe9d74a040d862720f6cc17a9565",
+      "upstream_ref": "372ac5ce20fab885dbf45ee0c9d510ec8c3b6fdb",
       "note": "Codex portability adaptation; source attribution and scope retained."
     },
     {
       "name": "design-taste-frontend",
       "repo": "leonxlnx/taste-skill",
       "path": "skills/taste-skill",
-      "ref": "f624f37a8c650b9cc550253104925efe4c8de246",
+      "ref": "6010f91a9935f1c167dfc500fb1a475681892e6b",
       "requested_name": "design-taste-frontend",
       "status": "current"
     },
@@ -382,7 +382,7 @@
       "name": "find-skills",
       "repo": "vercel-labs/skills",
       "path": "skills/find-skills",
-      "ref": "13e4063a1cf913f5606d57d42ab83a86f5001e04",
+      "ref": "a80e4c9d12d607631249d4d7d059f835d4b2f13a",
       "requested_name": "find-skills",
       "status": "current"
     },
@@ -410,7 +410,7 @@
       "status": "adapted",
       "version": "2026.10.18.1",
       "upstream_repo": "firecrawl/firecrawl",
-      "upstream_ref": "7ccc8f4e99571cd3e66f437cce0edb8dfa02c8a7",
+      "upstream_ref": "e1dc7a43954b1dd61eb7c7230363c62539a652b2",
       "note": "Codex portability adaptation; source attribution and scope retained."
     },
     {
@@ -421,7 +421,7 @@
       "status": "adapted",
       "version": "2026.10.18.1",
       "upstream_repo": "firecrawl/firecrawl",
-      "upstream_ref": "7ccc8f4e99571cd3e66f437cce0edb8dfa02c8a7",
+      "upstream_ref": "e1dc7a43954b1dd61eb7c7230363c62539a652b2",
       "note": "Codex portability adaptation; source attribution and scope retained."
     },
     {
@@ -432,7 +432,7 @@
       "status": "adapted",
       "version": "2026.10.18.1",
       "upstream_repo": "firecrawl/firecrawl",
-      "upstream_ref": "7ccc8f4e99571cd3e66f437cce0edb8dfa02c8a7",
+      "upstream_ref": "e1dc7a43954b1dd61eb7c7230363c62539a652b2",
       "note": "Codex portability adaptation; source attribution and scope retained."
     },
     {
@@ -443,7 +443,7 @@
       "status": "adapted",
       "version": "2026.10.18.1",
       "upstream_repo": "firecrawl/firecrawl",
-      "upstream_ref": "7ccc8f4e99571cd3e66f437cce0edb8dfa02c8a7",
+      "upstream_ref": "e1dc7a43954b1dd61eb7c7230363c62539a652b2",
       "note": "Codex portability adaptation; source attribution and scope retained."
     },
     {
@@ -454,14 +454,14 @@
       "status": "adapted",
       "version": "2026.10.18.1",
       "upstream_repo": "firecrawl/firecrawl",
-      "upstream_ref": "7ccc8f4e99571cd3e66f437cce0edb8dfa02c8a7",
+      "upstream_ref": "e1dc7a43954b1dd61eb7c7230363c62539a652b2",
       "note": "Codex portability adaptation; source attribution and scope retained."
     },
     {
       "name": "remotion-best-practices",
       "repo": "remotion-dev/skills",
       "path": "skills/remotion-best-practices",
-      "ref": "1441a11e95db35443bd76bb318386c0d3ca00053",
+      "ref": "6c67adcd9cdbe6eb84d76342da89b225f9161cb2",
       "requested_name": "remotion-best-practices",
       "status": "current"
     },
@@ -469,7 +469,7 @@
       "name": "remotion-captions",
       "repo": "remotion-dev/skills",
       "path": "skills/remotion-captions",
-      "ref": "1441a11e95db35443bd76bb318386c0d3ca00053",
+      "ref": "6c67adcd9cdbe6eb84d76342da89b225f9161cb2",
       "requested_name": "remotion-captions",
       "status": "current"
     },
@@ -477,7 +477,7 @@
       "name": "remotion-create",
       "repo": "remotion-dev/skills",
       "path": "skills/remotion-create",
-      "ref": "1441a11e95db35443bd76bb318386c0d3ca00053",
+      "ref": "6c67adcd9cdbe6eb84d76342da89b225f9161cb2",
       "requested_name": "remotion-create",
       "status": "current"
     },
@@ -485,7 +485,7 @@
       "name": "remotion-docs",
       "repo": "remotion-dev/skills",
       "path": "skills/remotion-docs",
-      "ref": "1441a11e95db35443bd76bb318386c0d3ca00053",
+      "ref": "6c67adcd9cdbe6eb84d76342da89b225f9161cb2",
       "requested_name": "remotion-docs",
       "status": "current"
     },
@@ -493,7 +493,7 @@
       "name": "remotion-interactivity",
       "repo": "remotion-dev/skills",
       "path": "skills/remotion-interactivity",
-      "ref": "1441a11e95db35443bd76bb318386c0d3ca00053",
+      "ref": "6c67adcd9cdbe6eb84d76342da89b225f9161cb2",
       "requested_name": "remotion-interactivity",
       "status": "current"
     },
@@ -501,7 +501,7 @@
       "name": "remotion-maps",
       "repo": "remotion-dev/skills",
       "path": "skills/remotion-maps",
-      "ref": "1441a11e95db35443bd76bb318386c0d3ca00053",
+      "ref": "6c67adcd9cdbe6eb84d76342da89b225f9161cb2",
       "requested_name": "remotion-maps",
       "status": "current"
     },
@@ -509,7 +509,7 @@
       "name": "remotion-markup",
       "repo": "remotion-dev/skills",
       "path": "skills/remotion-markup",
-      "ref": "1441a11e95db35443bd76bb318386c0d3ca00053",
+      "ref": "6c67adcd9cdbe6eb84d76342da89b225f9161cb2",
       "requested_name": "remotion-markup",
       "status": "current"
     },
@@ -517,7 +517,7 @@
       "name": "remotion-multimedia",
       "repo": "remotion-dev/skills",
       "path": "skills/remotion-multimedia",
-      "ref": "1441a11e95db35443bd76bb318386c0d3ca00053",
+      "ref": "6c67adcd9cdbe6eb84d76342da89b225f9161cb2",
       "requested_name": "remotion-multimedia",
       "status": "current"
     },
@@ -525,7 +525,7 @@
       "name": "remotion-render",
       "repo": "remotion-dev/skills",
       "path": "skills/remotion-render",
-      "ref": "1441a11e95db35443bd76bb318386c0d3ca00053",
+      "ref": "6c67adcd9cdbe6eb84d76342da89b225f9161cb2",
       "requested_name": "remotion-render",
       "status": "current"
     },
@@ -533,7 +533,7 @@
       "name": "remotion-saas",
       "repo": "remotion-dev/skills",
       "path": "skills/remotion-saas",
-      "ref": "1441a11e95db35443bd76bb318386c0d3ca00053",
+      "ref": "6c67adcd9cdbe6eb84d76342da89b225f9161cb2",
       "requested_name": "remotion-saas",
       "status": "current"
     },
@@ -541,7 +541,7 @@
       "name": "remotion-studio",
       "repo": "remotion-dev/skills",
       "path": "skills/remotion-studio",
-      "ref": "1441a11e95db35443bd76bb318386c0d3ca00053",
+      "ref": "6c67adcd9cdbe6eb84d76342da89b225f9161cb2",
       "requested_name": "remotion-studio",
       "status": "current"
     },
@@ -549,7 +549,7 @@
       "name": "remotion-upgrade",
       "repo": "remotion-dev/skills",
       "path": "skills/remotion-upgrade",
-      "ref": "1441a11e95db35443bd76bb318386c0d3ca00053",
+      "ref": "6c67adcd9cdbe6eb84d76342da89b225f9161cb2",
       "requested_name": "remotion-upgrade",
       "status": "current"
     },

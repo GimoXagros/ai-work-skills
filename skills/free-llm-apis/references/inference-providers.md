@@ -345,3 +345,7 @@ Set `LLM_API_KEY` locally from your provider key and `LLM_MODEL` from its curren
 ```bash
 export HF_TOKEN="your-token-here"
 ```
+
+## Gonka Broker — upstream catalog addition
+
+The upstream catalog added Gonka Broker as an inference provider. Its current free eligibility, endpoint, model list and account terms were not independently verified in this update. Consult the provider’s official documentation before recommending it or producing runnable setup instructions; do not assume free access.
