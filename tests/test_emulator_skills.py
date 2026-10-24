@@ -81,6 +81,7 @@ class EmulatorSkillTests(unittest.TestCase):
             'frontend-testing-debugging': ('ref',),
             'akm-workflow': ('version', 'upstream_ref', 'note'),
             'binary-re': ('version', 'upstream_ref', 'note'),
+            'image-glyph-generator': ('version', 'note'),
         }
         for item in baseline['skills']:
             current = self.by_name[item['name']]
