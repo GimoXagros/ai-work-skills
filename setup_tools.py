@@ -9,8 +9,8 @@ ROOT = Path(__file__).resolve().parent
 
 
 def main():
-    if sys.version_info < (3, 10):
-        raise SystemExit('Python 3.10 or newer is required.')
+    if sys.version_info < (3, 11):
+        raise SystemExit('Glyph tools require Python 3.11 or newer for patched Pillow. Core skill installation still supports Python 3.10.')
     environment = ROOT / '.venv'
     if environment.is_symlink() or (hasattr(environment, 'is_junction') and environment.is_junction()):
         raise SystemExit('Refusing a linked virtual environment.')

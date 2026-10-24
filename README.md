@@ -44,7 +44,7 @@
 
 ## 설치
 
-Git과 Python 3.10 이상을 준비합니다. 공개 저장소이므로 GitHub 로그인은 필요하지 않습니다.
+Git과 Python 3.10 이상을 준비합니다. 선택 사항인 글리프 생성 도구(`setup_tools.py`)에는 보안 수정된 Pillow를 위해 Python 3.11 이상이 필요합니다. 공개 저장소이므로 GitHub 로그인은 필요하지 않습니다.
 
 ```powershell
 git clone --branch main https://github.com/GimoXagros/ai-work-skills.git

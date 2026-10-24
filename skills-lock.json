@@ -84,8 +84,8 @@
       "source": "bundled",
       "path": "skills/image-glyph-generator",
       "status": "custom",
-      "version": "1.0.0",
-      "note": "Fixed-cell font rasterizer with coverage and clipping checks.",
+      "version": "1.0.1",
+      "note": "Fixed-cell font rasterizer with coverage and clipping checks. Patched glyph dependencies require Python 3.11+; vulnerable Python 3.10 fallback removed.",
       "tool_requirements": "skills/image-glyph-generator/requirements.txt"
     },
     {

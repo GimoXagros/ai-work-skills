@@ -26,6 +26,8 @@ Node는 최신 LTS, Python은 기존 호환 계열 3.13의 최신 패치입니�
 - 저장소 npm 트리, 현재 PC의 관리 npm 트리, ECC 운영 의존성에서 `npm audit` 경고 **0개**를 확인했습니다. 이는 모든 Python 패키지·개발 의존성·외부 서비스에 취약점이 없다는 보증이 아닙니다.
 - `node tools/npm/test-runtime.cjs`로 Firecrawl의 JSON Schema 및 Zod v3 호환 입력을 로컬 HTTP 서버에 보내고 요청 스키마·응답 보존을 검사합니다. 이 스크립트는 계정 키나 외부 API 없이 실행됩니다.
 
+- GitHub 전체 경고 추가 검사에서 Python 3.10용 Pillow 12.3 fallback의 치명적 경고를 확인해 제거했습니다. 글리프 도구는 Pillow 13.0.0·fontTools 4.67.0과 Python 3.11 이상을 요구합니다. 기본 스킬 설치는 계속 Python 3.10을 지원합니다. 오래된 `.venv`는 삭제하지 말고 Python 3.11 이상으로 만든 별도 체크아웃/가상환경을 사용하세요.
+
 ## 다른 PC 설치·업데이트
 
 실행 중인 Codex/도구가 파일을 잠그면 해당 앱을 닫은 별도 PowerShell에서 진행합니다.
@@ -50,7 +52,8 @@ npm exec --yes --package=claude-mem@15.0.2 -- claude-mem restart
 
 ## 실제 작동 검증
 
-- unittest **61개** 통과. ECC 보안 override 적용·다른 override 보존 검사 포함.
+- 글리프 고정 의존성(Pillow·fontTools)은 pip-audit에서 알려진 취약점 0개를 확인했습니다. 다른 Python 도구의 전체 의존성 검사는 별도입니다.
+- unittest **62개** 통과. ECC 보안 override 적용·다른 override 보존 검사 포함.
 - Firecrawl: 기존 인증으로 실제 example.com 페이지 수집 성공. 로컬 스키마 호환 검사 성공.
 - Chrome DevTools: 새 1.12.0 MCP 프로세스에서 도구 32개 발견, 실제 페이지 열기·명시한 pageId의 스냅샷 성공.
 - Agent Browser: 0.39.2에서 실제 페이지 열기·스냅샷·시험 세션 종료 성공.

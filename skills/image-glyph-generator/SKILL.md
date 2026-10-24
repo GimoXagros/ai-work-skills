@@ -27,7 +27,7 @@ python -m pip install -r requirements.txt
 python scripts/rasterize_glyphs.py --font selected.ttf --spec glyphs.json --output new-atlas
 ```
 
-Use Python 3.10+ supported by the pinned dependencies. `size` and cell dimensions are 1..512; baseline is measured from the cell top. `x_offset` positions the baseline origin horizontally. `threshold` is 1..255. TTF/OTF and collection face 0 are supported by the installed font libraries; select a separate face file if another face is needed.
+Use Python 3.11+ with the pinned, patched dependencies. Do not fall back to Pillow 12.x for Python 3.10. `size` and cell dimensions are 1..512; baseline is measured from the cell top. `x_offset` positions the baseline origin horizontally. `threshold` is 1..255. TTF/OTF and collection face 0 are supported by the installed font libraries; select a separate face file if another face is needed.
 
 The output directory must not already exist. It contains `atlas.png` (black background, white glyph pixels, up to 16 columns) and `manifest.json` (ordered glyph IDs, code points, ink bounds, advances, font hash and library versions). Blank space must be explicitly allowed. The atlas is binary luminance, not a transparent icon or console-ready tile file.
 

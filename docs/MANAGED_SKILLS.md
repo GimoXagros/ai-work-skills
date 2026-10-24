@@ -12,7 +12,7 @@
 | `akm-workflow` | `skills/akm-workflow` | `1.2.0` |
 | `gba-pointer-fixer` | `skills/gba-pointer-fixer` | `1.0.0` |
 | `binary-re` | `skills/binary-re` | `1.2.0` |
-| `image-glyph-generator` | `skills/image-glyph-generator` | `1.0.0` |
+| `image-glyph-generator` | `skills/image-glyph-generator` | `1.0.1` |
 | `encoding-mapper` | `skills/encoding-mapper` | `1.0.0` |
 | `nftr-font-editor` | `skills/nftr-font-editor` | `1.0.0` |
 | `ws-tile-compressor` | `skills/ws-tile-compressor` | `1.0.0` |
