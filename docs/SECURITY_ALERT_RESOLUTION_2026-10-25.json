@@ -1,0 +1,402 @@
+{
+  "checked_at": "2026-10-25T10:03:12.151329+00:00",
+  "original_alerts": 49,
+  "fixed": 49,
+  "open": 0,
+  "dismissed": 0,
+  "community_result": "https://github.com/community/community/discussions/211192#discussioncomment-19176254",
+  "alerts": [
+    {
+      "number": 1,
+      "state": "fixed",
+      "fixed_at": "2026-10-24T18:16:14Z",
+      "dismissed_at": null,
+      "manifest": "skills/image-glyph-generator/requirements.txt",
+      "package": "Pillow"
+    },
+    {
+      "number": 2,
+      "state": "fixed",
+      "fixed_at": "2026-10-24T18:16:15Z",
+      "dismissed_at": null,
+      "manifest": "skills/image-glyph-generator/requirements.txt",
+      "package": "Pillow"
+    },
+    {
+      "number": 3,
+      "state": "fixed",
+      "fixed_at": "2026-10-24T18:16:15Z",
+      "dismissed_at": null,
+      "manifest": "skills/image-glyph-generator/requirements.txt",
+      "package": "Pillow"
+    },
+    {
+      "number": 4,
+      "state": "fixed",
+      "fixed_at": "2026-10-24T18:16:15Z",
+      "dismissed_at": null,
+      "manifest": "skills/image-glyph-generator/requirements.txt",
+      "package": "Pillow"
+    },
+    {
+      "number": 5,
+      "state": "fixed",
+      "fixed_at": "2026-10-24T18:16:16Z",
+      "dismissed_at": null,
+      "manifest": "skills/image-glyph-generator/requirements.txt",
+      "package": "pillow"
+    },
+    {
+      "number": 6,
+      "state": "fixed",
+      "fixed_at": "2026-10-24T18:16:16Z",
+      "dismissed_at": null,
+      "manifest": "skills/image-glyph-generator/requirements.txt",
+      "package": "Pillow"
+    },
+    {
+      "number": 7,
+      "state": "fixed",
+      "fixed_at": "2026-10-24T18:16:16Z",
+      "dismissed_at": null,
+      "manifest": "skills/image-glyph-generator/requirements.txt",
+      "package": "Pillow"
+    },
+    {
+      "number": 8,
+      "state": "fixed",
+      "fixed_at": "2026-10-24T18:16:17Z",
+      "dismissed_at": null,
+      "manifest": "skills/image-glyph-generator/requirements.txt",
+      "package": "pillow"
+    },
+    {
+      "number": 9,
+      "state": "fixed",
+      "fixed_at": "2026-10-24T18:16:17Z",
+      "dismissed_at": null,
+      "manifest": "skills/image-glyph-generator/requirements.txt",
+      "package": "Pillow"
+    },
+    {
+      "number": 10,
+      "state": "fixed",
+      "fixed_at": "2026-10-24T18:16:17Z",
+      "dismissed_at": null,
+      "manifest": "skills/image-glyph-generator/requirements.txt",
+      "package": "Pillow"
+    },
+    {
+      "number": 11,
+      "state": "fixed",
+      "fixed_at": "2026-10-24T18:16:18Z",
+      "dismissed_at": null,
+      "manifest": "skills/image-glyph-generator/requirements.txt",
+      "package": "Pillow"
+    },
+    {
+      "number": 12,
+      "state": "fixed",
+      "fixed_at": "2026-10-24T18:16:18Z",
+      "dismissed_at": null,
+      "manifest": "skills/image-glyph-generator/requirements.txt",
+      "package": "Pillow"
+    },
+    {
+      "number": 13,
+      "state": "fixed",
+      "fixed_at": "2026-10-24T18:16:18Z",
+      "dismissed_at": null,
+      "manifest": "skills/image-glyph-generator/requirements.txt",
+      "package": "pillow"
+    },
+    {
+      "number": 14,
+      "state": "fixed",
+      "fixed_at": "2026-10-24T18:16:18Z",
+      "dismissed_at": null,
+      "manifest": "skills/image-glyph-generator/requirements.txt",
+      "package": "pillow"
+    },
+    {
+      "number": 15,
+      "state": "fixed",
+      "fixed_at": "2026-10-24T18:16:19Z",
+      "dismissed_at": null,
+      "manifest": "skills/image-glyph-generator/requirements.txt",
+      "package": "Pillow"
+    },
+    {
+      "number": 16,
+      "state": "fixed",
+      "fixed_at": "2026-10-24T18:16:19Z",
+      "dismissed_at": null,
+      "manifest": "skills/image-glyph-generator/requirements.txt",
+      "package": "pillow"
+    },
+    {
+      "number": 17,
+      "state": "fixed",
+      "fixed_at": "2026-10-24T18:16:19Z",
+      "dismissed_at": null,
+      "manifest": "skills/image-glyph-generator/requirements.txt",
+      "package": "Pillow"
+    },
+    {
+      "number": 18,
+      "state": "fixed",
+      "fixed_at": "2026-10-24T18:16:20Z",
+      "dismissed_at": null,
+      "manifest": "skills/image-glyph-generator/requirements.txt",
+      "package": "Pillow"
+    },
+    {
+      "number": 19,
+      "state": "fixed",
+      "fixed_at": "2026-10-24T18:16:20Z",
+      "dismissed_at": null,
+      "manifest": "skills/image-glyph-generator/requirements.txt",
+      "package": "Pillow"
+    },
+    {
+      "number": 20,
+      "state": "fixed",
+      "fixed_at": "2026-10-24T18:16:20Z",
+      "dismissed_at": null,
+      "manifest": "skills/image-glyph-generator/requirements.txt",
+      "package": "Pillow"
+    },
+    {
+      "number": 21,
+      "state": "fixed",
+      "fixed_at": "2026-10-24T18:16:20Z",
+      "dismissed_at": null,
+      "manifest": "skills/image-glyph-generator/requirements.txt",
+      "package": "Pillow"
+    },
+    {
+      "number": 22,
+      "state": "fixed",
+      "fixed_at": "2026-10-24T18:16:20Z",
+      "dismissed_at": null,
+      "manifest": "skills/image-glyph-generator/requirements.txt",
+      "package": "Pillow"
+    },
+    {
+      "number": 23,
+      "state": "fixed",
+      "fixed_at": "2026-10-24T18:16:21Z",
+      "dismissed_at": null,
+      "manifest": "skills/image-glyph-generator/requirements.txt",
+      "package": "pillow"
+    },
+    {
+      "number": 24,
+      "state": "fixed",
+      "fixed_at": "2026-10-24T18:16:21Z",
+      "dismissed_at": null,
+      "manifest": "skills/image-glyph-generator/requirements.txt",
+      "package": "Pillow"
+    },
+    {
+      "number": 25,
+      "state": "fixed",
+      "fixed_at": "2026-10-24T18:16:21Z",
+      "dismissed_at": null,
+      "manifest": "skills/image-glyph-generator/requirements.txt",
+      "package": "Pillow"
+    },
+    {
+      "number": 26,
+      "state": "fixed",
+      "fixed_at": "2026-10-24T18:16:22Z",
+      "dismissed_at": null,
+      "manifest": "skills/image-glyph-generator/requirements.txt",
+      "package": "pillow"
+    },
+    {
+      "number": 27,
+      "state": "fixed",
+      "fixed_at": "2026-10-24T18:16:22Z",
+      "dismissed_at": null,
+      "manifest": "skills/image-glyph-generator/requirements.txt",
+      "package": "Pillow"
+    },
+    {
+      "number": 28,
+      "state": "fixed",
+      "fixed_at": "2026-10-24T18:16:22Z",
+      "dismissed_at": null,
+      "manifest": "skills/image-glyph-generator/requirements.txt",
+      "package": "Pillow"
+    },
+    {
+      "number": 29,
+      "state": "fixed",
+      "fixed_at": "2026-10-24T18:16:22Z",
+      "dismissed_at": null,
+      "manifest": "skills/image-glyph-generator/requirements.txt",
+      "package": "Pillow"
+    },
+    {
+      "number": 30,
+      "state": "fixed",
+      "fixed_at": "2026-10-24T18:16:23Z",
+      "dismissed_at": null,
+      "manifest": "skills/image-glyph-generator/requirements.txt",
+      "package": "pillow"
+    },
+    {
+      "number": 31,
+      "state": "fixed",
+      "fixed_at": "2026-10-24T18:16:23Z",
+      "dismissed_at": null,
+      "manifest": "skills/image-glyph-generator/requirements.txt",
+      "package": "pillow"
+    },
+    {
+      "number": 32,
+      "state": "fixed",
+      "fixed_at": "2026-10-24T18:16:23Z",
+      "dismissed_at": null,
+      "manifest": "skills/image-glyph-generator/requirements.txt",
+      "package": "Pillow"
+    },
+    {
+      "number": 33,
+      "state": "fixed",
+      "fixed_at": "2026-10-24T18:16:24Z",
+      "dismissed_at": null,
+      "manifest": "skills/image-glyph-generator/requirements.txt",
+      "package": "Pillow"
+    },
+    {
+      "number": 34,
+      "state": "fixed",
+      "fixed_at": "2026-10-24T18:16:24Z",
+      "dismissed_at": null,
+      "manifest": "skills/image-glyph-generator/requirements.txt",
+      "package": "pillow"
+    },
+    {
+      "number": 35,
+      "state": "fixed",
+      "fixed_at": "2026-10-24T18:16:24Z",
+      "dismissed_at": null,
+      "manifest": "skills/image-glyph-generator/requirements.txt",
+      "package": "Pillow"
+    },
+    {
+      "number": 36,
+      "state": "fixed",
+      "fixed_at": "2026-10-24T18:16:24Z",
+      "dismissed_at": null,
+      "manifest": "skills/image-glyph-generator/requirements.txt",
+      "package": "Pillow"
+    },
+    {
+      "number": 37,
+      "state": "fixed",
+      "fixed_at": "2026-10-24T18:16:25Z",
+      "dismissed_at": null,
+      "manifest": "skills/image-glyph-generator/requirements.txt",
+      "package": "Pillow"
+    },
+    {
+      "number": 38,
+      "state": "fixed",
+      "fixed_at": "2026-10-24T18:16:25Z",
+      "dismissed_at": null,
+      "manifest": "skills/image-glyph-generator/requirements.txt",
+      "package": "Pillow"
+    },
+    {
+      "number": 39,
+      "state": "fixed",
+      "fixed_at": "2026-10-24T18:16:25Z",
+      "dismissed_at": null,
+      "manifest": "skills/image-glyph-generator/requirements.txt",
+      "package": "pillow"
+    },
+    {
+      "number": 40,
+      "state": "fixed",
+      "fixed_at": "2026-10-24T18:16:26Z",
+      "dismissed_at": null,
+      "manifest": "skills/image-glyph-generator/requirements.txt",
+      "package": "Pillow"
+    },
+    {
+      "number": 41,
+      "state": "fixed",
+      "fixed_at": "2026-10-24T18:16:26Z",
+      "dismissed_at": null,
+      "manifest": "skills/image-glyph-generator/requirements.txt",
+      "package": "pillow"
+    },
+    {
+      "number": 42,
+      "state": "fixed",
+      "fixed_at": "2026-10-24T18:16:26Z",
+      "dismissed_at": null,
+      "manifest": "tools/npm/package-lock.json",
+      "package": "zod"
+    },
+    {
+      "number": 43,
+      "state": "fixed",
+      "fixed_at": "2026-10-24T18:16:26Z",
+      "dismissed_at": null,
+      "manifest": "tools/npm/package-lock.json",
+      "package": "body-parser"
+    },
+    {
+      "number": 44,
+      "state": "fixed",
+      "fixed_at": "2026-10-24T18:16:27Z",
+      "dismissed_at": null,
+      "manifest": "tools/npm/package-lock.json",
+      "package": "fast-uri"
+    },
+    {
+      "number": 45,
+      "state": "fixed",
+      "fixed_at": "2026-10-24T18:16:27Z",
+      "dismissed_at": null,
+      "manifest": "tools/npm/package-lock.json",
+      "package": "fast-uri"
+    },
+    {
+      "number": 46,
+      "state": "fixed",
+      "fixed_at": "2026-10-24T18:16:27Z",
+      "dismissed_at": null,
+      "manifest": "tools/npm/package-lock.json",
+      "package": "fast-uri"
+    },
+    {
+      "number": 47,
+      "state": "fixed",
+      "fixed_at": "2026-10-24T18:16:28Z",
+      "dismissed_at": null,
+      "manifest": "tools/npm/package-lock.json",
+      "package": "fast-uri"
+    },
+    {
+      "number": 48,
+      "state": "fixed",
+      "fixed_at": "2026-10-24T18:16:28Z",
+      "dismissed_at": null,
+      "manifest": "tools/npm/package-lock.json",
+      "package": "fallow"
+    },
+    {
+      "number": 49,
+      "state": "fixed",
+      "fixed_at": "2026-10-24T18:16:28Z",
+      "dismissed_at": null,
+      "manifest": "tools/npm/package-lock.json",
+      "package": "fallow"
+    }
+  ]
+}
