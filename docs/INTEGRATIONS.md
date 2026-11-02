@@ -1,6 +1,6 @@
 2026-10-25 현재 버전·보안 수정·실행 검증: [v2026.10.25.2 배포 기록](../RELEASE_NOTES_v2026.10.25.2.md). 아래 최초 검토 표는 당시의 기록을 보존합니다.
 
-2026-10-22 추가: SNS 13개 반영 후 현재 독립 스킬은 77개입니다. 아래 64개·23개 요청 수치는 2026-10-18 당시 통합 검토 범위이며, 현재 [SNS 묶음](SNS_SKILLS.md)과 [전체 목록](MANAGED_SKILLS.md)을 함께 확인합니다.
+2026-10-22 추가: SNS 13개 반영 후 현재 독립 스킬은 77개입니다. 아래 64개·23개 요청 수치는 2026-10-18 당시 통합 검토 범위이며 현재 [SNS 묶음](SNS_SKILLS.md)과 [전체 목록](MANAGED_SKILLS.md)을 함께 확인합니다.
 
 # 외부 스킬·플러그인·실행 도구 관리
 
@@ -10,9 +10,9 @@
 
 Chrome DevTools MCP 1.12.0은 ECC의 브라우저 실행 의존성으로 npm 잠금 파일에 추가 관리합니다. 등록과 스킬 목록 예산 적용은 설치 후 `configure_codex.py`로 진행합니다. [도구 승인과 CLI 복구 안내](BROWSER_SETUP.md)를 참조하세요.
 
-훅 의존성 복구와 다른 PC의 계정·모델·MCP·신뢰 승인 절차는 [추가 설정 안내](ACTIVATION.md)를 따릅니다. 아래 표는 최초 2026-10-18 검토 범위이며, 이후 실제 활성화 검증은 해당 안내에 별도로 기록했습니다.
+훅 의존성 복구와 다른 PC의 계정·모델·MCP·신뢰 승인 절차는 [추가 설정 안내](ACTIVATION.md)를 따릅니다. 아래 표는 최초 2026-10-18 검토 범위이며 이후 실제 활성화 검증은 해당 안내에 별도로 기록했습니다.
 
-Windows x64, Git, Python 3.10 이상, 플러그인 명령을 지원하는 Codex CLI가 필요합니다. 저장소를 유지할 경로에 체크아웃합니다.
+아래 전체 설치에는 Windows x64, Git, Python 3.11 이상, 플러그인 명령을 지원하는 Codex CLI가 필요합니다. 독립 스킬만 설치하는 `install.py`는 Python 3.10 이상을 지원하며 `setup_tools.py`에는 3.11 이상이 필요합니다. 저장소를 유지할 경로에 체크아웃합니다.
 
 ```powershell
 git pull --ff-only
@@ -21,7 +21,7 @@ python -X utf8 setup_tools.py
 python -X utf8 setup_integrations.py --install --plugins --user-path
 ```
 
-`setup_integrations.py`만 실행하면 설치 계획을 출력합니다. `--install`은 Node·격리된 Python 실행 환경·npm CLI·FFmpeg·GSD Codex 구성까지 설치합니다. `--plugins`는 공식 플러그인 5개를 별도로 설치합니다. `--skip-gsd`는 CLI만 설치하고 GSD의 Codex 설정·에이전트·훅 생성을 생략합니다. `--user-path`는 기존 Windows 사용자 PATH를 보존하고 도구 경로를 추가하며, 이전 값은 로컬 toolchains 폴더에 백업합니다.
+`setup_integrations.py`만 실행하면 설치 계획을 출력합니다. `--install`은 Node·격리된 Python 실행 환경·npm CLI·FFmpeg·GSD Codex 구성까지 설치합니다. `--plugins`는 공식 플러그인 5개를 별도로 설치합니다. `--skip-gsd`는 CLI만 설치하고 GSD의 Codex 설정·에이전트·훅 생성을 생략합니다. `--user-path`는 기존 Windows 사용자 PATH를 보존하고 도구 경로를 추가하며 이전 값은 로컬 toolchains 폴더에 백업합니다.
 
 새 터미널/Codex를 열거나 현재 PowerShell에서 다음 파일을 불러옵니다.
 
@@ -29,15 +29,15 @@ python -X utf8 setup_integrations.py --install --plugins --user-path
 . "$env:USERPROFILE/.codex/toolchains/ai-work-skills-env.ps1"
 ```
 
-CODEX_HOME을 사용하는 경우 위 `.codex` 대신 해당 경로를 사용합니다. 다른 운영체제에서는 개별 스킬 설치와 플러그인 목록을 사용할 수 있지만, 실행 도구 자동 설치기는 Windows x64만 지원합니다. Python 도구는 uv의 사용자별 격리 환경, npm 도구는 `CODEX_HOME/toolchains/ai-work-skills-npm`에 설치합니다. Whisper의 Torch 의존성을 포함해 디스크와 네트워크 사용량이 큽니다.
+CODEX_HOME을 사용하는 경우 위 `.codex` 대신 해당 경로를 사용합니다. 다른 운영체제에서는 개별 스킬 설치와 플러그인 목록을 사용할 수 있지만 실행 도구 자동 설치기는 Windows x64만 지원합니다. Python 도구는 uv의 사용자별 격리 환경, npm 도구는 `CODEX_HOME/toolchains/ai-work-skills-npm`에 설치합니다. Whisper의 Torch 의존성을 포함해 디스크와 네트워크 사용량이 큽니다.
 
 ## 관리 범위와 중복
 
-- `skills-lock.json`: 독립 스킬 64개. 같은 설치기·변경 전 백업·파일 해시 검증을 적용합니다.
+- `skills-lock.json`: 독립 스킬 77개(번들 56개 + 고정 upstream 21개). 같은 설치기·변경 전 백업·파일 해시 검증을 적용합니다.
 - `.agents/plugins/marketplace.json`: ECC, Claude-Mem, Ponytail, Superpowers, HyperFrames의 공식 Codex 플러그인 5개. 원본 커밋을 고정하고 Codex 설치기로 관리합니다.
-- GSD Core 1.17.0: 공식 Codex 변환 설치기가 사용자 `.agents/skills`에 72개 스킬, `.codex`에 런타임·64개 에이전트 역할·업데이트 확인 훅을 생성합니다. 독립 스킬 64개에 포함하지 않습니다.
+- GSD Core 1.17.0: 공식 Codex 변환 설치기가 사용자 `.agents/skills`에 72개 스킬, `.codex`에 런타임·64개 에이전트 역할·업데이트 확인 훅을 생성합니다. 독립 스킬 77개에 포함하지 않습니다.
 - `integrations-lock.json`: 요청 원본 전체의 검토 커밋과 실행 패키지 버전을 기록합니다. 소스 HEAD와 패키지 배포 버전은 별도입니다.
-- `tools/npm/package-lock.json`: npm 하위 의존성의 버전·무결성 값을 보존합니다. Python은 최상위 버전 고정이며, 하위 의존성 전체를 모든 PC에서 동일하게 잠그지는 않습니다.
+- `tools/npm/package-lock.json`: npm 하위 의존성의 버전·무결성 값을 보존합니다. Python은 최상위 버전 고정이며 하위 의존성 전체를 모든 PC에서 동일하게 잠그지는 않습니다.
 
 기존 Remotion 플러그인과 직접 설치한 Remotion 스킬은 중복 노출될 수 있습니다. 이번 직접 설치본은 4.0.536입니다. 기존 플러그인 캐시를 수동 수정하거나 삭제하지 않습니다. ECC·GSD·Superpowers·Ponytail의 계획/검증 기능도 겹치므로 한 작업에 모두 강제 호출하지 말고 요청과 프로젝트 지침에 맞춰 선택합니다.
 
