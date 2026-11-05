@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checked_at": "2026-10-25",
+  "checked_at": "2026-11-05",
   "requested_links": 23,
   "repositories": [
     {
@@ -36,13 +36,13 @@
     },
     {
       "repo": "dietrichgebert/ponytail",
-      "ref": "16352ac229eb08a9598dcae48fe9f2b342567d86",
+      "ref": "7801d061243d7b753bad0e0b3c057cd250b11755",
       "url": "https://github.com/dietrichgebert/ponytail",
       "license": "MIT",
       "skills": [],
       "kind": "skills",
       "plugin": "ponytail",
-      "version": "5.3.2"
+      "version": "5.3.3"
     },
     {
       "repo": "ffmpeg/ffmpeg",
@@ -68,7 +68,7 @@
         "firecrawl-build"
       ],
       "kind": "npm",
-      "package": "firecrawl-cli@1.26.22"
+      "package": "firecrawl-cli@1.28.0"
     },
     {
       "repo": "gagnonjung/kr-patch-qa",
@@ -89,7 +89,7 @@
         "graphify"
       ],
       "kind": "python",
-      "package": "graphifyy==0.9.95"
+      "package": "graphifyy==0.9.102"
     },
     {
       "repo": "headroomlabs-ai/headroom",
@@ -100,18 +100,18 @@
         "headroom"
       ],
       "kind": "python",
-      "package": "headroom-ai[proxy,code,mcp]==0.41.0"
+      "package": "headroom-ai[proxy,code,mcp]==0.42.0"
     },
     {
       "repo": "heygen-com/hyperframes",
-      "ref": "c16b783f5ec60f1a0bd2901cb061919a38f59af6",
+      "ref": "15b1de4aeba2a375931c13542fa2d1e6500174db",
       "url": "https://github.com/heygen-com/hyperframes",
       "license": "Apache-2.0",
       "skills": [],
       "kind": "npm",
-      "package": "hyperframes@0.8.192",
+      "package": "hyperframes@0.9.14",
       "plugin": "hyperframes",
-      "version": "0.8.192"
+      "version": "0.9.14"
     },
     {
       "repo": "iamneilroberts/claude-skills",
@@ -155,22 +155,22 @@
     },
     {
       "repo": "obra/superpowers",
-      "ref": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b",
+      "ref": "22f0b463e7a5e579904dd6211a520321035526f7",
       "url": "https://github.com/obra/superpowers",
       "license": "MIT",
       "skills": [],
       "kind": "skills",
       "plugin": "superpowers",
-      "version": "7.0.1"
+      "version": "7.0.2"
     },
     {
       "repo": "open-gsd/gsd-core",
-      "ref": "35f5a452239b897b8d6352c973e1e4efd683370f",
+      "ref": "b14172e38d02aeab483856949453264228886517",
       "url": "https://github.com/open-gsd/gsd-core",
       "license": "MIT",
       "skills": [],
       "kind": "npm",
-      "package": "@opengsd/gsd-core@1.18.0"
+      "package": "@opengsd/gsd-core@1.20.0"
     },
     {
       "repo": "openai/whisper",
@@ -206,13 +206,13 @@
     },
     {
       "repo": "thedotmack/claude-mem",
-      "ref": "e7173346f16bb3ab28cb4de11a63822895217d4c",
+      "ref": "d0968e5d136abc34dcfe1b78acf3726fa84978d8",
       "url": "https://github.com/thedotmack/claude-mem",
       "license": "Apache-2.0",
       "skills": [],
       "kind": "skills",
       "plugin": "claude-mem",
-      "version": "15.0.2"
+      "version": "15.9.0"
     },
     {
       "repo": "vercel-labs/agent-browser",
@@ -223,7 +223,7 @@
         "agent-browser"
       ],
       "kind": "npm",
-      "package": "agent-browser@0.39.2"
+      "package": "agent-browser@0.41.2"
     },
     {
       "repo": "vercel-labs/skills",
@@ -244,7 +244,7 @@
         "yt-dlp"
       ],
       "kind": "python",
-      "package": "yt-dlp==2026.10.21"
+      "package": "yt-dlp==2026.10.26"
     }
   ],
   "bootstrap": {
@@ -254,11 +254,11 @@
       "sha256": "cd2c0fccc78f3ede1f50ca827a15f063eda13d4d150a3d0674f4f6e323d864a5"
     },
     "node": {
-      "version": "24.22.1",
-      "url": "https://nodejs.org/dist/v24.22.1/node-v24.22.1-win-x64.zip",
-      "sha256": "d2046d28c2c3dcd211ac5145c0bf30e2047ef9dfb306693c8c6e2eccd8b95fa5"
+      "version": "24.22.2",
+      "url": "https://nodejs.org/dist/v24.22.2/node-v24.22.2-win-x64.zip",
+      "sha256": "ca1bff5d8ead13c9f2ea404a176db46bd430704d5b5113734049fa365e7799e2"
     },
-    "uv": "0.13.5",
+    "uv": "0.13.7",
     "python": "3.13.17",
     "ffmpeg": {
       "version": "9.0.2",

@@ -15,6 +15,31 @@ import setup_integrations as setup
 
 
 class IntegrationTests(unittest.TestCase):
+    def test_hyperframes_uses_audited_runtime_not_npx(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            home = Path(tmp)
+            target = home / 'plugins/cache/ai-work-skills/hyperframes/test'
+            wrapper = target / 'skills/hyperframes/scripts/plugin-cli.mjs'
+            wrapper.parent.mkdir(parents=True)
+            wrapper.write_text('  const cliArgs = ["--yes", `hyperframes@${version}`, ...args];\n')
+            runtime = home / 'toolchains/ai-work-skills-npm/node_modules/hyperframes'
+            runtime.mkdir(parents=True)
+            version = next(r['version'] for r in setup.read_lock()['repositories']
+                           if r.get('plugin') == 'hyperframes')
+            (runtime / 'package.json').write_text(json.dumps({'version': version, 'bin': {'hyperframes': 'cli.js'}}))
+            (runtime / 'cli.js').write_text('')
+            result = json.dumps({'installedPath': str(target)})
+            with patch.object(setup.subprocess, 'check_output', return_value=result):
+                setup.install_plugin('codex', 'hyperframes', home, {})
+                setup.install_plugin('codex', 'hyperframes', home, {})
+                text = wrapper.read_text()
+                self.assertEqual(text.count('// ai-work-skills managed runtime'), 1)
+                self.assertIn('args: [managedCli, ...args]', text)
+                self.assertIn('Run setup_integrations.py --install', text)
+            with patch.object(setup.subprocess, 'check_output', return_value=json.dumps({'installedPath': str(home)})):
+                with self.assertRaisesRegex(ValueError, 'managed runtime'):
+                    setup.install_plugin('codex', 'hyperframes', home, {})
+
     def test_memory_runtime_selection(self):
         with tempfile.TemporaryDirectory() as tmp:
             home = Path(tmp)

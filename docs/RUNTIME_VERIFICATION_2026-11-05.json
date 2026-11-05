@@ -1,0 +1,74 @@
+{
+  "checked_at": "2026-11-05",
+  "repository_tests": {
+    "passed": 63
+  },
+  "npm_production_audit": {
+    "total": 0,
+    "high": 0,
+    "critical": 0
+  },
+  "firecrawl_fixture": "PASS: JSON Schema and Zod v3",
+  "hyperframes_launcher": "PASS: pinned plugin -> managed CLI 0.9.14; no npx fallback",
+  "memory": {
+    "version": "15.9.0",
+    "provider": "codex",
+    "runtime": "worker",
+    "status": "ok",
+    "initialized": true,
+    "mcpReady": true,
+    "degraded": false,
+    "launcher_protocol": 2,
+    "doctor": "All required checks passed",
+    "backup": "Private local settings copy and SQLite online backup before upgrade; excluded from release"
+  },
+  "installed_versions": [
+    {
+      "name": "ecc",
+      "version": "2.2.3",
+      "revision_match": true
+    },
+    {
+      "name": "ponytail",
+      "version": "5.3.3",
+      "revision_match": true
+    },
+    {
+      "name": "hyperframes",
+      "version": "0.9.14",
+      "revision_match": true
+    },
+    {
+      "name": "superpowers",
+      "version": "7.0.2",
+      "revision_match": true
+    },
+    {
+      "name": "@opengsd/gsd-core",
+      "version": "1.20.0"
+    },
+    {
+      "name": "agent-browser",
+      "version": "0.41.2"
+    },
+    {
+      "name": "chrome-devtools-mcp",
+      "version": "1.12.0"
+    },
+    {
+      "name": "firecrawl-cli",
+      "version": "1.28.0"
+    },
+    {
+      "name": "hyperframes",
+      "version": "0.9.14"
+    }
+  ],
+  "not_tested": [
+    "All plugin hook events and workflows",
+    "Live paid/provider API calls",
+    "Real video renders and Korean speech accuracy",
+    "Host-managed bundled and curated plugin upgrades"
+  ],
+  "requires_user": "Restart Codex and personally review changed hook trust; no trust hashes copied"
+}

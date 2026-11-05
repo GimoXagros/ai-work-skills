@@ -90,6 +90,31 @@ def install_plugin(codex, name, home, env):
         run([npm, 'install', '--package-lock-only', '--ignore-scripts', '--no-audit', '--no-fund'],
             cwd=target, env=env)
         run([npm, 'ci', '--omit=dev', '--ignore-scripts', '--no-audit', '--no-fund'], cwd=target, env=env)
+    if name == 'hyperframes':
+        target = Path(result['installedPath']).resolve()
+        owned = (home / 'plugins/cache/ai-work-skills/hyperframes').resolve()
+        runtime = home / 'toolchains/ai-work-skills-npm/node_modules/hyperframes'
+        if not target.is_relative_to(owned) or not (runtime / 'package.json').is_file():
+            raise ValueError('HyperFrames requires the managed runtime; run --install first')
+        package = json.loads((runtime / 'package.json').read_text(encoding='utf-8'))
+        expected = next(row['version'] for row in read_lock()['repositories']
+                        if row.get('plugin') == 'hyperframes')
+        binary = package['bin'] if isinstance(package['bin'], str) else package['bin']['hyperframes']
+        cli = (runtime / binary).resolve()
+        if package['version'] != expected or not cli.is_relative_to(runtime.resolve()) or not cli.is_file():
+            raise ValueError('HyperFrames managed runtime version/path mismatch')
+        wrapper = target / 'skills/hyperframes/scripts/plugin-cli.mjs'
+        text = wrapper.read_text(encoding='utf-8')
+        marker = '  const cliArgs = ["--yes", `hyperframes@${version}`, ...args];'
+        if '// ai-work-skills managed runtime' not in text:
+            if text.count(marker) != 1:
+                raise ValueError('Unrecognized HyperFrames launcher; refusing unsafe npx fallback')
+            # Use the audited dependency lock rather than an unpatched npx cache.
+            replacement = ('  // ai-work-skills managed runtime\n'
+                           '  const managedCli = ' + json.dumps(str(cli)) + ';\n'
+                           '  if (!existsSync(managedCli)) throw new Error("Run setup_integrations.py --install");\n'
+                           '  return { command: node, args: [managedCli, ...args], env: childEnv };\n')
+            wrapper.write_text(text.replace(marker, replacement + marker), encoding='utf-8')
     print('Installed plugin:', name)
 
 

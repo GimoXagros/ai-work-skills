@@ -1,3 +1,5 @@
+2026-11-05 통합 갱신: [v2026.11.05.2 배포 기록](../RELEASE_NOTES_v2026.11.05.2.md). 실행 도구와 플러그인 고정 버전을 갱신했습니다. Claude-Mem은 기존 로컬 worker/provider 및 데이터를 보존하여 공식 설치기로 별도 갱신하며, 변경된 훅 신뢰는 사용자가 직접 승인합니다. 아래 날짜별 기록은 당시 검증 범위입니다.
+
 2026-10-25 현재 버전·보안 수정·실행 검증: [v2026.10.25.2 배포 기록](../RELEASE_NOTES_v2026.10.25.2.md). 아래 최초 검토 표는 당시의 기록을 보존합니다.
 
 2026-10-22 추가: SNS 13개 반영 후 현재 독립 스킬은 77개입니다. 아래 64개·23개 요청 수치는 2026-10-18 당시 통합 검토 범위이며 현재 [SNS 묶음](SNS_SKILLS.md)과 [전체 목록](MANAGED_SKILLS.md)을 함께 확인합니다.
@@ -80,3 +82,7 @@ GSD 설치 전 기존 설정·에이전트·훅을 `integration-backups/<UTC>/`�
 원본 커밋은 [integrations-lock.json](../integrations-lock.json), 개별 스킬 pin은 [skills-lock.json](../skills-lock.json)에 있습니다. 독립 CLI 래퍼는 이 저장소에서 작성한 안내이며 원본 프로젝트의 공식 스킬이라고 표시하지 않습니다. 외부 실행 파일·모델·node_modules·가상환경은 릴리스 ZIP에 넣지 않습니다.
 
 FFmpeg Windows 빌드 출처: [Gyan 빌드 페이지](https://www.gyan.dev/ffmpeg/builds/), [9.0.2 checksum](https://www.gyan.dev/ffmpeg/builds/packages/ffmpeg-9.0.2-essentials_build.zip.sha256). 이 빌드는 GPLv3이며 원본 저장소의 라이선스 표기와 구분합니다. Firecrawl build 스킬의 ISC 표기와 서버 저장소의 AGPL 라이선스도 구분합니다.
+
+## 현재 검증 (2026-11-05)
+
+실제 설치 버전, 원본 커밋 일치와 검사 결과는 [통합 검증 기록](RUNTIME_VERIFICATION_2026-11-05.json)을 확인합니다. npm 보안 검사는 0건이며 HyperFrames의 undici 7.30.1 고정과 관리 CLI 연결을 설치기에 반영했습니다. Claude-Mem은 별도 로컬 설치기를 통해 15.9.0으로 갱신했고 health/doctor를 확인했습니다. 위의 과거 표에 적힌 버전·스킬 생성 수는 당시 기록이며 현재 고정 버전은 integrations-lock.json이 기준입니다.

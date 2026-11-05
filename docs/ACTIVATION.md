@@ -1,3 +1,5 @@
+2026-11-05 통합 갱신: [v2026.11.05.2 배포 기록](../RELEASE_NOTES_v2026.11.05.2.md). 실행 도구와 플러그인 고정 버전을 갱신했습니다. Claude-Mem은 기존 로컬 worker/provider 및 데이터를 보존하여 공식 설치기로 별도 갱신하며, 변경된 훅 신뢰는 사용자가 직접 승인합니다. 아래 날짜별 기록은 당시 검증 범위입니다.
+
 # 다른 PC에서 추가 설정과 훅 활성화
 
 스킬 목록 용량과 Chrome DevTools MCP 설치·승인·CLI 시작 오류 해결은 [브라우저 설정 안내](BROWSER_SETUP.md)에 있습니다.
@@ -19,7 +21,7 @@ $codexHome = if ($env:CODEX_HOME) { $env:CODEX_HOME } else { Join-Path $env:USER
 이 기능은 대화·도구 실행 관찰 내용을 메모리로 기록합니다. 사용할 PC에서 아래 공식 설치기를 실행하고 브라우저에서 직접 로그인합니다. 계정·체험판 조건은 화면에서 확인합니다.
 
 ```powershell
-npm exec --yes --package=claude-mem@15.0.2 -- claude-mem install --ide codex-cli --provider codex --runtime worker --no-auto-start
+npm exec --yes --package=claude-mem@15.9.0 -- claude-mem install --ide codex-cli --provider codex --runtime worker --no-auto-start
 ```
 
 Codex provider에는 해당 PC의 `codex login` 구독 인증이 필요합니다. API 키 방식과 구분하며, 인증 파일을 저장소나 다른 PC로 복사하지 않습니다. 설치 전 `$codexHome/config.toml`과 기존 `$env:USERPROFILE/.claude-mem/settings.json`을 별도 로컬 경로에 백업합니다.
@@ -36,7 +38,7 @@ Codex provider에는 해당 PC의 `codex login` 구독 인증이 필요합니다
 Codex 설정에서 `[plugins."claude-mem@claude-mem-local"]`은 `enabled = true`, `[plugins."claude-mem@ai-work-skills"]`은 `enabled = false`로 두어 공식 런타임 하나만 사용합니다. `[hooks.state]`는 수정하지 않습니다. 이 저장소 설치기는 활성화된 `claude-mem-local`을 감지하면 중복 플러그인을 다시 켜지 않습니다.
 
 ```powershell
-npm exec --yes --package=claude-mem@15.0.2 -- claude-mem start
+npm exec --yes --package=claude-mem@15.9.0 -- claude-mem start
 Invoke-RestMethod http://127.0.0.1:37777/api/health
 ```
 
@@ -76,8 +78,18 @@ whisper "C:/path/to/test.wav" --model base --language Korean --fp16 False --outp
 ## 2026-10-25 업데이트 주의사항
 
 - 현재 버전과 검증 결과는 [통합 업데이트 배포 기록](../RELEASE_NOTES_v2026.10.25.2.md)을 기준으로 합니다. 위 2026-10-19 결과는 당시의 기록입니다.
-- 기존 Claude-Mem local 활성화 시 통합 설치기는 중복 플러그인을 건너뜁니다. 업데이트에는 위의 `claude-mem@15.0.2 install` 명령을 별도로 실행하고, 로그인 안내를 완료한 뒤 `claude-mem@15.0.2 restart`를 실행합니다. 기존 설정과 SQLite 데이터베이스를 먼저 로컬 백업합니다. 동작 중인 데이터베이스는 SQLite backup 기능을 사용합니다.
+- 기존 Claude-Mem local 활성화 시 통합 설치기는 중복 플러그인을 건너뜁니다. 업데이트에는 위의 `claude-mem@15.9.0 install` 명령을 별도로 실행하고, 로그인 안내를 완료한 뒤 `claude-mem@15.9.0 restart`를 실행합니다. 기존 설정과 SQLite 데이터베이스를 먼저 로컬 백업합니다. 동작 중인 데이터베이스는 SQLite backup 기능을 사용합니다.
 - Windows에서 uv가 실행 중인 Headroom 파일을 교체하지 못하면 Codex와 해당 도구를 종료한 별도 PowerShell에서 설치를 다시 실행합니다. 부분 설치로 실행이 깨졌다면 `uv tool install --python 3.13.17 --reinstall "headroom-ai[proxy,code,mcp]==0.41.0"`으로 복구합니다.
 - uv의 Python minor-version link 오류가 나면 `uv python find 3.13.17`로 설치된 정확한 경로를 확인한 뒤 설치를 재시도합니다. 기존 Python 폴더나 사용자 데이터를 임의로 삭제하지 않습니다.
 - 이번 업데이트에서는 Claude-Mem 6개, ECC 1개, Ponytail 3개 훅의 재승인이 필요했습니다. PowerShell에서 `codex --no-daemon` → `/hooks`로 변경된 항목을 직접 검토·승인합니다. 신뢰 해시를 복사하거나 승인 우회 옵션을 사용하지 않습니다.
 - HyperFrames 플러그인 사용 시 번들 `skills/hyperframes/scripts/plugin-cli.mjs`로 실행합니다. 일반 CLI의 `init`은 별도 전역 스킬을 설치할 수 있으므로 플러그인 방식과 혼용하지 않습니다.
+
+## 2026-11-05 실행 도구 및 플러그인 갱신
+
+현재 버전은 integrations-lock.json과 v2026.11.05.2 배포 기록을 확인합니다. 업데이트에서는 기존 Claude-Mem provider를 유지하려면 install 명령에서 --provider를 생략합니다. 새로운 codex/gemini/openrouter provider 선택 시 공식 설치기가 별도 계정 로그인을 요구할 수 있으므로 자동 전환하지 않습니다. 이번 PC에서는 기존 계정과 codex/worker 및 로컬 저장을 유지했습니다.
+
+한글 사용자 경로에서 Bun 컴파일러의 Windows 경로 제한으로 실행기가 생성되지 않으면, 검증된 Bun 실행 파일만 ASCII 임시 경로로 복사하여 공식 plugin/scripts/claude-mem-launcher.cjs를 bun build --compile --minify로 컴파일합니다. 새 실행기의 --version 결과가 정확히 2인지 확인한 뒤 표준 %LOCALAPPDATA%/claude-mem/bin에 설치하고 사용자 PATH를 보존하여 추가합니다. 기존 실행기가 있으면 무조건 덮어쓰지 않습니다. 이번 PC는 이 방식으로 공식 실행기를 보완해 doctor 필수 검사와 worker 상태가 정상임을 확인했습니다. 계정·SQLite 데이터·훅 신뢰 해시는 이 보완으로 변경하지 않습니다.
+
+HyperFrames 플러그인은 설치기가 보안 보완된 관리 CLI로 연결합니다. --plugins만 먼저 실행해 관리 런타임이 없으면 중단하므로 --install을 먼저 실행하세요. 원본 npx 사본을 대신 실행하지 않습니다. 새 릴리스에서 실행기 구조가 바뀌면 설치기가 자동 우회하지 않고 재검토를 요구합니다.
+
+Codex 재시작 후 변경된 훅을 직접 검토·승인합니다. 앱 내장 및 원격 curated 플러그인은 이 저장소가 버전을 강제하지 않으며 Codex의 관리 대상입니다.

@@ -22,7 +22,7 @@
       "source": {
         "source": "url",
         "url": "https://github.com/thedotmack/claude-mem.git",
-        "ref": "e7173346f16bb3ab28cb4de11a63822895217d4c"
+        "ref": "d0968e5d136abc34dcfe1b78acf3726fa84978d8"
       },
       "policy": {
         "installation": "AVAILABLE",
@@ -35,7 +35,7 @@
       "source": {
         "source": "url",
         "url": "https://github.com/dietrichgebert/ponytail.git",
-        "ref": "16352ac229eb08a9598dcae48fe9f2b342567d86"
+        "ref": "7801d061243d7b753bad0e0b3c057cd250b11755"
       },
       "policy": {
         "installation": "AVAILABLE",
@@ -48,7 +48,7 @@
       "source": {
         "source": "url",
         "url": "https://github.com/obra/superpowers.git",
-        "ref": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b"
+        "ref": "22f0b463e7a5e579904dd6211a520321035526f7"
       },
       "policy": {
         "installation": "AVAILABLE",
@@ -61,7 +61,7 @@
       "source": {
         "source": "url",
         "url": "https://github.com/heygen-com/hyperframes.git",
-        "ref": "c16b783f5ec60f1a0bd2901cb061919a38f59af6"
+        "ref": "15b1de4aeba2a375931c13542fa2d1e6500174db"
       },
       "policy": {
         "installation": "AVAILABLE",

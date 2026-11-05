@@ -1,5 +1,6 @@
 // Local fixture: exercise the Firecrawl dependency overrides without credentials.
 const assert = require('node:assert/strict');
+assert.equal(require('undici/package.json').version, '7.30.1');
 const http = require('node:http');
 const { Firecrawl } = require('firecrawl');
 const { z } = require('zod/v3');

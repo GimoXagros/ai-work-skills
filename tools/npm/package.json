@@ -1,13 +1,14 @@
 {
   "dependencies": {
-    "@opengsd/gsd-core": "1.18.0",
-    "agent-browser": "0.39.2",
+    "@opengsd/gsd-core": "1.20.0",
+    "agent-browser": "0.41.2",
     "chrome-devtools-mcp": "1.12.0",
-    "firecrawl-cli": "1.26.22",
-    "hyperframes": "0.8.192"
+    "firecrawl-cli": "1.28.0",
+    "hyperframes": "0.9.14"
   },
   "private": true,
   "overrides": {
+    "undici": "7.30.1",
     "zod": "4.6.7",
     "zod-to-json-schema": "3.25.2",
     "fallow": "3.35.0"
