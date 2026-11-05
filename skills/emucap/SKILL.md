@@ -5,7 +5,7 @@ description: Prepare or use emucap Control and optional Tracking MCP for emulato
 
 # emucap workflow
 
-Read the pinned [agent guide](https://github.com/mcpads/emucap/blob/cd0a39b6a4b102bd64c5877229b57e501f93697c/AGENT_GUIDE.md) for setup and [compatibility contract](https://github.com/mcpads/emucap/blob/cd0a39b6a4b102bd64c5877229b57e501f93697c/COMPATIBILITY.md) for version questions. This is an independently written skill entrypoint; installing it does not install emulator binaries, adapters, BIOS or MCP servers.
+Read the pinned [agent guide](https://github.com/mcpads/emucap/blob/da7a2e76f37173e15c8d370844f28c4ffe542a5a/AGENT_GUIDE.md) for setup and [compatibility contract](https://github.com/mcpads/emucap/blob/da7a2e76f37173e15c8d370844f28c4ffe542a5a/COMPATIBILITY.md) for version questions. This is an independently written skill entrypoint; installing it does not install emulator binaries, adapters, BIOS or MCP servers.
 
 For an existing connection, discover the available Control tools and obtain bootstrap/status before choosing operations. Identify the emulator, adapter, source build, loaded game and capabilities from reported state. Do not infer connectivity or compatibility from the skill's presence.
 

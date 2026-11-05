@@ -1,0 +1,17 @@
+{
+  "installed_inventory_matches": 77,
+  "not_tested": [
+    "Instagram authentication, posting, comments and DM delivery",
+    "Live rendering and emulator sessions",
+    "Integration runtime and plugin upgrades"
+  ],
+  "sns_inventory_matches": 13,
+  "repository_tests": 62,
+  "result": "PASS",
+  "checked_at": "2026-11-05",
+  "managed_skills": 77,
+  "rtl_tests": 12,
+  "updated_skills": 19,
+  "web_stack_tests": 13,
+  "sns_registered": 13
+}

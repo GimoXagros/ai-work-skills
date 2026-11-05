@@ -19,7 +19,7 @@ This file is a discovery stub, not the usage guide. Before running any `agent-br
 
 ```bash
 agent-browser skills get core             # start here — workflows, common patterns, troubleshooting
-agent-browser skills get core --full      # include full command reference and templates
+agent-browser skills get core --full      # load all references only when needed
 ```
 
 The CLI serves skill content that always matches the installed version, so instructions never go stale. The content in this stub cannot change between releases, which is why it just points at `skills get core`.
@@ -32,6 +32,7 @@ Load a specialized skill when the task falls outside browser web pages:
 agent-browser skills get electron          # Electron desktop apps (VS Code, Slack, Discord, Figma, ...)
 agent-browser skills get slack             # Slack workspace automation
 agent-browser skills get dogfood           # Exploratory testing / QA / bug hunts
+agent-browser skills get webmcp-gen        # WebMCP tool generation
 agent-browser skills get derive-client     # Record a HAR, derive a standalone API client for a site
 agent-browser skills get vercel-sandbox    # agent-browser inside Vercel Sandbox microVMs
 agent-browser skills get protected-vercel-deployments  # Access protected Vercel deployments

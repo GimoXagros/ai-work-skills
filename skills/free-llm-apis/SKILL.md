@@ -58,3 +58,7 @@ Set these environment variables locally from the verified provider setup. Use th
 - Check current regional eligibility in official documentation; do not reuse historical region exclusions.
 - "Limits undocumented" = the provider doesn't publish rate limits.
 - Don't hardcode API keys. Use environment variables or a secrets manager.
+
+## Catalog review 2026-11-05
+
+The upstream catalog distinguishes native endpoints from OpenAI-compatible endpoints. Do not use a native API URL with the OpenAI SDK unless official documentation confirms compatibility. Model availability and free quotas remain live checks, not guaranteed snapshots.
