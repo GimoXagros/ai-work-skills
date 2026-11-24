@@ -22,7 +22,7 @@
       "source": {
         "source": "url",
         "url": "https://github.com/thedotmack/claude-mem.git",
-        "ref": "d0968e5d136abc34dcfe1b78acf3726fa84978d8"
+        "ref": "a046a6a9fd8fb1cc56466194487dca94e8212409"
       },
       "policy": {
         "installation": "AVAILABLE",

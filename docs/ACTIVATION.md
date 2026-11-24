@@ -1,3 +1,7 @@
+## Claude-Mem 16.1.2 (2026-11-24)
+
+Use the existing local-worker update procedure below with claude-mem@16.1.2. The local health endpoint observed after restart is http://127.0.0.1:37742/api/health. See the [release notes](../RELEASE_NOTES_v2026.11.24.3.md) for validation details.
+
 2026-11-05 통합 갱신: [v2026.11.05.2 배포 기록](../RELEASE_NOTES_v2026.11.05.2.md). 실행 도구와 플러그인 고정 버전을 갱신했습니다. Claude-Mem은 기존 로컬 worker/provider 및 데이터를 보존하여 공식 설치기로 별도 갱신하며, 변경된 훅 신뢰는 사용자가 직접 승인합니다. 아래 날짜별 기록은 당시 검증 범위입니다.
 
 # 다른 PC에서 추가 설정과 훅 활성화
@@ -21,7 +25,7 @@ $codexHome = if ($env:CODEX_HOME) { $env:CODEX_HOME } else { Join-Path $env:USER
 이 기능은 대화·도구 실행 관찰 내용을 메모리로 기록합니다. 사용할 PC에서 아래 공식 설치기를 실행하고 브라우저에서 직접 로그인합니다. 계정·체험판 조건은 화면에서 확인합니다.
 
 ```powershell
-npm exec --yes --package=claude-mem@15.9.0 -- claude-mem install --ide codex-cli --provider codex --runtime worker --no-auto-start
+npm exec --yes --package=claude-mem@16.1.2 -- claude-mem install --ide codex-cli --provider codex --runtime worker --no-auto-start
 ```
 
 Codex provider에는 해당 PC의 `codex login` 구독 인증이 필요합니다. API 키 방식과 구분하며, 인증 파일을 저장소나 다른 PC로 복사하지 않습니다. 설치 전 `$codexHome/config.toml`과 기존 `$env:USERPROFILE/.claude-mem/settings.json`을 별도 로컬 경로에 백업합니다.
@@ -38,11 +42,11 @@ Codex provider에는 해당 PC의 `codex login` 구독 인증이 필요합니다
 Codex 설정에서 `[plugins."claude-mem@claude-mem-local"]`은 `enabled = true`, `[plugins."claude-mem@ai-work-skills"]`은 `enabled = false`로 두어 공식 런타임 하나만 사용합니다. `[hooks.state]`는 수정하지 않습니다. 이 저장소 설치기는 활성화된 `claude-mem-local`을 감지하면 중복 플러그인을 다시 켜지 않습니다.
 
 ```powershell
-npm exec --yes --package=claude-mem@15.9.0 -- claude-mem start
-Invoke-RestMethod http://127.0.0.1:37777/api/health
+npm exec --yes --package=claude-mem@16.1.2 -- claude-mem start
+Invoke-RestMethod http://127.0.0.1:37742/api/health
 ```
 
-정상 기준은 `status=ok`, `initialized=true`, `mcpReady=true`, `dependencies.degraded=false`입니다. uvx 오류가 남으면 위 절대 경로를 확인하고 `start` 대신 `restart`를 실행합니다. 로컬 뷰어는 <http://127.0.0.1:37777>입니다.
+정상 기준은 `status=ok`, `initialized=true`, `mcpReady=true`, `dependencies.degraded=false`입니다. uvx 오류가 남으면 위 절대 경로를 확인하고 `start` 대신 `restart`를 실행합니다. 로컬 뷰어는 <http://127.0.0.1:37742>입니다.
 
 ## Headroom · Firecrawl · Whisper
 
@@ -78,7 +82,7 @@ whisper "C:/path/to/test.wav" --model base --language Korean --fp16 False --outp
 ## 2026-10-25 업데이트 주의사항
 
 - 현재 버전과 검증 결과는 [통합 업데이트 배포 기록](../RELEASE_NOTES_v2026.10.25.2.md)을 기준으로 합니다. 위 2026-10-19 결과는 당시의 기록입니다.
-- 기존 Claude-Mem local 활성화 시 통합 설치기는 중복 플러그인을 건너뜁니다. 업데이트에는 위의 `claude-mem@15.9.0 install` 명령을 별도로 실행하고, 로그인 안내를 완료한 뒤 `claude-mem@15.9.0 restart`를 실행합니다. 기존 설정과 SQLite 데이터베이스를 먼저 로컬 백업합니다. 동작 중인 데이터베이스는 SQLite backup 기능을 사용합니다.
+- 기존 Claude-Mem local 활성화 시 통합 설치기는 중복 플러그인을 건너뜁니다. 업데이트에는 위의 `claude-mem@16.1.2 install` 명령을 별도로 실행하고, 로그인 안내를 완료한 뒤 `claude-mem@16.1.2 restart`를 실행합니다. 기존 설정과 SQLite 데이터베이스를 먼저 로컬 백업합니다. 동작 중인 데이터베이스는 SQLite backup 기능을 사용합니다.
 - Windows에서 uv가 실행 중인 Headroom 파일을 교체하지 못하면 Codex와 해당 도구를 종료한 별도 PowerShell에서 설치를 다시 실행합니다. 부분 설치로 실행이 깨졌다면 `uv tool install --python 3.13.17 --reinstall "headroom-ai[proxy,code,mcp]==0.41.0"`으로 복구합니다.
 - uv의 Python minor-version link 오류가 나면 `uv python find 3.13.17`로 설치된 정확한 경로를 확인한 뒤 설치를 재시도합니다. 기존 Python 폴더나 사용자 데이터를 임의로 삭제하지 않습니다.
 - 이번 업데이트에서는 Claude-Mem 6개, ECC 1개, Ponytail 3개 훅의 재승인이 필요했습니다. PowerShell에서 `codex --no-daemon` → `/hooks`로 변경된 항목을 직접 검토·승인합니다. 신뢰 해시를 복사하거나 승인 우회 옵션을 사용하지 않습니다.
