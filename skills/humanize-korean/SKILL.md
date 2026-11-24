@@ -18,12 +18,12 @@ Codex의 파일·셸·협업 에이전트 기능으로 진단, 겨냥 윤문, �
 
 ## 실행 준비
 
-1. Codex가 제공한 이 `SKILL.md`의 실제 파일 경로에서 디렉터리를 얻고, 심링크의 물리 경로를 풀어 `SKILL_ROOT`로 정한다. cwd나 `$CODEX_HOME`에서 경로를 추측하지 않는다. 셸에서 사용할 때는 다음 형태로 한 번 정하며 POSIX 셸에서는 `cd -P`를 사용하고 Windows PowerShell에서는 `Resolve-Path -LiteralPath`로 절대경로를 정한다.
+Windows PowerShell에서는 Resolve-Path -LiteralPath로 스킬의 실제 절대 경로를 해석합니다.
+
+1. Codex가 제공한 이 `SKILL.md`의 실제 파일 경로에서 디렉터리를 얻고, 심링크의 물리 경로를 풀어 `SKILL_ROOT`로 정한다. cwd나 `$CODEX_HOME`에서 경로를 추측하지 않는다. 셸에서 사용할 때는 다음 형태로 한 번 정하며 **`cd -P`를 반드시 사용한다.**
 
 ```bash
 SKILL_ROOT="$(cd -P "<이 SKILL.md가 있는 실제 디렉터리>" && pwd)"
-
-# Windows PowerShell: Resolve-Path -LiteralPath '<SKILL.md directory>'
 ```
 
 2. `${SKILL_ROOT}/references/quick-rules.md`를 읽는다. standard/heavy에서는 `diagnosis-rules.md`도 읽게 한다.
@@ -36,7 +36,7 @@ python -X utf8 "${SKILL_ROOT}/scripts/prepare_monolith_input.py" --run-dir "$RUN
 ```
 
 6. `00_metrics.json`의 `route_hint`를 읽는다. `--strict`, `정밀 모드`, `정밀하게`, `제대로`는 heavy로, `가볍게`, `빠르게만`은 light로 덮어쓴다. 힌트가 없으면 standard다.
-7. 사용자에게 `humanize-korean v2.3-codex — 경로: ROUTE (SOURCE) / run_id: RUN_ID` 한 줄을 알리고 계속 작업한다.
+7. 사용자에게 `humanize-korean v2.4.8-codex — 경로: ROUTE (SOURCE) / run_id: RUN_ID` 한 줄을 알리고 계속 작업한다.
 
 ## 역할 실행 계약
 

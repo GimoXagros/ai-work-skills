@@ -33,7 +33,7 @@ import sys
 
 _HERE = os.path.dirname(os.path.abspath(__file__))
 _REFS = os.path.join(
-    _HERE, "..", "references"
+    _HERE, "..", "skills", "humanize-korean", "references"
 )
 _REFS = os.path.abspath(_REFS)
 if not os.path.isdir(_REFS):  # 복사 설치·Codex 번들: scripts/ 옆 references/

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checked_at": "2026-11-05",
+  "checked_at": "2026-11-24",
   "requested_links": 23,
   "repositories": [
     {
@@ -82,14 +82,14 @@
     },
     {
       "repo": "Graphify-Labs/graphify",
-      "ref": "92741d162b2094ffc2fed58cfbd8ee823e9da62c",
+      "ref": "5ce8fceff41d1b636f872b6206b917ec2af7ac54",
       "url": "https://github.com/Graphify-Labs/graphify",
       "license": "Apache-2.0",
       "skills": [
         "graphify"
       ],
       "kind": "python",
-      "package": "graphifyy==0.9.102"
+      "package": "graphifyy==0.9.118"
     },
     {
       "repo": "headroomlabs-ai/headroom",

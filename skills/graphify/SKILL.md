@@ -11,4 +11,4 @@ Run `graphify --help`. For deterministic local code analysis use `graphify updat
 
 Run `python setup_integrations.py --install` from the ai-work-skills checkout, then load the generated toolchain environment as documented in `docs/INTEGRATIONS.md`. Use the installed CLI help as the version-specific interface.
 
-This is an independently authored Codex routing skill. Upstream: https://github.com/Graphify-Labs/graphify/tree/86c57be8204673c2a1b9849a3292a7dd3ab373d8. Runtime version and source audit pin are recorded separately in `integrations-lock.json`. Follow the host tool policy and user instructions.
+This is an independently authored Codex routing skill. Upstream: https://github.com/Graphify-Labs/graphify/tree/5ce8fceff41d1b636f872b6206b917ec2af7ac54. Runtime version and source audit pin are recorded separately in `integrations-lock.json`. Follow the host tool policy and user instructions.

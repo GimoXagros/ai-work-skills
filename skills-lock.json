@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "checked_at": "2026-11-05",
+  "checked_at": "2026-11-24",
   "skills": [
     {
       "name": "exec-plan",
@@ -282,9 +282,9 @@
       "source": "bundled",
       "path": "skills/humanize-korean",
       "status": "adapted",
-      "version": "2.3.2-codex.2",
+      "version": "2.4.8-codex.1",
       "upstream_repo": "epoko77-ai/im-not-ai",
-      "upstream_ref": "b37e0206d31fffd9149bf57168d4d62eb2086bee",
+      "upstream_ref": "e9793d75a584169108906ee5f7332b27898efef4",
       "license": "MIT",
       "note": "Self-contained Codex bundle: materialized references, shared runtime scripts, portable reference lookup and Windows Python invocation; upstream meaning-preservation gates retained."
     },
@@ -570,9 +570,9 @@
       "source": "bundled",
       "path": "skills/graphify",
       "status": "custom",
-      "version": "2026.10.18.1",
+      "version": "2026.11.24.1",
       "upstream_repo": "Graphify-Labs/graphify",
-      "upstream_ref": "86c57be8204673c2a1b9849a3292a7dd3ab373d8",
+      "upstream_ref": "5ce8fceff41d1b636f872b6206b917ec2af7ac54",
       "note": "Independent scoped CLI routing skill; runtime installed separately."
     },
     {
