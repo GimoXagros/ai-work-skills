@@ -4,7 +4,7 @@
     "agent-browser": "0.41.2",
     "chrome-devtools-mcp": "1.12.0",
     "firecrawl-cli": "1.28.0",
-    "hyperframes": "0.9.14"
+    "hyperframes": "0.9.88"
   },
   "private": true,
   "overrides": {

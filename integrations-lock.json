@@ -104,14 +104,14 @@
     },
     {
       "repo": "heygen-com/hyperframes",
-      "ref": "15b1de4aeba2a375931c13542fa2d1e6500174db",
+      "ref": "304a9444e92cb5f413c3e5f34d4b79974456f571",
       "url": "https://github.com/heygen-com/hyperframes",
       "license": "Apache-2.0",
       "skills": [],
       "kind": "npm",
-      "package": "hyperframes@0.9.14",
+      "package": "hyperframes@0.9.88",
       "plugin": "hyperframes",
-      "version": "0.9.14"
+      "version": "0.9.88"
     },
     {
       "repo": "iamneilroberts/claude-skills",

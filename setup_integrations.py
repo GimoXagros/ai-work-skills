@@ -106,6 +106,10 @@ def install_plugin(codex, name, home, env):
         wrapper = target / 'skills/hyperframes/scripts/plugin-cli.mjs'
         text = wrapper.read_text(encoding='utf-8')
         marker = '  const cliArgs = ["--yes", `hyperframes@${version}`, ...args];'
+        launcher_env = 'childEnv'
+        if marker not in text:
+            marker = '  if (platform !== "win32") return { command: "npx", args: cliArgs, env: cliEnv, cwd: npxCwd };'
+            launcher_env = 'cliEnv'
         if '// ai-work-skills managed runtime' not in text:
             if text.count(marker) != 1:
                 raise ValueError('Unrecognized HyperFrames launcher; refusing unsafe npx fallback')
@@ -113,7 +117,7 @@ def install_plugin(codex, name, home, env):
             replacement = ('  // ai-work-skills managed runtime\n'
                            '  const managedCli = ' + json.dumps(str(cli)) + ';\n'
                            '  if (!existsSync(managedCli)) throw new Error("Run setup_integrations.py --install");\n'
-                           '  return { command: node, args: [managedCli, ...args], env: childEnv };\n')
+                           f'  return {{ command: node, args: [managedCli, ...args], env: {launcher_env} }};\n')
             wrapper.write_text(text.replace(marker, replacement + marker), encoding='utf-8')
     print('Installed plugin:', name)
 

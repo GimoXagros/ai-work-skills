@@ -61,7 +61,7 @@
       "source": {
         "source": "url",
         "url": "https://github.com/heygen-com/hyperframes.git",
-        "ref": "15b1de4aeba2a375931c13542fa2d1e6500174db"
+        "ref": "304a9444e92cb5f413c3e5f34d4b79974456f571"
       },
       "policy": {
         "installation": "AVAILABLE",
